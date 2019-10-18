@@ -68,14 +68,17 @@
     <Compile Include="ViewModels\AdderViewModelIDataErrorInfo.cs" />
     <Compile Include="ViewModels\AdderViewModelINotifyDataErrorInfo.cs" />
     <Compile Include="Controller.cs" />
+    <Compile Include="Views\CalculatorViewUsingINotifyDataErrorInfoWithErrorTemplate.xaml.cs">
+      <DependentUpon>CalculatorViewUsingINotifyDataErrorInfoWithErrorTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CalculatorViewUsingINotifyDataErrorInfo.xaml.cs">
       <DependentUpon>CalculatorViewUsingINotifyDataErrorInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CalculatorViewUsingValidationRule.xaml.cs">
       <DependentUpon>CalculatorViewUsingValidationRule.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CalculatorViewWithErrorTemplate.xaml.cs">
-      <DependentUpon>CalculatorViewWithErrorTemplate.xaml</DependentUpon>
+    <Compile Include="Views\CalculatorViewUsingValidationRuleWithErrorTemplate.xaml.cs">
+      <DependentUpon>CalculatorViewUsingValidationRuleWithErrorTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CalculatorViewUsingIDataErrorInfo.xaml.cs">
       <DependentUpon>CalculatorViewUsingIDataErrorInfo.xaml</DependentUpon>
@@ -95,6 +98,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CalculatorViewUsingINotifyDataErrorInfoWithErrorTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\CalculatorViewUsingINotifyDataErrorInfo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,7 +110,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\CalculatorViewWithErrorTemplate.xaml">
+    <Page Include="Views\CalculatorViewUsingValidationRuleWithErrorTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

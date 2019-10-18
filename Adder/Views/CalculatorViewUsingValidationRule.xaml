@@ -8,6 +8,8 @@
     xmlns:validationTestGui="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui"
     xmlns:validationToolkit="clr-namespace:ValidationToolkit;assembly=Bfa.Common.WPF"
     xmlns:validations="clr-namespace:Bfa.Common.WPF.Validations;assembly=Bfa.Common.WPF"
+    xmlns:viewModels="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels"
+    d:DataContext="{d:DesignInstance viewModels:AdderViewModel}"
     Background="LightGreen"
     Loaded="OnLoad"
     mc:Ignorable="d">
@@ -22,34 +24,38 @@
                 Text="{Binding Path=ErrorContent}" />
         </DataTemplate>
     </UserControl.Resources>
+
     <Interactions:Interaction.Behaviors>
         <validations:CatchValidationErrorBehavior Element="{Binding ElementName=Grid}" ValidationErrors="{Binding ValidationErrors}" />
     </Interactions:Interaction.Behaviors>
+
     <Grid
         Name="Grid"
-        Margin="30,3,0,0"
         HorizontalAlignment="Left"
         VerticalAlignment="Top">
         <Grid.RowDefinitions>
-            <RowDefinition Height="70" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="40" />
-            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" MinWidth="150" />
             <ColumnDefinition />
+            <ColumnDefinition Width="30" />
         </Grid.ColumnDefinitions>
 
         <StackPanel
             Grid.Row="0"
-            Grid.Column="0"
+            Grid.Column="1"
             Grid.ColumnSpan="3">
             <Label
                 Margin="0,10,0,0"
@@ -71,22 +77,19 @@
         <!--  Input labels  -->
         <Label
             Grid.Row="1"
-            Grid.Column="0"
-            VerticalAlignment="Top"
+            Grid.Column="1"
             Content="x:"
             FontWeight="Bold" />
         <Label
             Grid.Row="3"
-            Grid.Column="0"
+            Grid.Column="1"
             Content="y:"
             FontWeight="Bold" />
 
         <TextBox
             Name="xInput"
             Grid.Row="1"
-            Grid.Column="1"
-            Height="Auto"
-            Margin="5">
+            Grid.Column="2">
             <Binding
                 NotifyOnValidationError="True"
                 Path="X"
@@ -108,20 +111,16 @@
             </Binding>
         </TextBox>
 
-        <ContentPresenter
+        <ItemsControl
             Grid.Row="2"
             Grid.Column="0"
-            Grid.ColumnSpan="3"
-            Height="20"
-            Margin="5"
-            Content="{Binding ElementName=xInput, Path=(Validation.Errors).CurrentItem}" />
+            Grid.ColumnSpan="5"
+            ItemsSource="{Binding ValidationErrors[X]}" />
 
         <TextBox
             Name="yInput"
             Grid.Row="3"
-            Grid.Column="1"
-            Height="Auto"
-            Margin="5">
+            Grid.Column="2">
             <Binding
                 NotifyOnValidationError="True"
                 Path="Y"
@@ -134,25 +133,22 @@
                 </Binding.ValidationRules>
             </Binding>
         </TextBox>
-        <ContentPresenter
+
+        <ItemsControl
             Grid.Row="4"
             Grid.Column="0"
-            Grid.ColumnSpan="3"
-            Height="20"
-            Margin="5"
-            Content="{Binding ElementName=yInput, Path=(Validation.Errors).CurrentItem}" />
+            Grid.ColumnSpan="5"
+            ItemsSource="{Binding ValidationErrors[Y]}" />
 
         <!--  Output  -->
         <Label
             Grid.Row="5"
-            Grid.Column="0"
+            Grid.Column="1"
             Content="x+y:"
             FontWeight="Bold" />
         <TextBox
             Grid.Row="5"
-            Grid.Column="1"
-            Height="Auto"
-            Margin="5"
+            Grid.Column="2"
             IsReadOnly="True"
             IsTabStop="False"
             Text="{Binding Path=Sum}" />
@@ -160,17 +156,33 @@
         <!--  Calculation Command  -->
         <Button
             Grid.Row="7"
-            Grid.Column="0"
-            Grid.ColumnSpan="2"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
             HorizontalAlignment="Stretch"
             HorizontalContentAlignment="Center"
             Command="{Binding Path=CalculateCommand}"
             Content="Calculate" />
 
-        <ItemsControl
+        <!--  Error Display  -->
+        <TextBox
             Grid.Row="8"
             Grid.Column="0"
-            Grid.ColumnSpan="3"
+            Grid.ColumnSpan="5"
+            Height="20"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Top"
+            Background="Pink"
+            BorderBrush="Black"
+            FontWeight="Bold"
+            Foreground="Red"
+            IsReadOnly="True"
+            Text="{Binding Path=ValidationErrors.CurrentValidationError.Message, Mode=OneWay}"
+            TextWrapping="Wrap" />
+
+        <ItemsControl
+            Grid.Row="9"
+            Grid.Column="1"
+            Grid.ColumnSpan="4"
             MinHeight="24"
             ItemsSource="{Binding ValidationErrors.Errors}">
             <ItemsControl.ItemTemplate>

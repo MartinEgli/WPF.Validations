@@ -7,6 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:validationTestGui="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui"
     xmlns:validations="clr-namespace:Bfa.Common.WPF.Validations;assembly=Bfa.Common.WPF"
+    xmlns:viewModels="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels"
+    d:DataContext="{d:DesignInstance viewModels:AdderViewModelIDataErrorInfo}"
     Background="LightBlue"
     Loaded="OnLoad"
     mc:Ignorable="d">
@@ -27,13 +29,11 @@
         <validations:CatchValidationErrorBehavior Element="{Binding ElementName=Grid}" ValidationErrors="{Binding ValidationErrors}" />
     </Interactions:Interaction.Behaviors>
 
-    <Grid
-        Name="Grid"
-        Width="350"
-        HorizontalAlignment="Left"
-        VerticalAlignment="Top">
+    <Grid Name="Grid">
         <Grid.RowDefinitions>
-            <RowDefinition Height="70" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -44,8 +44,8 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30" />
-            <ColumnDefinition Width="40" />
-            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" MinWidth="150" />
             <ColumnDefinition />
             <ColumnDefinition Width="30" />
         </Grid.ColumnDefinitions>
@@ -78,7 +78,7 @@
             Content="x:"
             FontWeight="Bold" />
         <Label
-            Grid.Row="2"
+            Grid.Row="3"
             Grid.Column="1"
             Content="y:"
             FontWeight="Bold" />
@@ -86,10 +86,7 @@
         <TextBox
             Name="xInput"
             Grid.Row="1"
-            Grid.Column="2"
-            Width="60"
-            Height="Auto"
-            Margin="0,5,0,0">
+            Grid.Column="2">
             <Binding
                 NotifyOnValidationError="True"
                 Path="X"
@@ -99,13 +96,16 @@
                 ValidatesOnExceptions="True" />
         </TextBox>
 
+        <ItemsControl
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="5"
+            ItemsSource="{Binding ValidationErrors[X]}" />
+
         <TextBox
             Name="yInput"
-            Grid.Row="2"
-            Grid.Column="2"
-            Width="60"
-            Height="Auto"
-            Margin="0,5,0,0">
+            Grid.Row="3"
+            Grid.Column="2">
             <Binding
                 NotifyOnValidationError="True"
                 Path="Y"
@@ -115,30 +115,41 @@
                 ValidatesOnExceptions="True" />
         </TextBox>
 
+        <ItemsControl
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="5"
+            ItemsSource="{Binding ValidationErrors[Y]}" />
         <!--  Output  -->
         <Label
-            Grid.Row="3"
+            Grid.Row="5"
             Grid.Column="1"
             Content="x+y:"
             FontWeight="Bold" />
         <TextBox
-            Grid.Row="3"
+            Grid.Row="5"
             Grid.Column="2"
-            Width="60"
-            Height="Auto"
-            Margin="0,5,0,0"
             IsReadOnly="True"
             IsTabStop="False"
             Text="{Binding Path=Sum}" />
 
+        <!--  Calculation Button  -->
+        <Button
+            Grid.Row="7"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Stretch"
+            HorizontalContentAlignment="Center"
+            Command="{Binding Path=CalculateCommand}"
+            Content="Calculate" />
+
         <!--  Error Display  -->
         <TextBox
-            Grid.Row="6"
+            Grid.Row="8"
             Grid.Column="0"
             Grid.ColumnSpan="5"
-            Width="{Binding ElementName=Grid, Path=Width}"
             Height="20"
-            HorizontalAlignment="Left"
+            HorizontalAlignment="Stretch"
             VerticalAlignment="Top"
             Background="Pink"
             BorderBrush="Black"
@@ -148,18 +159,8 @@
             Text="{Binding Path=ValidationErrors.CurrentValidationError.Message, Mode=OneWay}"
             TextWrapping="Wrap" />
 
-        <!--  Calculation Button  -->
-        <Button
-            Grid.Row="5"
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
-            HorizontalAlignment="Stretch"
-            HorizontalContentAlignment="Center"
-            Command="{Binding Path=CalculateCommand}"
-            Content="Calculate" />
-
         <ItemsControl
-            Grid.Row="7"
+            Grid.Row="9"
             Grid.Column="0"
             Grid.ColumnSpan="5"
             MinHeight="24"

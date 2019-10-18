@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="CalculatorViewWithErrorTemplate.xaml.cs" company="bfa solutions ltd">
+// <copyright file="CalculatorViewUsingValidationRuleWithErrorTemplate.xaml.cs" company="bfa solutions ltd">
 // Copyright (c) bfa solutions ltd. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -12,9 +12,9 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Views
 
     using Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels;
 
-    public partial class CalculatorViewWithErrorTemplate : ViewBase
+    public partial class CalculatorViewUsingValidationRuleWithErrorTemplate : ViewBase
     {
-        public CalculatorViewWithErrorTemplate()
+        public CalculatorViewUsingValidationRuleWithErrorTemplate()
         {
             this.InitializeComponent();
         }

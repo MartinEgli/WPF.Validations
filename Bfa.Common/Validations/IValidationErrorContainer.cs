@@ -27,6 +27,16 @@ namespace Bfa.Common.Validations
         event EventHandler<DataErrorsChangedEventArgs> NotifyDataErrorInfoErrorsChanged;
 
         /// <summary>
+        /// Gets the <see cref="ReadOnlyObservableCollection{IValidationMessage}"/> with the specified name.
+        /// </summary>
+        /// <value>
+        /// The <see cref="ReadOnlyObservableCollection{IValidationMessage}"/>.
+        /// </value>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
+        ReadOnlyObservableCollection<IValidationMessage> this[string name] { get; }
+
+        /// <summary>
         ///     Gets the error count.
         /// </summary>
         /// <value>

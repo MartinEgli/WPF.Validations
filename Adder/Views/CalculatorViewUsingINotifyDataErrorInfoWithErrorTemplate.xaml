@@ -1,5 +1,5 @@
 ﻿<validationTestGui:ViewBase
-    x:Class="Bfa.Common.WPF.Validations.ValidationTestGui.Views.CalculatorViewUsingINotifyDataErrorInfo"
+    x:Class="Bfa.Common.WPF.Validations.ValidationTestGui.Views.CalculatorViewUsingINotifyDataErrorInfoWithErrorTemplate"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Interactions="http://schemas.microsoft.com/xaml/behaviors"
@@ -77,6 +77,31 @@
             FontWeight="Bold" />
 
         <TextBox Grid.Row="1" Grid.Column="2">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel>
+                        <Border BorderBrush="Red" BorderThickness="1">
+                            <AdornedElementPlaceholder x:Name="textBox" />
+                        </Border>
+                        <ItemsControl ItemsSource="{Binding Converter={validationTestGui:OrderByPriorityConverter}}">
+                            <ItemsControl.ItemTemplateSelector>
+                                <validations:ValidationErrorTemplateSelector>
+                                    <validations:ValidationErrorTemplateSelector.DefaultTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Foreground="Red" Text="{Binding ErrorContent}" />
+                                        </DataTemplate>
+                                    </validations:ValidationErrorTemplateSelector.DefaultTemplate>
+                                    <validations:ValidationErrorTemplateSelector.ValidationWarningTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Foreground="Orange" Text="{Binding ErrorContent}" />
+                                        </DataTemplate>
+                                    </validations:ValidationErrorTemplateSelector.ValidationWarningTemplate>
+                                </validations:ValidationErrorTemplateSelector>
+                            </ItemsControl.ItemTemplateSelector>
+                        </ItemsControl>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
             <Binding
                 NotifyOnValidationError="True"
                 Path="X"

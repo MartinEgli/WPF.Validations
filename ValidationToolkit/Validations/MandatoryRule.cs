@@ -31,14 +31,25 @@ namespace Bfa.Common.WPF.Validations
         /// </returns>
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
-            if (!string.IsNullOrEmpty((string)value))
+            return ValidationResult.ValidResult;
+            if (this.Name == null)
             {
-                return ValidationResult.ValidResult;
+                this.Name = string.Empty;
             }
 
             if (this.Name.Length == 0)
             {
                 this.Name = "Field";
+            }
+
+            if (!(value is string str))
+            {
+                return new ValidationResult(false, this.Name + " is mandatory.");
+            }
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                return ValidationResult.ValidResult;
             }
 
             return new ValidationResult(false, this.Name + " is mandatory.");

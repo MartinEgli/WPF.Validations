@@ -17,6 +17,26 @@ namespace Bfa.Common.Validations
 
     using JetBrains.Annotations;
 
+    public class ValidationMessageCollection : ObservableCollection<IValidationMessage>
+    {
+        private readonly Lazy<ReadOnlyObservableCollection<IValidationMessage>> readOnlyObservableCollection;
+
+        public ValidationMessageCollection()
+        {
+            this.readOnlyObservableCollection = new Lazy<ReadOnlyObservableCollection<IValidationMessage>>(
+                () =>
+                    {
+                        this.KeepAlive = true;
+                        return ReadOnlyObservableCollection<IValidationMessage>.CreateInstance(this);
+                    });
+        }
+
+        public bool KeepAlive { get; private set; }
+
+        public ReadOnlyObservableCollection<IValidationMessage> ReadOnlyObservableCollection =>
+            this.readOnlyObservableCollection.Value;
+    }
+
     /// <summary>
     ///     ValidationErrorContainer class
     /// </summary>
@@ -32,8 +52,8 @@ namespace Bfa.Common.Validations
         /// <summary>
         ///     The errorDictionary
         /// </summary>
-        private readonly Dictionary<string, ObservableCollection<IValidationMessage>> errorDictionary =
-            new Dictionary<string, ObservableCollection<IValidationMessage>>();
+        private readonly Dictionary<string, ValidationMessageCollection> errorDictionary =
+            new Dictionary<string, ValidationMessageCollection>();
 
         /// <summary>
         ///     The read only errorCollection
@@ -89,6 +109,27 @@ namespace Bfa.Common.Validations
         }
 
         /// <summary>
+        ///     Gets the <see cref="ReadOnlyObservableCollection{IValidationMessage}" /> with the specified name.
+        /// </summary>
+        /// <value>
+        ///     The <see cref="ReadOnlyObservableCollection{IValidationMessage}" />.
+        /// </value>
+        /// <param name="name">The name.</param>
+        /// <returns></returns>
+        public ReadOnlyObservableCollection<IValidationMessage> this[string name]
+        {
+            get
+            {
+                if (!this.errorDictionary.ContainsKey(name))
+                {
+                    this.errorDictionary.Add(name, new ValidationMessageCollection());
+                }
+
+                return this.errorDictionary[name]?.ReadOnlyObservableCollection;
+            }
+        }
+
+        /// <summary>
         ///     Gets the error count.
         /// </summary>
         /// <value>
@@ -135,7 +176,7 @@ namespace Bfa.Common.Validations
 
             if (!this.errorDictionary.ContainsKey(propertyName))
             {
-                this.errorDictionary[propertyName] = new ObservableCollection<IValidationMessage>();
+                this.errorDictionary[propertyName] = new ValidationMessageCollection();
             }
 
             this.lastPropertyValidated = propertyName;
@@ -287,7 +328,7 @@ namespace Bfa.Common.Validations
 
             if (!this.errorDictionary.ContainsKey(propertyName))
             {
-                this.errorDictionary[propertyName] = new ObservableCollection<IValidationMessage>();
+                this.errorDictionary[propertyName] = new ValidationMessageCollection();
             }
 
             this.lastPropertyValidated = propertyName;
@@ -351,6 +392,11 @@ namespace Bfa.Common.Validations
             }
 
             if (messages.Count != 0)
+            {
+                return true;
+            }
+
+            if (messages.KeepAlive)
             {
                 return true;
             }
