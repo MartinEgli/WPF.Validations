@@ -4,16 +4,22 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Adder
+namespace Bfa.Common.WPF.Validations.ValidationTestGui
 {
     using System;
 
-    using Bfa.Common.WPF.Validations.ValidationTestGui;
+    using Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels;
 
     using ValidationToolkit;
 
+    /// <summary>
+    ///     Controller class.
+    /// </summary>
     public class Controller
     {
+        /// <summary>
+        ///     The main window
+        /// </summary>
         private MainWindow MainWindow;
 
         /// <summary>

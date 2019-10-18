@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace ValidationToolkit.Common
+namespace Bfa.Common.WPF.Validations
 {
     using System.Windows;
     using System.Windows.Controls;
@@ -13,6 +13,10 @@ namespace ValidationToolkit.Common
 
     using ValidationError = System.Windows.Controls.ValidationError;
 
+    /// <summary>
+    ///     ValidationErrorTemplateSelector class.
+    /// </summary>
+    /// <seealso cref="System.Windows.Controls.DataTemplateSelector" />
     public class ValidationErrorTemplateSelector : DataTemplateSelector
     {
         /// <summary>

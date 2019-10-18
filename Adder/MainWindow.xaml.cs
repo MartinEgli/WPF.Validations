@@ -1,27 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Text.RegularExpressions;
+﻿// -----------------------------------------------------------------------
+// <copyright file="MainWindow.xaml.cs" company="bfa solutions ltd">
+// Copyright (c) bfa solutions ltd. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
 
-namespace Adder
+namespace Bfa.Common.WPF.Validations.ValidationTestGui
 {
+    using System.Windows;
+
+    /// <summary>
+    /// </summary>
+    /// <seealso cref="System.Windows.Window" />
     public partial class MainWindow : Window
     {
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="MainWindow" /> class.
+        /// </summary>
         public MainWindow()
         {
-            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
-            InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            this.InitializeComponent();
         }
     }
 }

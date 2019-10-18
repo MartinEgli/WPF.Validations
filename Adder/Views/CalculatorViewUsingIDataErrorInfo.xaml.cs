@@ -4,11 +4,11 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Adder
+namespace Bfa.Common.WPF.Validations.ValidationTestGui.Views
 {
-    using Bfa.Common.WPF.Validations.ValidationTestGui.ViewModel;
+    using Adder;
 
-    using ValidationToolkit;
+    using Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels;
 
     public partial class CalculatorViewUsingIDataErrorInfo : ViewBase
     {

@@ -4,14 +4,11 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace AdderTests
+namespace Bfa.Common.WPF.Validations.ValidationTestGui.Tests
 {
     using System;
 
-    using Adder;
-
-    using Bfa.Common.WPF.Validations.ValidationTestGui;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.ViewModel;
+    using Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 

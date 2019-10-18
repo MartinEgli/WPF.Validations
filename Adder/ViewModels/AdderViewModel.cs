@@ -4,11 +4,9 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Adder
+namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
 {
     using System.Windows.Input;
-
-    using ValidationToolkit;
 
     /// <summary>
     ///     AdderViewModel class.
@@ -36,6 +34,9 @@ namespace Adder
         /// </summary>
         private double? y;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AdderViewModel"/> class.
+        /// </summary>
         public AdderViewModel()
         {
             this.X = null;

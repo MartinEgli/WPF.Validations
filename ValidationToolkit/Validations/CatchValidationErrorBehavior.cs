@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace ValidationToolkit.Validations
+namespace Bfa.Common.WPF.Validations
 {
     using System;
     using System.Linq;
@@ -17,14 +17,15 @@ namespace ValidationToolkit.Validations
 
     using Microsoft.Xaml.Behaviors;
 
+    using ValidationToolkit;
     using ValidationToolkit.Annotations;
 
     using ValidationError = Bfa.Common.Validations.ValidationError;
 
     /// <summary>
-    /// Catch Validation Error Behavior class.
+    ///     Catch Validation Error Behavior class.
     /// </summary>
-    /// <seealso cref="Microsoft.Xaml.Behaviors.Behavior{System.Windows.FrameworkElement}" />
+    /// <seealso cref="Behavior{T}" />
     public class CatchValidationErrorBehavior : Behavior<FrameworkElement>
     {
         /// <summary>

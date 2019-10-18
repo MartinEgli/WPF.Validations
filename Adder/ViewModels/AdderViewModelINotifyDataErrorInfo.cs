@@ -4,20 +4,17 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModel
+namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
 {
     using System;
     using System.ComponentModel;
 
-    using Adder;
-
     using Bfa.Common.Validations;
 
-
     /// <summary>
-    ///  Adder View Model INotifyDataErrorInfo class.
+    ///     Adder View Model INotifyDataErrorInfo class.
     /// </summary>
-    /// <seealso cref="Adder.AdderViewModel" />
+    /// <seealso cref="AdderViewModel" />
     /// <seealso cref="System.ComponentModel.INotifyDataErrorInfo" />
     public class AdderViewModelINotifyDataErrorInfo : AdderViewModel, INotifyDataErrorInfo
     {
@@ -90,7 +87,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModel
         }
 
         /// <summary>
-        /// Validates this instance.
+        ///     Validates this instance.
         /// </summary>
         private void Validate()
         {

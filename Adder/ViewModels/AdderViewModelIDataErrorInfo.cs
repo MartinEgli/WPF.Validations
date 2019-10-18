@@ -4,18 +4,16 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModel
+namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
 {
     using System.ComponentModel;
-
-    using Adder;
 
     using Bfa.Common.Validations;
 
     /// <summary>
     ///     AdderViewModelIDataErrorInfo class
     /// </summary>
-    /// <seealso cref="Adder.AdderViewModel" />
+    /// <seealso cref="AdderViewModel" />
     /// <seealso cref="System.ComponentModel.IDataErrorInfo" />
     public class AdderViewModelIDataErrorInfo : AdderViewModel, IDataErrorInfo
     {

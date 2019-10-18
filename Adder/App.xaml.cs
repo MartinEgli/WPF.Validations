@@ -1,18 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿// -----------------------------------------------------------------------
+// <copyright file="App.xaml.cs" company="bfa solutions ltd">
+// Copyright (c) bfa solutions ltd. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace Adder
 {
+    using System.Windows;
+
+    using Bfa.Common.WPF.Validations.ValidationTestGui;
+
     public partial class App : Application
     {
-        void AdderStartup(Object sender, StartupEventArgs e)
+        private void AdderStartup(object sender, StartupEventArgs e)
         {
-            Controller controller = new Controller();
+            var controller = new Controller();
             controller.CreateMainWindow();
         }
     }

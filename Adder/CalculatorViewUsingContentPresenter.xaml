@@ -1,10 +1,10 @@
-﻿<common:ViewBase
+﻿<validationTestGui:ViewBase
     x:Class="Bfa.Common.WPF.Validations.ValidationTestGui.CalculatorViewUsingContentPresenter"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:common="clr-namespace:ValidationToolkit;assembly=ValidationToolkit"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:validationTestGui="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui"
     Height="320"
     d:DesignWidth="350"
     Loaded="OnLoad"
@@ -150,4 +150,4 @@
             Command="{Binding Path=CalculateCommand}"
             Content="Calculate" />
     </Grid>
-</common:ViewBase>
+</validationTestGui:ViewBase>

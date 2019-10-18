@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace ValidationToolkit
+namespace Bfa.Common.WPF.Validations.ValidationTestGui
 {
     using System.Windows.Controls;
 

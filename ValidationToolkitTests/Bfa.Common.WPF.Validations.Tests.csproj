@@ -6,8 +6,8 @@
     <ProjectGuid>{793AD37A-87C5-44C3-B905-A6D6D70A7C7D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ValidationToolkitTests</RootNamespace>
-    <AssemblyName>ValidationToolkitTests</AssemblyName>
+    <RootNamespace>Bfa.Common.WPF.Validations.Tests</RootNamespace>
+    <AssemblyName>Bfa.Common.WPF.Validations.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -61,6 +61,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Bfa.Common\Bfa.Common.csproj">
+      <Project>{291dbaff-a10a-4967-8597-4800f98cbb24}</Project>
+      <Name>Bfa.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ValidationToolkit\Bfa.Common.WPF.csproj">
       <Project>{2b0b0ec8-3850-4786-b423-e9bd545186ab}</Project>
       <Name>Bfa.Common.WPF</Name>

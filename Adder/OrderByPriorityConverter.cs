@@ -10,9 +10,13 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
     using System.Collections.Generic;
     using System.Collections.Specialized;
     using System.Globalization;
-    using System.Windows.Controls;
     using System.Windows.Data;
     using System.Windows.Markup;
+
+    using Bfa.Common.Collections;
+    using Bfa.Common.Validations;
+
+    using ValidationError = System.Windows.Controls.ValidationError;
 
     /// <summary>
     /// </summary>

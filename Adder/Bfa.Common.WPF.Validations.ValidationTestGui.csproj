@@ -64,20 +64,20 @@
     <Compile Include="OrderByPriorityConverter.cs" />
     <Compile Include="ViewBase.cs" />
     <Compile Include="ViewModel.cs" />
-    <Compile Include="ViewModel\AdderViewModel.cs" />
-    <Compile Include="ViewModel\AdderViewModelIDataErrorInfo.cs" />
-    <Compile Include="ViewModel\AdderViewModelINotifyDataErrorInfo.cs" />
+    <Compile Include="ViewModels\AdderViewModel.cs" />
+    <Compile Include="ViewModels\AdderViewModelIDataErrorInfo.cs" />
+    <Compile Include="ViewModels\AdderViewModelINotifyDataErrorInfo.cs" />
     <Compile Include="Controller.cs" />
-    <Compile Include="View\CalculatorViewUsingINotifyDataErrorInfo.xaml.cs">
+    <Compile Include="Views\CalculatorViewUsingINotifyDataErrorInfo.xaml.cs">
       <DependentUpon>CalculatorViewUsingINotifyDataErrorInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CalculatorViewUsingValidationRule.xaml.cs">
+    <Compile Include="Views\CalculatorViewUsingValidationRule.xaml.cs">
       <DependentUpon>CalculatorViewUsingValidationRule.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CalculatorViewWithErrorTemplate.xaml.cs">
+    <Compile Include="Views\CalculatorViewWithErrorTemplate.xaml.cs">
       <DependentUpon>CalculatorViewWithErrorTemplate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\CalculatorViewUsingIDataErrorInfo.xaml.cs">
+    <Compile Include="Views\CalculatorViewUsingIDataErrorInfo.xaml.cs">
       <DependentUpon>CalculatorViewUsingIDataErrorInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="CalculatorViewUsingContentPresenter.xaml.cs">
@@ -95,19 +95,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\CalculatorViewUsingINotifyDataErrorInfo.xaml">
+    <Page Include="Views\CalculatorViewUsingINotifyDataErrorInfo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\CalculatorViewUsingValidationRule.xaml">
+    <Page Include="Views\CalculatorViewUsingValidationRule.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\CalculatorViewWithErrorTemplate.xaml">
+    <Page Include="Views\CalculatorViewWithErrorTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\CalculatorViewUsingIDataErrorInfo.xaml">
+    <Page Include="Views\CalculatorViewUsingIDataErrorInfo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
