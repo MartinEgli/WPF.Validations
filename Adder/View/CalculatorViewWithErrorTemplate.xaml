@@ -1,0 +1,186 @@
+﻿<common:ViewBase
+    x:Class="Adder.CalculatorViewWithErrorTemplate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Interactions="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:common="clr-namespace:ValidationToolkit;assembly=ValidationToolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:validations="clr-namespace:ValidationToolkit.Validations;assembly=ValidationToolkit"
+    Background="AliceBlue"
+    Loaded="OnLoad"
+    mc:Ignorable="d">
+
+    <Interactions:Interaction.Behaviors>
+        <validations:CatchValidationErrorBehavior Element="{Binding ElementName=Grid}" ValidationErrors="{Binding ValidationErrors}" />
+    </Interactions:Interaction.Behaviors>
+
+    <UserControl.Resources>
+        <ControlTemplate x:Key="ValidatedTextBoxTemplate">
+            <StackPanel Orientation="Vertical">
+                <DockPanel>
+                    <Border
+                        BorderBrush="Red"
+                        BorderThickness="1"
+                        DockPanel.Dock="Left">
+                        <AdornedElementPlaceholder Name="ErrorAdorner" />
+                    </Border>
+                    <TextBlock Text="" />
+                </DockPanel>
+                <TextBlock
+                    Background="Red"
+                    FontWeight="Bold"
+                    Foreground="White"
+                    Text="{Binding ElementName=ErrorAdorner, Path=AdornedElement.(Validation.Errors).CurrentItem.ErrorContent}" />
+            </StackPanel>
+        </ControlTemplate>
+    </UserControl.Resources>
+
+    <Grid
+        Name="Grid"
+        Width="240"
+        Margin="30,10,30,10"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3">
+            <Label
+                Margin="0,10,0,0"
+                Content="Adder - using ErrorTemplate"
+                FontSize="15"
+                FontWeight="Bold" />
+            <Label
+                Margin="0,-10,0,0"
+                Content="Validation: ValidationRule"
+                FontSize="9"
+                FontWeight="Normal" />
+            <Label
+                Margin="0,-10,0,0"
+                Content="Display: (Validation.Errors).CurrentItem in ErrorTemplate"
+                FontSize="9"
+                FontWeight="Normal" />
+        </StackPanel>
+
+        <!--  Input labels  -->
+        <Label
+            Grid.Row="1"
+            Grid.Column="0"
+            VerticalAlignment="Top"
+            Content="x:"
+            FontWeight="Bold" />
+        <Label
+            Grid.Row="3"
+            Grid.Column="0"
+            Content="y:"
+            FontWeight="Bold" />
+
+        <!--  Input controls  -->
+        <TextBox
+            Grid.Row="1"
+            Grid.Column="1"
+            Width="60"
+            Height="Auto"
+            Margin="0,5,0,0"
+            Validation.ErrorTemplate="{StaticResource ValidatedTextBoxTemplate}">
+            <Binding
+                NotifyOnValidationError="True"
+                Path="X"
+                TargetNullValue=""
+                UpdateSourceTrigger="PropertyChanged"
+                ValidatesOnExceptions="True">
+                <Binding.ValidationRules>
+                    <common:MandatoryRule Name="x" />
+                    <common:IntegerRangeRule Name="x" Min="0" />
+                    <common:TraceValidationRule PropertyName="x" ValidationStep="RawProposedValue" />
+                    <common:TraceValidationRule PropertyName="x" ValidationStep="ConvertedProposedValue" />
+                    <common:TraceValidationRule PropertyName="x" ValidationStep="UpdatedValue" />
+                    <common:TraceValidationRule PropertyName="x" ValidationStep="CommittedValue" />
+                    <ExceptionValidationRule />
+                </Binding.ValidationRules>
+            </Binding>
+        </TextBox>
+
+        <TextBox
+            Grid.Row="3"
+            Grid.Column="1"
+            Width="60"
+            Height="Auto"
+            Margin="0,5,0,0"
+            Validation.ErrorTemplate="{StaticResource ValidatedTextBoxTemplate}">
+            <Binding
+                NotifyOnValidationError="True"
+                Path="Y"
+                TargetNullValue=""
+                UpdateSourceTrigger="PropertyChanged"
+                ValidatesOnExceptions="True">
+                <Binding.ValidationRules>
+                    <common:MandatoryRule Name="y" />
+                    <common:IntegerRangeRule Name="y" Min="0" />
+                </Binding.ValidationRules>
+            </Binding>
+        </TextBox>
+
+        <!--  Output  -->
+        <Label
+            Grid.Row="5"
+            Grid.Column="0"
+            Content="x+y:"
+            FontWeight="Bold" />
+        <TextBox
+            Grid.Row="5"
+            Grid.Column="1"
+            Width="60"
+            Height="Auto"
+            Margin="0,5,0,0"
+            IsReadOnly="True"
+            IsTabStop="False"
+            Text="{Binding Path=Sum}" />
+
+        <!--  Calculation Command  -->
+        <Button
+            Grid.Row="7"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Width="100"
+            Height="25"
+            Margin="5,20,0,10"
+            HorizontalAlignment="Center"
+            HorizontalContentAlignment="Center"
+            Command="{Binding Path=CalculateCommand}"
+            Content="Calculate" />
+
+        <ItemsControl
+            Grid.Row="8"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            MinHeight="24"
+            ItemsSource="{Binding ValidationErrors.Errors}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Foreground="Red" Text="{Binding}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</common:ViewBase>

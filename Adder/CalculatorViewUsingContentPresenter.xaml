@@ -1,0 +1,153 @@
+﻿<common:ViewBase
+    x:Class="Bfa.Common.WPF.Validations.ValidationTestGui.CalculatorViewUsingContentPresenter"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:common="clr-namespace:ValidationToolkit;assembly=ValidationToolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Height="320"
+    d:DesignWidth="350"
+    Loaded="OnLoad"
+    mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type ValidationError}">
+            <TextBlock
+                Margin="0,1"
+                HorizontalAlignment="Right"
+                FontStyle="Italic"
+                Foreground="Red"
+                Text="{Binding Path=ErrorContent}" />
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid
+        Name="Grid"
+        Width="290"
+        Margin="30,0,30,10"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="3">
+            <Label
+                Margin="0,10,0,0"
+                Content="Calculator - using ContentPresenter"
+                FontSize="15"
+                FontWeight="Bold" />
+            <Label
+                Margin="0,-10,0,0"
+                Content="Validation: INotifyDataErrorInfo"
+                FontSize="9"
+                FontWeight="Normal" />
+            <Label
+                Margin="0,-10,0,0"
+                Content="Display: (Validation.Errors).CurrentItem in ContentPresenter"
+                FontSize="9"
+                FontWeight="Normal" />
+        </StackPanel>
+
+        <!--  Input labels  -->
+        <Label
+            Grid.Row="1"
+            Grid.Column="0"
+            VerticalAlignment="Top"
+            Content="x:"
+            FontWeight="Bold" />
+        <Label
+            Grid.Row="3"
+            Grid.Column="0"
+            Content="y:"
+            FontWeight="Bold" />
+
+        <TextBox
+            Name="xInput"
+            Grid.Row="1"
+            Grid.Column="1"
+            Width="60"
+            Height="Auto"
+            Margin="0,5,0,0">
+            <Binding
+                NotifyOnValidationError="True"
+                Path="x"
+                TargetNullValue=""
+                UpdateSourceTrigger="PropertyChanged"
+                ValidatesOnDataErrors="True"
+                ValidatesOnExceptions="True" />
+        </TextBox>
+        <ContentPresenter
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Height="20"
+            Content="{Binding ElementName=xInput, Path=(Validation.Errors).CurrentItem}" />
+
+        <TextBox
+            Name="yInput"
+            Grid.Row="3"
+            Grid.Column="1"
+            Width="60"
+            Height="Auto"
+            Margin="0,5,0,0">
+            <Binding
+                NotifyOnValidationError="True"
+                Path="y"
+                TargetNullValue=""
+                UpdateSourceTrigger="PropertyChanged"
+                ValidatesOnDataErrors="True"
+                ValidatesOnExceptions="True" />
+        </TextBox>
+        <ContentPresenter
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Height="20"
+            Content="{Binding ElementName=yInput, Path=(Validation.Errors).CurrentItem}" />
+
+        <!--  Output  -->
+        <Label
+            Grid.Row="5"
+            Grid.Column="0"
+            Content="x+y:"
+            FontWeight="Bold" />
+        <TextBox
+            Grid.Row="5"
+            Grid.Column="1"
+            Width="60"
+            Height="Auto"
+            Margin="0,5,0,0"
+            IsReadOnly="True"
+            IsTabStop="False"
+            Text="{Binding Path=Sum}" />
+
+        <!--  Calculation Command  -->
+        <Button
+            Grid.Row="7"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Width="100"
+            Height="25"
+            Margin="5,20,0,10"
+            HorizontalAlignment="Center"
+            HorizontalContentAlignment="Center"
+            Command="{Binding Path=CalculateCommand}"
+            Content="Calculate" />
+    </Grid>
+</common:ViewBase>
