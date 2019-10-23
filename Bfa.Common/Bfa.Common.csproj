@@ -44,6 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Binders\Bindable.cs" />
+    <Compile Include="Binders\PropertyChangedEventArgs.cs" />
+    <Compile Include="Binders\PropertyChangedEventArgs{T}.cs" />
+    <Compile Include="Binders\PropertyChangingCancelEventArgs.cs" />
+    <Compile Include="Binders\PropertyChangingCancelEventArgs{T}.cs" />
+    <Compile Include="Binders\PropertyChangingCancelObjectEventArgs.cs" />
+    <Compile Include="Binders\PropertySupport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Collections\Comparer.cs" />
     <Compile Include="Validations\ErrorsChangedEventArgs.cs" />
@@ -60,13 +67,31 @@
     <Compile Include="Collections\SortedObservableCollection.cs" />
     <Compile Include="Collections\SortedObservableCollectionBase.cs" />
     <Compile Include="Collections\SortedObservableKeyedCollection.cs" />
+    <Compile Include="Validations\IValidatorRules.cs" />
+    <Compile Include="Validations\ModelValidationResult.cs" />
+    <Compile Include="Validations\ModelValidationRule.cs" />
+    <Compile Include="Validations\ModelValidationRule{TModel}.cs" />
+    <Compile Include="Validations\PropertyValidationResult.cs" />
+    <Compile Include="Validations\PropertyValidationRule.cs" />
+    <Compile Include="Validations\PropertyValidationRuleCollection.cs" />
+    <Compile Include="Validations\PropertyValidationRule{TProperty}.cs" />
+    <Compile Include="Validations\PropertyValidationRule{TProperty,TModel}.cs" />
     <Compile Include="Validations\ValidationError.cs" />
     <Compile Include="Validations\ValidationErrorContainer.cs" />
+    <Compile Include="Validations\ValidationErrorContainerExtensions.cs" />
     <Compile Include="Validations\ValidationMessageBase.cs" />
+    <Compile Include="Validations\ValidationMessageCollection.cs" />
+    <Compile Include="Validations\ValidationResult.cs" />
+    <Compile Include="Validations\ValidationRule.cs" />
+    <Compile Include="Validations\ModelValidationRuleCollection.cs" />
     <Compile Include="Validations\ValidationWarning.cs" />
+    <Compile Include="Validations\Validator.cs" />
+    <Compile Include="Validations\ValidatorBuilder.cs" />
+    <Compile Include="Validations\ValidatorRules.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Validations\Internals\" />
+    <Folder Include="Validations\Rules\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -17,10 +17,10 @@ namespace Bfa.Common.WPF.Validations
 
     using Microsoft.Xaml.Behaviors;
 
-    using ValidationToolkit;
     using ValidationToolkit.Annotations;
 
     using ValidationError = Bfa.Common.Validations.ValidationError;
+    using ValidationRule = System.Windows.Controls.ValidationRule;
 
     /// <summary>
     ///     Catch Validation Error Behavior class.
@@ -259,19 +259,14 @@ namespace Bfa.Common.WPF.Validations
                 return;
             }
 
-            var propertyName = bindingExpression.ParentBinding?.Path?.Path;
+            var propertyName = bindingExpression.ParentBinding?.Path?.Path
+                               ?? throw new ArgumentNullException("bindingExpression.ParentBinding?.Path?.Path");
             if (!(args.OriginalSource is DependencyObject originalSource))
             {
                 return;
             }
 
-            var errorMessage = "";
-            var errors = Validation.GetErrors(originalSource);
-            if (errors.Any())
-            {
-                errorMessage = GetErrorMessage(propertyName, errors[errors.Count - 1]);
-            }
-
+            var errorMessage = GetErrorMessage(propertyName, validationError);
             var errorId = GetErrorId(validationError);
 
             switch (args.Action)

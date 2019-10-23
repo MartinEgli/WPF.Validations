@@ -30,7 +30,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         /// <summary>
         ///     Initializes a new instance of the <see cref="AdderViewModelIDataErrorInfo" /> class.
         /// </summary>
-        public AdderViewModelIDataErrorInfo()
+        public AdderViewModelIDataErrorInfo(AdderModel model, Validator<AdderModel> validator)
+            : base(model, validator)
         {
             this.ValidationErrors.ErrorsChanged += this.OnErrorsChanged;
         }
@@ -144,7 +145,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         public void OnErrorsChanged(object sender, ErrorsChangedEventArgs args)
         {
             this.Sum = null;
-            this.NotifyPropertyChanged("CurrentValidationError");
+            this.OnPropertyChanged("CurrentValidationError");
             Tracer.LogUserDefinedValidation(
                 "OnErrorsChanged called. " + this.ValidationErrors.GetValidationErrorMessagesAsString());
         }

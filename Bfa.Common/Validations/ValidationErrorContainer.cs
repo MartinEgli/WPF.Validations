@@ -17,26 +17,6 @@ namespace Bfa.Common.Validations
 
     using JetBrains.Annotations;
 
-    public class ValidationMessageCollection : ObservableCollection<IValidationMessage>
-    {
-        private readonly Lazy<ReadOnlyObservableCollection<IValidationMessage>> readOnlyObservableCollection;
-
-        public ValidationMessageCollection()
-        {
-            this.readOnlyObservableCollection = new Lazy<ReadOnlyObservableCollection<IValidationMessage>>(
-                () =>
-                    {
-                        this.KeepAlive = true;
-                        return ReadOnlyObservableCollection<IValidationMessage>.CreateInstance(this);
-                    });
-        }
-
-        public bool KeepAlive { get; private set; }
-
-        public ReadOnlyObservableCollection<IValidationMessage> ReadOnlyObservableCollection =>
-            this.readOnlyObservableCollection.Value;
-    }
-
     /// <summary>
     ///     ValidationErrorContainer class
     /// </summary>
@@ -116,10 +96,15 @@ namespace Bfa.Common.Validations
         /// </value>
         /// <param name="name">The name.</param>
         /// <returns></returns>
-        public ReadOnlyObservableCollection<IValidationMessage> this[string name]
+        public ReadOnlyObservableCollection<IValidationMessage> this[[NotNull] string name]
         {
             get
             {
+                if (name == null)
+                {
+                    throw new ArgumentNullException(nameof(name));
+                }
+
                 if (!this.errorDictionary.ContainsKey(name))
                 {
                     this.errorDictionary.Add(name, new ValidationMessageCollection());
@@ -170,8 +155,13 @@ namespace Bfa.Common.Validations
         /// <param name="error">The error.</param>
         /// <param name="isWarning">if set to <c>true</c> [is warning].</param>
         /// <returns></returns>
-        public virtual bool AddCatchValidationError(IValidationMessage error, bool isWarning = false)
+        public virtual bool AddCatchValidationError([NotNull] IValidationMessage error, bool isWarning = false)
         {
+            if (error == null)
+            {
+                throw new ArgumentNullException(nameof(error));
+            }
+
             var propertyName = error.PropertyName;
 
             if (!this.errorDictionary.ContainsKey(propertyName))
@@ -205,8 +195,13 @@ namespace Bfa.Common.Validations
         /// <param name="error">The error.</param>
         /// <param name="isWarning">if set to <c>true</c> [is warning].</param>
         /// <returns></returns>
-        public virtual bool AddError(IValidationMessage error, bool isWarning = false)
+        public virtual bool AddError([NotNull] IValidationMessage error, bool isWarning = false)
         {
+            if (error == null)
+            {
+                throw new ArgumentNullException(nameof(error));
+            }
+
             if (!this.Add(error, isWarning))
             {
                 return false;
@@ -227,8 +222,13 @@ namespace Bfa.Common.Validations
         /// </summary>
         /// <param name="propertyName">Name of the property.</param>
         /// <returns></returns>
-        public System.Collections.IEnumerable GetPropertyErrors(string propertyName)
+        public System.Collections.IEnumerable GetPropertyErrors([NotNull] string propertyName)
         {
+            if (propertyName == null)
+            {
+                throw new ArgumentNullException(nameof(propertyName));
+            }
+
             if (propertyName == "")
             {
                 return null;
@@ -270,8 +270,18 @@ namespace Bfa.Common.Validations
         /// <param name="propertyName">Name of the property.</param>
         /// <param name="errorId">The error identifier.</param>
         /// <returns></returns>
-        public virtual bool RemoveCatchValidationError(string propertyName, string errorId)
+        public virtual bool RemoveCatchValidationError([NotNull] string propertyName, [NotNull] string errorId)
         {
+            if (propertyName == null)
+            {
+                throw new ArgumentNullException(nameof(propertyName));
+            }
+
+            if (errorId == null)
+            {
+                throw new ArgumentNullException(nameof(errorId));
+            }
+
             if (!this.Remove(propertyName, errorId))
             {
                 return false;
@@ -291,8 +301,18 @@ namespace Bfa.Common.Validations
         /// <param name="propertyName">Name of the property.</param>
         /// <param name="errorId">The error identifier.</param>
         /// <returns></returns>
-        public virtual bool RemoveError(string propertyName, string errorId)
+        public virtual bool RemoveError([NotNull] string propertyName, [NotNull] string errorId)
         {
+            if (propertyName == null)
+            {
+                throw new ArgumentNullException(nameof(propertyName));
+            }
+
+            if (errorId == null)
+            {
+                throw new ArgumentNullException(nameof(errorId));
+            }
+
             if (!this.Remove(propertyName, errorId))
             {
                 return false;
@@ -322,7 +342,7 @@ namespace Bfa.Common.Validations
         /// <param name="error">The error.</param>
         /// <param name="isWarning">if set to <c>true</c> [is warning].</param>
         /// <returns></returns>
-        private bool Add(IValidationMessage error, bool isWarning)
+        private bool Add([NotNull] IValidationMessage error, bool isWarning)
         {
             var propertyName = error.PropertyName;
 
@@ -355,7 +375,7 @@ namespace Bfa.Common.Validations
         ///     Notifies the errorDictionary changed.
         /// </summary>
         /// <param name="propertyName">Name of the property.</param>
-        private void NotifyDataErrorInfoChanged(string propertyName)
+        private void NotifyDataErrorInfoChanged([NotNull] string propertyName)
         {
             if (this.NotifyDataErrorInfoErrorsChanged == null)
             {
@@ -372,7 +392,7 @@ namespace Bfa.Common.Validations
         /// <param name="propertyName">Name of the property.</param>
         /// <param name="errorId">The error identifier.</param>
         /// <returns></returns>
-        private bool Remove(string propertyName, string errorId)
+        private bool Remove([NotNull] string propertyName, [NotNull] string errorId)
         {
             if (!this.errorDictionary.ContainsKey(propertyName))
             {
@@ -418,8 +438,13 @@ namespace Bfa.Common.Validations
         ///     Notifies the errors changed.
         /// </summary>
         /// <param name="propertyName">Name of the property.</param>
-        protected virtual void NotifyErrorsChanged(string propertyName)
+        protected virtual void NotifyErrorsChanged([NotNull] string propertyName)
         {
+            if (propertyName == null)
+            {
+                throw new ArgumentNullException(nameof(propertyName));
+            }
+
             this.ErrorsChanged?.Invoke(this, new ErrorsChangedEventArgs(propertyName));
         }
     }

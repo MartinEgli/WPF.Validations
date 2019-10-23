@@ -6,7 +6,10 @@
 
 namespace Bfa.Common.Validations
 {
+    using System;
     using System.Text;
+
+    using JetBrains.Annotations;
 
     /// <summary>
     ///    The abstract ValidationMessageBase class.
@@ -16,14 +19,14 @@ namespace Bfa.Common.Validations
         /// <summary>
         ///     Initializes a new instance of the <see cref="ValidationMessageBase" /> class.
         /// </summary>
-        /// <param name="propName">Name of the property.</param>
+        /// <param name="propertyName">Name of the property.</param>
         /// <param name="errorId">The error identifier.</param>
         /// <param name="errorMessage">The error message.</param>
-        protected ValidationMessageBase(string propName, string errorId, string errorMessage)
+        protected ValidationMessageBase([NotNull] string propertyName, [NotNull] string errorId, [NotNull] string errorMessage)
         {
-            this.PropertyName = propName;
-            this.Id = errorId;
-            this.Message = errorMessage;
+            this.PropertyName = propertyName ?? throw new ArgumentNullException(nameof(propertyName));
+            this.Id = errorId ?? throw new ArgumentNullException(nameof(errorId));
+            this.Message = errorMessage ?? throw new ArgumentNullException(nameof(errorMessage));
         }
 
         /// <summary>
@@ -32,7 +35,7 @@ namespace Bfa.Common.Validations
         /// <value>
         ///     The identifier.
         /// </value>
-        public string Id { get; }
+        [NotNull] public string Id { get; }
 
         /// <summary>
         ///     Gets the message.
@@ -40,7 +43,7 @@ namespace Bfa.Common.Validations
         /// <value>
         ///     The message.
         /// </value>
-        public string Message { get; }
+        [NotNull] public string Message { get; }
 
         /// <summary>
         ///     Gets the name of the property.
@@ -48,7 +51,7 @@ namespace Bfa.Common.Validations
         /// <value>
         ///     The name of the property.
         /// </value>
-        public string PropertyName { get; }
+        [NotNull] public string PropertyName { get; }
 
         /// <summary>
         ///     Gets the description.
@@ -56,6 +59,7 @@ namespace Bfa.Common.Validations
         /// <value>
         ///     The description.
         /// </value>
+        [NotNull]
         public string Description =>
             new StringBuilder().Append("Property Name='")
                 .Append(this.PropertyName)
@@ -72,6 +76,7 @@ namespace Bfa.Common.Validations
         /// <returns>
         ///     A <see cref="System.String" /> that represents this instance.
         /// </returns>
+        [NotNull]
         public override string ToString()
         {
             return this.Message;

@@ -31,7 +31,6 @@ namespace Bfa.Common.WPF.Validations
         /// </returns>
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
-            return ValidationResult.ValidResult;
             if (this.Name == null)
             {
                 this.Name = string.Empty;

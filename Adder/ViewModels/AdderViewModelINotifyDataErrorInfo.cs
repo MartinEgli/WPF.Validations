@@ -11,6 +11,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
 
     using Bfa.Common.Validations;
 
+    using JetBrains.Annotations;
+
     /// <summary>
     ///     Adder View Model INotifyDataErrorInfo class.
     /// </summary>
@@ -31,7 +33,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         /// <summary>
         ///     Initializes a new instance of the <see cref="AdderViewModelINotifyDataErrorInfo" /> class.
         /// </summary>
-        public AdderViewModelINotifyDataErrorInfo()
+        public AdderViewModelINotifyDataErrorInfo(AdderModel model, Validator<AdderModel> validator)
+            : base(model, validator)
         {
             this.ValidationErrors.ErrorsChanged += this.OnErrorsChanged;
         }
@@ -143,7 +146,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
             var propertyName = args.PropertyName;
             Tracer.LogUserDefinedValidation(
                 "OnErrorsChanged called. " + this.ValidationErrors.GetValidationErrorMessagesAsString());
-            this.NotifyPropertyChanged("CurrentValidationError");
+            this.OnPropertyChanged("CurrentValidationError");
         }
 
         /// <summary>
@@ -156,8 +159,13 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         /// <returns>
         ///     The validation errors for the property or entity.
         /// </returns>
-        public System.Collections.IEnumerable GetErrors(string propertyName)
+        public System.Collections.IEnumerable GetErrors([NotNull] string propertyName)
         {
+            if (propertyName == null)
+            {
+                throw new ArgumentNullException(nameof(propertyName));
+            }
+
             return this.ValidationErrors.GetPropertyErrors(propertyName);
         }
     }

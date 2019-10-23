@@ -40,32 +40,40 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
         /// <exception cref="Exception">Unable to create ViewModel " + ViewModelType.FullName</exception>
         public static ViewModel CreateViewModel(Type ViewModelType)
         {
-            var assembly = ViewModelType.Assembly;
-            var ViewModel = (AdderViewModel)assembly.CreateInstance(ViewModelType.FullName);
-            if (ViewModel == null)
+            //var assembly = ViewModelType.Assembly;
+            //var ViewModel = (AdderViewModel)assembly.CreateInstance(ViewModelType.FullName);
+            var model = new AdderModel();
+            var validatorBuilder = new ValidatorBuilder<AdderModel>();
+            validatorBuilder.AddRule(nameof(AdderModel.X), new MandatoryRule(nameof(AdderModel.X)));
+            validatorBuilder.AddRule(
+                nameof(AdderModel.X),
+                new MaxRangeRule("MaxRange", nameof(AdderModel.X)) { Max = 50 });
+            var validator = validatorBuilder.Build(model);
+            var viewModel = new AdderViewModel(model, validator);
+            if (viewModel == null)
             {
                 throw new Exception("Unable to create ViewModel " + ViewModelType.FullName);
             }
 
             // Setup command processing.
-            ViewModel.CalculateCommand = new RelayCommand(
+            viewModel.CalculateCommand = new RelayCommand(
                 z =>
                     {
                         try
                         {
                             // Shouldn't get to here if the controls do not have valid values.
-                            var x = ViewModel.X.Value;
-                            var y = ViewModel.Y.Value;
+                            var x = viewModel.X.Value;
+                            var y = viewModel.Y.Value;
 
-                            ViewModel.Sum = CalculationService.Add(x, y);
+                            viewModel.Sum = CalculationService.Add(x, y);
                         }
                         catch (Exception)
                         {
                         }
                     },
-                ViewModel.CanCalculate);
+                viewModel.CanCalculate);
 
-            return ViewModel;
+            return viewModel;
         }
 
         /// <summary>

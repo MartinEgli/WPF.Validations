@@ -111,11 +111,23 @@
             </Binding>
         </TextBox>
 
+        <!--<ItemsControl
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="5"
+            ItemsSource="{Binding ValidationErrors[X]}" />-->
+
+        <!--<ContentPresenter
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="5"
+            Content="{Binding ElementName=xInput, Path=(Validation.Errors)/ErrorContent}" />-->
+
         <ItemsControl
             Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="5"
-            ItemsSource="{Binding ValidationErrors[X]}" />
+            ItemsSource="{Binding ElementName=xInput, Path=(Validation.Errors)}" />
 
         <TextBox
             Name="yInput"

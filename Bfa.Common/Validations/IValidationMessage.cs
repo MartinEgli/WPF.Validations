@@ -6,6 +6,9 @@
 
 namespace Bfa.Common.Validations
 {
+    /// <summary>
+    /// Validation Message Interface
+    /// </summary>
     public interface IValidationMessage
     {
         /// <summary>

@@ -6,7 +6,7 @@
 
 namespace Bfa.Common.Validations
 {
-    using ValidationToolkit;
+    using JetBrains.Annotations;
 
     /// <summary>
     ///     The ValidationError class
@@ -17,11 +17,11 @@ namespace Bfa.Common.Validations
         /// <summary>
         ///     Initializes a new instance of the <see cref="ValidationError" /> class.
         /// </summary>
-        /// <param name="propName">Name of the property.</param>
+        /// <param name="propertyName">Name of the property.</param>
         /// <param name="errorId">The error identifier.</param>
         /// <param name="errorMessage">The error message.</param>
-        public ValidationError(string propName, string errorId, string errorMessage)
-            : base(propName, errorId, errorMessage)
+        public ValidationError([NotNull] string propertyName, [NotNull] string errorId, [NotNull] string errorMessage)
+            : base(propertyName, errorId, errorMessage)
         {
         }
 

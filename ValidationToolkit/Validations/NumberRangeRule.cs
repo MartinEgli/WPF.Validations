@@ -7,47 +7,48 @@
 namespace Bfa.Common.WPF.Validations
 {
     using System;
-    using System.Windows.Controls;
 
     using Bfa.Common.Validations;
 
+    using ValidationResult = System.Windows.Controls.ValidationResult;
+    using ValidationRule = System.Windows.Controls.ValidationRule;
+
     /// <summary>
-    /// 
     /// </summary>
     /// <seealso cref="System.Windows.Controls.ValidationRule" />
     public class IntegerRangeRule : ValidationRule
     {
         /// <summary>
-        /// Gets or sets the name.
+        ///     Gets or sets the name.
         /// </summary>
         /// <value>
-        /// The name.
+        ///     The name.
         /// </value>
-        public string Name { get;  set; }
+        public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the minimum.
+        ///     Gets or sets the minimum.
         /// </summary>
         /// <value>
-        /// The minimum.
+        ///     The minimum.
         /// </value>
         public int Min { get; set; } = int.MinValue;
 
         /// <summary>
-        /// Gets or sets the maximum.
+        ///     Gets or sets the maximum.
         /// </summary>
         /// <value>
-        /// The maximum.
+        ///     The maximum.
         /// </value>
         public int Max { get; set; } = short.MaxValue;
 
         /// <summary>
-        /// When overridden in a derived class, performs validation checks on a value.
+        ///     When overridden in a derived class, performs validation checks on a value.
         /// </summary>
         /// <param name="value">The value from the binding target to check.</param>
         /// <param name="cultureInfo">The culture to use in this rule.</param>
         /// <returns>
-        /// A <see cref="T:System.Windows.Controls.ValidationResult" /> object.
+        ///     A <see cref="T:System.Windows.Controls.ValidationResult" /> object.
         /// </returns>
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {

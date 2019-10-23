@@ -8,12 +8,24 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
 {
     using System.Windows.Input;
 
+    using Bfa.Common.Validations;
+
     /// <summary>
     ///     AdderViewModel class.
     /// </summary>
     /// <seealso cref="ViewModel" />
     public class AdderViewModel : ViewModel
     {
+        /// <summary>
+        ///     The model
+        /// </summary>
+        private readonly AdderModel model;
+
+        /// <summary>
+        ///     The validator
+        /// </summary>
+        private readonly Validator<AdderModel> validator;
+
         /// <summary>
         ///     The calculate command
         /// </summary>
@@ -25,21 +37,17 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         private double? sum;
 
         /// <summary>
-        ///     The x
-        /// </summary>
-        private double? x;
-
-        /// <summary>
         ///     The y
         /// </summary>
         private double? y;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AdderViewModel"/> class.
+        ///     Initializes a new instance of the <see cref="AdderViewModel" /> class.
         /// </summary>
-        public AdderViewModel()
+        public AdderViewModel(AdderModel model, Validator<AdderModel> validator)
         {
-            this.X = null;
+            this.model = model;
+            this.validator = validator;
             this.Y = null;
         }
 
@@ -51,13 +59,13 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         /// </value>
         public double? X
         {
-            get => this.x;
+            get => this.model.X;
             set
             {
                 this.Sum = null;
-                this.x = value;
+                this.model.X = value;
                 this.ValidateProperty("X");
-                this.NotifyPropertyChanged();
+                this.OnPropertyChanged();
             }
         }
 
@@ -75,7 +83,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
                 this.Sum = null;
                 this.y = value;
                 this.ValidateProperty("Y");
-                this.NotifyPropertyChanged();
+                this.OnPropertyChanged();
             }
         }
 
@@ -91,7 +99,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
             set
             {
                 this.sum = value;
-                this.NotifyPropertyChanged();
+                this.OnPropertyChanged();
             }
         }
 
@@ -106,6 +114,14 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
             get => this.calculateCommand;
             set => this.calculateCommand = value;
         }
+
+        /// <summary>
+        ///     Gets the validation errors.
+        /// </summary>
+        /// <value>
+        ///     The validation errors.
+        /// </value>
+        public override IValidationErrorContainer ValidationErrors => this.validator.ValidationErrors;
 
         /// <summary>
         ///     Determines whether this instance can calculate the specified z.
