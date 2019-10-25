@@ -3,14 +3,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Interactions="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:behaviors="clr-namespace:Bfa.Common.WPF.Validations.Behaviors;assembly=Bfa.Common.WPF"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:validationTestGui="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui"
-    xmlns:validations="clr-namespace:Bfa.Common.WPF.Validations;assembly=Bfa.Common.WPF"
     xmlns:viewModels="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels"
     d:DataContext="{d:DesignInstance viewModels:AdderViewModelIDataErrorInfo}"
     Background="LightBlue"
-    Loaded="OnLoad"
     mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -26,7 +25,7 @@
     </UserControl.Resources>
 
     <Interactions:Interaction.Behaviors>
-        <validations:CatchValidationErrorBehavior Element="{Binding ElementName=Grid}" ValidationErrors="{Binding ValidationErrors}" />
+        <behaviors:CatchValidationErrorBehavior Element="{Binding ElementName=Grid}" ValidationErrors="{Binding ValidationMessages}" />
     </Interactions:Interaction.Behaviors>
 
     <Grid Name="Grid">
@@ -42,6 +41,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30" />
             <ColumnDefinition Width="Auto" />
@@ -66,7 +66,7 @@
                 FontWeight="Normal" />
             <Label
                 Margin="0,-10,0,0"
-                Content="Display: ViewModel.ValidationErrorContainer in error bar."
+                Content="Display: ViewModel.ValidationMessageContainer in error bar."
                 FontSize="9"
                 FontWeight="Normal" />
         </StackPanel>
@@ -100,7 +100,7 @@
             Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="5"
-            ItemsSource="{Binding ValidationErrors[X]}" />
+            ItemsSource="{Binding ValidationMessages[X]}" />
 
         <TextBox
             Name="yInput"
@@ -119,7 +119,7 @@
             Grid.Row="4"
             Grid.Column="0"
             Grid.ColumnSpan="5"
-            ItemsSource="{Binding ValidationErrors[Y]}" />
+            ItemsSource="{Binding ValidationMessages[Y]}" />
         <!--  Output  -->
         <Label
             Grid.Row="5"
@@ -156,7 +156,7 @@
             FontWeight="Bold"
             Foreground="Red"
             IsReadOnly="True"
-            Text="{Binding Path=ValidationErrors.CurrentValidationError.Message, Mode=OneWay}"
+            Text="{Binding Path=ValidationMessages.CurrentValidationError.Message, Mode=OneWay}"
             TextWrapping="Wrap" />
 
         <ItemsControl
@@ -164,14 +164,7 @@
             Grid.Column="0"
             Grid.ColumnSpan="5"
             MinHeight="24"
-            ItemsSource="{Binding ValidationErrors.Errors}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Foreground="Red" Text="{Binding}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+            ItemTemplateSelector="{StaticResource ValidationMessagesTemplateSelector}"
+            ItemsSource="{Binding ValidationMessages.Errors}" />
     </Grid>
 </validationTestGui:ViewBase>

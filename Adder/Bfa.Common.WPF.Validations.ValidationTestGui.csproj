@@ -70,7 +70,6 @@
     <Compile Include="ViewModels\AdderViewModel.cs" />
     <Compile Include="ViewModels\AdderViewModelIDataErrorInfo.cs" />
     <Compile Include="ViewModels\AdderViewModelINotifyDataErrorInfo.cs" />
-    <Compile Include="Controller.cs" />
     <Compile Include="Views\CalculatorViewUsingINotifyDataErrorInfoWithErrorTemplate.xaml.cs">
       <DependentUpon>CalculatorViewUsingINotifyDataErrorInfoWithErrorTemplate.xaml</DependentUpon>
     </Compile>

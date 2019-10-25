@@ -15,6 +15,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
 
     using Bfa.Common.Collections;
     using Bfa.Common.Validations;
+    using Bfa.Common.Validations.ValidationMessageContainers.Interfaces;
 
     using ValidationError = System.Windows.Controls.ValidationError;
 

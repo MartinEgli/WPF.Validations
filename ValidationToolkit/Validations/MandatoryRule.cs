@@ -8,6 +8,8 @@ namespace Bfa.Common.WPF.Validations
 {
     using System.Windows.Controls;
 
+    using Bfa.Common.WPF.Validations.ValidationRules;
+
     /// <summary>
     /// </summary>
     /// <seealso cref="System.Windows.Controls.ValidationRule" />
@@ -43,7 +45,7 @@ namespace Bfa.Common.WPF.Validations
 
             if (!(value is string str))
             {
-                return new ValidationResult(false, this.Name + " is mandatory.");
+                return new ValidationRuleWarning(this.Name + " is mandatory.").ToValidationResult();
             }
 
             if (!string.IsNullOrEmpty(str))
@@ -51,7 +53,7 @@ namespace Bfa.Common.WPF.Validations
                 return ValidationResult.ValidResult;
             }
 
-            return new ValidationResult(false, this.Name + " is mandatory.");
+            return new ValidationRuleWarning(this.Name + " is mandatory.").ToValidationResult();
         }
     }
 }

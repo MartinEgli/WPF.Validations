@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Interactions="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:behaviors="clr-namespace:Bfa.Common.WPF.Validations.Behaviors;assembly=Bfa.Common.WPF"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:validationTestGui="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui"
@@ -11,7 +12,6 @@
     xmlns:viewModels="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels"
     d:DataContext="{d:DesignInstance viewModels:AdderViewModel}"
     Background="LightGreen"
-    Loaded="OnLoad"
     mc:Ignorable="d">
 
     <UserControl.Resources>
@@ -26,7 +26,7 @@
     </UserControl.Resources>
 
     <Interactions:Interaction.Behaviors>
-        <validations:CatchValidationErrorBehavior Element="{Binding ElementName=Grid}" ValidationErrors="{Binding ValidationErrors}" />
+        <behaviors:CatchValidationErrorBehavior Element="{Binding ElementName=Grid}" ValidationErrors="{Binding ValidationMessages}" />
     </Interactions:Interaction.Behaviors>
 
     <Grid
@@ -97,16 +97,16 @@
                 UpdateSourceTrigger="PropertyChanged"
                 ValidatesOnExceptions="True">
                 <Binding.ValidationRules>
-                    <validations:TraceValidationRule PropertyName="x" ValidationStep="RawProposedValue" />
-                    <validations:TraceValidationRule PropertyName="x" ValidationStep="ConvertedProposedValue" />
-                    <validations:TraceValidationRule PropertyName="x" ValidationStep="UpdatedValue" />
-                    <validations:TraceValidationRule PropertyName="x" ValidationStep="CommittedValue" />
+                    <validations:TraceValidationRule PropertyName="X" ValidationStep="RawProposedValue" />
+                    <validations:TraceValidationRule PropertyName="X" ValidationStep="ConvertedProposedValue" />
+                    <validations:TraceValidationRule PropertyName="X" ValidationStep="UpdatedValue" />
+                    <validations:TraceValidationRule PropertyName="X" ValidationStep="CommittedValue" />
                     <ExceptionValidationRule />
                     <validations:IntegerRangeRule
-                        Name="x"
+                        Name="X"
                         Min="0"
                         ValidatesOnTargetUpdated="True" />
-                    <validations:MandatoryRule Name="x" ValidatesOnTargetUpdated="True" />
+                    <validations:MandatoryRule Name="X" ValidatesOnTargetUpdated="True" />
                 </Binding.ValidationRules>
             </Binding>
         </TextBox>
@@ -140,8 +140,8 @@
                 UpdateSourceTrigger="PropertyChanged"
                 ValidatesOnExceptions="True">
                 <Binding.ValidationRules>
-                    <validations:IntegerRangeRule Name="y" Min="0" />
-                    <validations:MandatoryRule Name="y" />
+                    <validations:IntegerRangeRule Name="Y" Min="0" />
+                    <validations:MandatoryRule Name="Y" />
                 </Binding.ValidationRules>
             </Binding>
         </TextBox>
@@ -150,7 +150,7 @@
             Grid.Row="4"
             Grid.Column="0"
             Grid.ColumnSpan="5"
-            ItemsSource="{Binding ValidationErrors[Y]}" />
+            ItemsSource="{Binding ValidationMessages[Y]}" />
 
         <!--  Output  -->
         <Label
@@ -188,7 +188,7 @@
             FontWeight="Bold"
             Foreground="Red"
             IsReadOnly="True"
-            Text="{Binding Path=ValidationErrors.CurrentValidationError.Message, Mode=OneWay}"
+            Text="{Binding Path=ValidationMessages.CurrentValidationError.Message, Mode=OneWay}"
             TextWrapping="Wrap" />
 
         <ItemsControl
@@ -196,14 +196,7 @@
             Grid.Column="1"
             Grid.ColumnSpan="4"
             MinHeight="24"
-            ItemsSource="{Binding ValidationErrors.Errors}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Foreground="Red" Text="{Binding}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+            ItemTemplateSelector="{StaticResource ValidationMessagesTemplateSelector}"
+            ItemsSource="{Binding ValidationMessages.Errors}" />
     </Grid>
 </validationTestGui:ViewBase>

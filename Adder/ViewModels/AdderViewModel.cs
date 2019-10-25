@@ -6,9 +6,11 @@
 
 namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
 {
+    using System.Threading;
     using System.Windows.Input;
 
-    using Bfa.Common.Validations;
+    using Bfa.Common.Validations.ValidationMessageContainers.Interfaces;
+    using Bfa.Common.Validations.Validators;
 
     /// <summary>
     ///     AdderViewModel class.
@@ -41,11 +43,16 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         /// </summary>
         private double? y;
 
+        public int Id { get; }
+
+        private static int id = 0;
+
         /// <summary>
         ///     Initializes a new instance of the <see cref="AdderViewModel" /> class.
         /// </summary>
         public AdderViewModel(AdderModel model, Validator<AdderModel> validator)
         {
+            Id = Interlocked.Increment(ref id);
             this.model = model;
             this.validator = validator;
             this.Y = null;
@@ -121,7 +128,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         /// <value>
         ///     The validation errors.
         /// </value>
-        public override IValidationErrorContainer ValidationErrors => this.validator.ValidationErrors;
+        public override IValidationMessageContainer ValidationMessages => this.validator.ValidationMessages;
 
         /// <summary>
         ///     Determines whether this instance can calculate the specified z.
@@ -132,14 +139,14 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         /// </returns>
         public bool CanCalculate(object z)
         {
-            return this.X.HasValue && this.Y.HasValue && this.ValidationErrors.ErrorCount == 0;
+            return this.X.HasValue && this.Y.HasValue && this.ValidationMessages.ErrorCount == 0;
         }
 
         /// <summary>
         ///     Validates the property.
         /// </summary>
         /// <param name="propertyName">Name of the property.</param>
-        public virtual void ValidateProperty(string propertyName)
+        protected virtual void ValidateProperty(string propertyName)
         {
             // We don't use this when relying on ValidationRules or IDataErrorInfo.
         }

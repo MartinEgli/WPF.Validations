@@ -1,7 +1,77 @@
 ﻿<Application
-    x:Class="Adder.App"
+    x:Class="Bfa.Common.WPF.Validations.ValidationTestGui.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Adder"
-    Startup="AdderStartup" />
+    xmlns:validationTestGui="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui"
+    xmlns:validations="clr-namespace:Bfa.Common.WPF.Validations;assembly=Bfa.Common.WPF"
+    Startup="AdderStartup">
+    <Application.Resources>
 
+        <validations:ValidationMessagesTemplateSelector x:Key="ValidationMessagesTemplateSelector">
+            <validations:ValidationMessagesTemplateSelector.DefaultTemplate>
+                <DataTemplate>
+                    <TextBlock Foreground="Red" Text="{Binding Message}" />
+                </DataTemplate>
+            </validations:ValidationMessagesTemplateSelector.DefaultTemplate>
+            <validations:ValidationMessagesTemplateSelector.ValidationWarningTemplate>
+                <DataTemplate>
+                    <TextBlock Foreground="Orange" Text="{Binding Message}" />
+                </DataTemplate>
+            </validations:ValidationMessagesTemplateSelector.ValidationWarningTemplate>
+        </validations:ValidationMessagesTemplateSelector>
+
+        <ControlTemplate x:Key="PopUpErrorTemplate">
+            <Grid>
+                <Border
+                    x:Name="errorBorder"
+                    Background="#11FF0000"
+                    BorderBrush="#FFCB2E2E"
+                    BorderThickness="1"
+                    IsHitTestVisible="False" />
+                <AdornedElementPlaceholder x:Name="placeholder" />
+                <Popup
+                    HorizontalAlignment="Right"
+                    AllowsTransparency="True"
+                    HorizontalOffset="0"
+                    IsOpen="{Binding ElementName=placeholder, Path=AdornedElement.IsFocused, Mode=OneWay}"
+                    Placement="Right"
+                    PlacementTarget="{Binding ElementName=errorBorder}"
+                    PopupAnimation="Fade"
+                    VerticalOffset="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Polygon
+                            VerticalAlignment="Center"
+                            Fill="Red"
+                            Points="0,4 4,0 4,8"
+                            Stretch="Fill"
+                            Stroke="Red"
+                            StrokeThickness="2" />
+                        <Border
+                            Padding="4"
+                            Background="White"
+                            BorderBrush="Red"
+                            BorderThickness="2"
+                            CornerRadius="4">
+                            <ItemsControl ItemsSource="{Binding Converter={validationTestGui:OrderByPriorityConverter}}">
+                                <ItemsControl.ItemTemplateSelector>
+                                    <validations:ValidationErrorTemplateSelector>
+                                        <validations:ValidationErrorTemplateSelector.DefaultTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Foreground="Red" Text="{Binding ErrorContent}" />
+                                            </DataTemplate>
+                                        </validations:ValidationErrorTemplateSelector.DefaultTemplate>
+                                        <validations:ValidationErrorTemplateSelector.ValidationWarningTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Foreground="Orange" Text="{Binding ErrorContent}" />
+                                            </DataTemplate>
+                                        </validations:ValidationErrorTemplateSelector.ValidationWarningTemplate>
+                                    </validations:ValidationErrorTemplateSelector>
+                                </ItemsControl.ItemTemplateSelector>
+                            </ItemsControl>
+                        </Border>
+                    </StackPanel>
+                </Popup>
+            </Grid>
+        </ControlTemplate>
+    </Application.Resources>
+</Application>

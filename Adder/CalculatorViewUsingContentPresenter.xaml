@@ -7,7 +7,6 @@
     xmlns:validationTestGui="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui"
     Height="320"
     d:DesignWidth="350"
-    Loaded="OnLoad"
     mc:Ignorable="d">
 
     <UserControl.Resources>

@@ -10,6 +10,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
     using System.ComponentModel;
 
     using Bfa.Common.Validations;
+    using Bfa.Common.Validations.ValidationMessageContainers;
+    using Bfa.Common.Validations.Validators;
 
     using JetBrains.Annotations;
 
@@ -36,7 +38,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         public AdderViewModelINotifyDataErrorInfo(AdderModel model, Validator<AdderModel> validator)
             : base(model, validator)
         {
-            this.ValidationErrors.ErrorsChanged += this.OnErrorsChanged;
+            this.ValidationMessages.MessageChanged += this.OnErrorsChanged;
         }
 
         /// <summary>
@@ -44,14 +46,14 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         /// </summary>
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged
         {
-            add => this.ValidationErrors.NotifyDataErrorInfoErrorsChanged += value;
-            remove => this.ValidationErrors.NotifyDataErrorInfoErrorsChanged -= value;
+            add => this.ValidationMessages.ErrorsChanged += value;
+            remove => this.ValidationMessages.ErrorsChanged -= value;
         }
 
         /// <summary>
         ///     Gets a value that indicates whether the entity has validation errors.
         /// </summary>
-        public bool HasErrors => this.ValidationErrors.HasErrors;
+        public bool HasErrors => this.ValidationMessages.HasErrors;
 
         /// <summary>
         ///     Validates the non negative.
@@ -62,12 +64,12 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         {
             if (x.HasValue && x.Value < 0.0)
             {
-                this.ValidationErrors.AddError(
+                this.ValidationMessages.AddError(
                     new ValidationError(fieldName, ConstraintMustBeNonNegative, fieldName + ": must be non-negative"));
             }
             else
             {
-                this.ValidationErrors.RemoveError(fieldName, ConstraintMustBeNonNegative);
+                this.ValidationMessages.RemoveError(fieldName, ConstraintMustBeNonNegative);
             }
         }
 
@@ -80,12 +82,12 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         {
             if (!x.HasValue)
             {
-                this.ValidationErrors.AddError(
+                this.ValidationMessages.AddError(
                     new ValidationWarning(fieldName, ConstraintMandatory, fieldName + ": is mandatory"));
             }
             else
             {
-                this.ValidationErrors.RemoveError(fieldName, ConstraintMandatory);
+                this.ValidationMessages.RemoveError(fieldName, ConstraintMandatory);
             }
         }
 
@@ -96,11 +98,11 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         {
             if (this.X.HasValue && this.Y.HasValue && this.X.Value > this.Y.Value)
             {
-                this.ValidationErrors.AddError(new ValidationWarning("Validation", "Bigger", "X > Y"));
+                this.ValidationMessages.AddError(new ValidationWarning("Validation", "Bigger", "X > Y"));
             }
             else
             {
-                this.ValidationErrors.RemoveError("Validation", "Bigger");
+                this.ValidationMessages.RemoveError("Validation", "Bigger");
             }
         }
 
@@ -108,7 +110,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         ///     Validates the property.
         /// </summary>
         /// <param name="propertyName">Name of the property.</param>
-        public override void ValidateProperty(string propertyName)
+        protected override void ValidateProperty(string propertyName)
         {
             Tracer.LogValidation("INotifyDataErrorInfo.ValidateProperty called. Validating " + propertyName);
             switch (propertyName)
@@ -139,13 +141,13 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         ///     Called when [errors changed].
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="args">The <see cref="ErrorsChangedEventArgs" /> instance containing the event data.</param>
-        public void OnErrorsChanged(object sender, ErrorsChangedEventArgs args)
+        /// <param name="args">The <see cref="MessageChangedEventArgs" /> instance containing the event data.</param>
+        public void OnErrorsChanged(object sender, MessageChangedEventArgs args)
         {
             this.Sum = null;
             var propertyName = args.PropertyName;
             Tracer.LogUserDefinedValidation(
-                "OnErrorsChanged called. " + this.ValidationErrors.GetValidationErrorMessagesAsString());
+                "OnErrorsChanged called. " + this.ValidationMessages.GetValidationErrorMessagesAsString());
             this.OnPropertyChanged("CurrentValidationError");
         }
 
@@ -166,7 +168,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
                 throw new ArgumentNullException(nameof(propertyName));
             }
 
-            return this.ValidationErrors.GetPropertyErrors(propertyName);
+            return this.ValidationMessages.GetPropertyErrors(propertyName);
         }
     }
 }

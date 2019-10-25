@@ -9,9 +9,7 @@ namespace Bfa.Common.WPF.Validations
     using System.Windows;
     using System.Windows.Controls;
 
-    using Bfa.Common.Validations;
-
-    using ValidationError = System.Windows.Controls.ValidationError;
+    using Bfa.Common.Validations.ValidationMessageContainers.Interfaces;
 
     /// <summary>
     ///     ValidationErrorTemplateSelector class.
@@ -45,20 +43,12 @@ namespace Bfa.Common.WPF.Validations
         /// </returns>
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
-            if (item is ValidationError validationError)
+            if (item is ValidationError validationError && validationError.ErrorContent is IValidationWarning)
             {
-                if (validationError.ErrorContent is IValidationWarning)
-                {
-                    return this.ValidationWarningTemplate;
-                }
+                return this.ValidationWarningTemplate;
             }
 
-            if (this.DefaultTemplate != null)
-            {
-                return this.DefaultTemplate;
-            }
-
-            return base.SelectTemplate(item, container);
+            return this.DefaultTemplate ?? base.SelectTemplate(item, container);
         }
     }
 }

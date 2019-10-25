@@ -6,7 +6,7 @@
 
 namespace Bfa.Common.WPF.Validations.Tests
 {
-    using Bfa.Common.Validations;
+    using Bfa.Common.Validations.ValidationMessageContainers;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -17,7 +17,7 @@ namespace Bfa.Common.WPF.Validations.Tests
 
         private const string constraint2 = "BBB";
 
-        private readonly ValidationErrorContainer container = new ValidationErrorContainer();
+        private readonly ValidationMessageContainer container = new ValidationMessageContainer();
 
         [TestMethod]
         public void Test_ValidationError_Equality()

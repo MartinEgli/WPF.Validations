@@ -8,7 +8,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
 {
     using System.ComponentModel;
 
-    using Bfa.Common.Validations;
+    using Bfa.Common.Validations.ValidationMessageContainers;
+    using Bfa.Common.Validations.Validators;
 
     /// <summary>
     ///     AdderViewModelIDataErrorInfo class
@@ -33,7 +34,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         public AdderViewModelIDataErrorInfo(AdderModel model, Validator<AdderModel> validator)
             : base(model, validator)
         {
-            this.ValidationErrors.ErrorsChanged += this.OnErrorsChanged;
+            this.ValidationMessages.MessageChanged += this.OnErrorsChanged;
         }
 
         /// <summary>
@@ -59,7 +60,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
 
                             Tracer.LogUserDefinedValidation(
                                 "IDataErrorInfo.Item[X] called. "
-                                + this.ValidationErrors.GetValidationErrorMessagesAsString());
+                                + this.ValidationMessages.GetValidationErrorMessagesAsString());
                             Tracer.LogUserDefinedValidation(
                                 "IDataErrorInfo.Item[X] - returned error message is '" + errMsg + "'");
 
@@ -74,7 +75,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
 
                             Tracer.LogUserDefinedValidation(
                                 "IDataErrorInfo.Item[X] called. "
-                                + this.ValidationErrors.GetValidationErrorMessagesAsString());
+                                + this.ValidationMessages.GetValidationErrorMessagesAsString());
                             Tracer.LogUserDefinedValidation(
                                 "IDataErrorInfo.Item[X] - returned error message is '" + errMsg + "'");
 
@@ -142,12 +143,12 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="args">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        public void OnErrorsChanged(object sender, ErrorsChangedEventArgs args)
+        public void OnErrorsChanged(object sender, MessageChangedEventArgs args)
         {
             this.Sum = null;
             this.OnPropertyChanged("CurrentValidationError");
             Tracer.LogUserDefinedValidation(
-                "OnErrorsChanged called. " + this.ValidationErrors.GetValidationErrorMessagesAsString());
+                "OnErrorsChanged called. " + this.ValidationMessages.GetValidationErrorMessagesAsString());
         }
     }
 }

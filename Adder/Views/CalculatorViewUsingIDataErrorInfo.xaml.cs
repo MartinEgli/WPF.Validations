@@ -6,8 +6,6 @@
 
 namespace Bfa.Common.WPF.Validations.ValidationTestGui.Views
 {
-    using Adder;
-
     using Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels;
 
     public partial class CalculatorViewUsingIDataErrorInfo : ViewBase
@@ -15,11 +13,6 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Views
         public CalculatorViewUsingIDataErrorInfo()
         {
             this.InitializeComponent();
-        }
-
-        public void OnLoad(object sender, System.Windows.RoutedEventArgs e)
-        {
-            Controller.RegisterView(this, typeof(AdderViewModelIDataErrorInfo));
         }
     }
 }

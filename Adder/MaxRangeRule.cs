@@ -9,13 +9,14 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
     using System;
 
     using Bfa.Common.Validations;
+    using Bfa.Common.Validations.Validators;
 
     using JetBrains.Annotations;
 
     /// <summary>
     ///
     /// </summary>
-    /// <seealso cref="Bfa.Common.Validations.PropertyValidationRule{System.Double?}" />
+    /// <seealso cref="PropertyValidationRule{TProperty}.Double?}" />
     public class MaxRangeRule : PropertyValidationRule<double?>
     {
         /// <summary>

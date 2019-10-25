@@ -7,11 +7,9 @@
 namespace Bfa.Common.WPF.Validations
 {
     using System;
+    using System.Windows.Controls;
 
-    using Bfa.Common.Validations;
-
-    using ValidationResult = System.Windows.Controls.ValidationResult;
-    using ValidationRule = System.Windows.Controls.ValidationRule;
+    using Bfa.Common.WPF.Validations.ValidationRules;
 
     /// <summary>
     /// </summary>
@@ -69,9 +67,8 @@ namespace Bfa.Common.WPF.Validations
                     var val = int.Parse((string)value);
                     if (val > this.Max)
                     {
-                        return new ValidationResult(
-                            false,
-                            new ValidationWarning(this.Name, "max", this.Name + " must be <= " + this.Max + "."));
+                        return new ValidationRuleWarning(this.Name + " must be <= " + this.Max + ".")
+                            .ToValidationResult();
                     }
 
                     if (val < this.Min)

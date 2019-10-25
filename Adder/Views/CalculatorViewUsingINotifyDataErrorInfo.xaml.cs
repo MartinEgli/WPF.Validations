@@ -14,10 +14,5 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Views
         {
             this.InitializeComponent();
         }
-
-        public void OnLoad(object sender, System.Windows.RoutedEventArgs e)
-        {
-            Controller.RegisterView(this, typeof(AdderViewModelINotifyDataErrorInfo));
-        }
     }
 }

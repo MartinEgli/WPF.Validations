@@ -6,11 +6,11 @@
 
 namespace Bfa.Common.WPF.Validations.ValidationTestGui
 {
-    using Bfa.Common.Validations;
+    using Bfa.Common.Validations.Validators;
 
     /// <summary>
     /// </summary>
-    /// <seealso cref="Bfa.Common.Validations.PropertyValidationRule{System.Double?}" />
+    /// <seealso cref="PropertyValidationRule{TProperty}.Double?}" />
     public class MandatoryRule : PropertyValidationRule<double?>
     {
         /// <summary>
@@ -35,7 +35,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
                     false,
                     this.RuleName,
                     this.PropertyName,
-                    this.PropertyName + " is mandatory.");
+                    this.PropertyName + " is mandatory.",
+                    true);
             }
 
             return this.ValidResult;

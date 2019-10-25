@@ -21,15 +21,5 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Views
         {
             this.InitializeComponent();
         }
-
-        /// <summary>
-        ///     Called when [load].
-        /// </summary>
-        /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="System.Windows.RoutedEventArgs" /> instance containing the event data.</param>
-        public void OnLoad(object sender, System.Windows.RoutedEventArgs e)
-        {
-            Controller.RegisterView(this, typeof(AdderViewModel));
-        }
     }
 }

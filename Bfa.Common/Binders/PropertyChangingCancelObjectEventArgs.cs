@@ -25,11 +25,6 @@ namespace Bfa.Common.Binders
         public PropertyChangingCancelObjectEventArgs([NotNull] string propertyName, [CanBeNull] object originalValue, [CanBeNull] object newValue)
             : base(propertyName)
         {
-            if (propertyName == null)
-            {
-                throw new ArgumentNullException(nameof(propertyName));
-            }
-
             this.OriginalObject = originalValue;
             this.NewObject = newValue;
         }

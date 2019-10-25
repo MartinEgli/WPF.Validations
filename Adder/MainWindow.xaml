@@ -2,10 +2,15 @@
     x:Class="Bfa.Common.WPF.Validations.ValidationTestGui.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:validationTestGui="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui"
     xmlns:views="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.Views"
     Title="Validation Demo"
+    d:DataContext="{d:DesignInstance validationTestGui:MainViewModel}"
     Background="Beige"
-    ResizeMode="CanResize">
+    ResizeMode="CanResize"
+    mc:Ignorable="d">
 
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
@@ -17,10 +22,29 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <views:CalculatorViewUsingValidationRule Grid.Row="0" Grid.Column="0" />
-        <views:CalculatorViewUsingIDataErrorInfo Grid.Row="0" Grid.Column="1" />
-        <views:CalculatorViewUsingINotifyDataErrorInfo Grid.Row="0" Grid.Column="2" />
-        <views:CalculatorViewUsingValidationRuleWithErrorTemplate Grid.Row="1" Grid.Column="0" />
-        <views:CalculatorViewUsingINotifyDataErrorInfoWithErrorTemplate Grid.Row="1" Grid.Column="2" />
+        <views:CalculatorViewUsingValidationRule
+            Grid.Row="0"
+            Grid.Column="0"
+            DataContext="{Binding AdderViewModel1}" />
+        <views:CalculatorViewUsingIDataErrorInfo
+            Grid.Row="0"
+            Grid.Column="1"
+            DataContext="{Binding AdderViewModelIDataErrorInfo1}" />
+        <views:CalculatorViewUsingINotifyDataErrorInfo
+            Grid.Row="0"
+            Grid.Column="2"
+            DataContext="{Binding AdderViewModelINotifyDataErrorInfo1}" />
+        <views:CalculatorViewUsingValidationRuleWithErrorTemplate
+            Grid.Row="1"
+            Grid.Column="0"
+            DataContext="{Binding AdderViewModel2}" />
+        <views:CalculatorViewUsingIDataErrorInfo
+            Grid.Row="1"
+            Grid.Column="1"
+            DataContext="{Binding AdderViewModelIDataErrorInfo2}" />
+        <views:CalculatorViewUsingINotifyDataErrorInfoWithErrorTemplate
+            Grid.Row="1"
+            Grid.Column="2"
+            DataContext="{Binding AdderViewModelINotifyDataErrorInfo2}" />
     </Grid>
 </Window>

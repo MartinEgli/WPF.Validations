@@ -53,13 +53,13 @@
     <Compile Include="Binders\PropertySupport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Collections\Comparer.cs" />
-    <Compile Include="Validations\ErrorsChangedEventArgs.cs" />
-    <Compile Include="Validations\ICatchValidationErrorContainer.cs" />
-    <Compile Include="Validations\IndexTransform.cs" />
-    <Compile Include="Validations\IValidationErrorContainer.cs" />
-    <Compile Include="Validations\IValidationErrorsAware.cs" />
-    <Compile Include="Validations\IValidationMessage.cs" />
-    <Compile Include="Validations\IValidationWarning.cs" />
+    <Compile Include="Validations\ValidationMessageContainers\MessageChangedEventArgs.cs" />
+    <Compile Include="Validations\ValidationMessageContainers\Internals\ICatchValidationErrorContainer.cs" />
+    <Compile Include="Collections\IndexTransform.cs" />
+    <Compile Include="Validations\ValidationMessageContainers\Interfaces\IValidationMessageContainer.cs" />
+    <Compile Include="Validations\ValidationMessageContainers\Interfaces\IValidationMessagesAware.cs" />
+    <Compile Include="Validations\ValidationMessageContainers\Interfaces\IValidationMessage.cs" />
+    <Compile Include="Validations\ValidationMessageContainers\Interfaces\IValidationWarning.cs" />
     <Compile Include="Collections\KeyedCollection.cs" />
     <Compile Include="Collections\ObservableCollection.cs" />
     <Compile Include="Collections\ObservableCollectionBase.cs" />
@@ -67,32 +67,29 @@
     <Compile Include="Collections\SortedObservableCollection.cs" />
     <Compile Include="Collections\SortedObservableCollectionBase.cs" />
     <Compile Include="Collections\SortedObservableKeyedCollection.cs" />
-    <Compile Include="Validations\IValidatorRules.cs" />
-    <Compile Include="Validations\ModelValidationResult.cs" />
-    <Compile Include="Validations\ModelValidationRule.cs" />
-    <Compile Include="Validations\ModelValidationRule{TModel}.cs" />
-    <Compile Include="Validations\PropertyValidationResult.cs" />
-    <Compile Include="Validations\PropertyValidationRule.cs" />
-    <Compile Include="Validations\PropertyValidationRuleCollection.cs" />
-    <Compile Include="Validations\PropertyValidationRule{TProperty}.cs" />
-    <Compile Include="Validations\PropertyValidationRule{TProperty,TModel}.cs" />
-    <Compile Include="Validations\ValidationError.cs" />
-    <Compile Include="Validations\ValidationErrorContainer.cs" />
-    <Compile Include="Validations\ValidationErrorContainerExtensions.cs" />
-    <Compile Include="Validations\ValidationMessageBase.cs" />
-    <Compile Include="Validations\ValidationMessageCollection.cs" />
-    <Compile Include="Validations\ValidationResult.cs" />
-    <Compile Include="Validations\ValidationRule.cs" />
-    <Compile Include="Validations\ModelValidationRuleCollection.cs" />
-    <Compile Include="Validations\ValidationWarning.cs" />
-    <Compile Include="Validations\Validator.cs" />
-    <Compile Include="Validations\ValidatorBuilder.cs" />
-    <Compile Include="Validations\ValidatorRules.cs" />
+    <Compile Include="Validations\Validators\Interfaces\IValidatorRules.cs" />
+    <Compile Include="Validations\Validators\ModelValidationResult.cs" />
+    <Compile Include="Validations\Validators\ModelValidationRule.cs" />
+    <Compile Include="Validations\Validators\ModelValidationRule{TModel}.cs" />
+    <Compile Include="Validations\Validators\PropertyValidationResult.cs" />
+    <Compile Include="Validations\Validators\PropertyValidationRule.cs" />
+    <Compile Include="Validations\Validators\PropertyValidationRuleCollection.cs" />
+    <Compile Include="Validations\Validators\PropertyValidationRule{TProperty}.cs" />
+    <Compile Include="Validations\Validators\PropertyValidationRule{TProperty,TModel}.cs" />
+    <Compile Include="Validations\ValidationMessageContainers\ValidationError.cs" />
+    <Compile Include="Validations\ValidationMessageContainers\ValidationMessageContainer.cs" />
+    <Compile Include="Validations\Validators\ValidationErrorContainerExtensions.cs" />
+    <Compile Include="Validations\ValidationMessageContainers\ValidationMessage.cs" />
+    <Compile Include="Validations\ValidationMessageContainers\ValidationMessageCollection.cs" />
+    <Compile Include="Validations\Validators\ValidationResult.cs" />
+    <Compile Include="Validations\Validators\ValidationRule.cs" />
+    <Compile Include="Validations\Validators\ModelValidationRuleCollection.cs" />
+    <Compile Include="Validations\ValidationMessageContainers\ValidationWarning.cs" />
+    <Compile Include="Validations\Validators\Validator.cs" />
+    <Compile Include="Validations\Validators\ValidatorBuilder.cs" />
+    <Compile Include="Validations\Validators\ValidatorRules.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Validations\Internals\" />
-    <Folder Include="Validations\Rules\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

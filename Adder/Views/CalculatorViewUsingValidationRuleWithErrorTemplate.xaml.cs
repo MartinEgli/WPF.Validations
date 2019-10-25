@@ -8,8 +8,6 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Views
 {
     using System.Windows;
 
-    using Adder;
-
     using Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels;
 
     public partial class CalculatorViewUsingValidationRuleWithErrorTemplate : ViewBase
@@ -17,11 +15,6 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Views
         public CalculatorViewUsingValidationRuleWithErrorTemplate()
         {
             this.InitializeComponent();
-        }
-
-        public void OnLoad(object sender, RoutedEventArgs e)
-        {
-            Controller.RegisterView(this, typeof(AdderViewModel));
         }
     }
 }

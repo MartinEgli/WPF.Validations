@@ -92,17 +92,14 @@ namespace Bfa.Common.Binders
                 return false;
             }
 
-            if (this.OnPropertyChanging(storage, value, propertyName))
-            {
-                var previousValue = storage;
-                storage = value;
-                this.OnPropertyChanged(previousValue, value, propertyName);
-            }
-            else
+            if (!this.OnPropertyChanging(storage, value, propertyName))
             {
                 return false;
             }
 
+            var previousValue = storage;
+            storage = value;
+            this.OnPropertyChanged(previousValue, value, propertyName);
             return true;
         }
 

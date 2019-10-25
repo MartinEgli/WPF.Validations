@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Interactions="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:behaviors="clr-namespace:Bfa.Common.WPF.Validations.Behaviors;assembly=Bfa.Common.WPF"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:validationTestGui="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui"
@@ -10,33 +11,37 @@
     xmlns:viewModels="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels"
     d:DataContext="{d:DesignInstance viewModels:AdderViewModel}"
     Background="AliceBlue"
-    Loaded="OnLoad"
     mc:Ignorable="d">
-
-    <Interactions:Interaction.Behaviors>
-        <validations:CatchValidationErrorBehavior Element="{Binding ElementName=Grid}" ValidationErrors="{Binding ValidationErrors}" />
-    </Interactions:Interaction.Behaviors>
 
     <UserControl.Resources>
         <ControlTemplate x:Key="ValidatedTextBoxTemplate">
-            <StackPanel Orientation="Vertical">
-                <DockPanel>
-                    <Border
-                        BorderBrush="Red"
-                        BorderThickness="1"
-                        DockPanel.Dock="Left">
-                        <AdornedElementPlaceholder Name="ErrorAdorner" />
-                    </Border>
-                    <TextBlock Text="" />
-                </DockPanel>
-                <TextBlock
-                    Background="Red"
-                    FontWeight="Bold"
-                    Foreground="White"
-                    Text="{Binding ElementName=ErrorAdorner, Path=AdornedElement.(Validation.Errors).CurrentItem.ErrorContent}" />
+            <StackPanel>
+                <Border BorderBrush="Red" BorderThickness="1">
+                    <AdornedElementPlaceholder x:Name="textBox" />
+                </Border>
+                <ItemsControl ItemsSource="{Binding Converter={validationTestGui:OrderByPriorityConverter}}">
+                    <ItemsControl.ItemTemplateSelector>
+                        <validations:ValidationErrorTemplateSelector>
+                            <validations:ValidationErrorTemplateSelector.DefaultTemplate>
+                                <DataTemplate>
+                                    <TextBlock Foreground="Red" Text="{Binding ErrorContent}" />
+                                </DataTemplate>
+                            </validations:ValidationErrorTemplateSelector.DefaultTemplate>
+                            <validations:ValidationErrorTemplateSelector.ValidationWarningTemplate>
+                                <DataTemplate>
+                                    <TextBlock Foreground="Orange" Text="{Binding ErrorContent}" />
+                                </DataTemplate>
+                            </validations:ValidationErrorTemplateSelector.ValidationWarningTemplate>
+                        </validations:ValidationErrorTemplateSelector>
+                    </ItemsControl.ItemTemplateSelector>
+                </ItemsControl>
             </StackPanel>
         </ControlTemplate>
     </UserControl.Resources>
+
+    <Interactions:Interaction.Behaviors>
+        <behaviors:CatchValidationErrorBehavior Element="{Binding ElementName=Grid}" ValidationErrors="{Binding ValidationMessages}" />
+    </Interactions:Interaction.Behaviors>
 
     <Grid Name="Grid">
         <Grid.RowDefinitions>
@@ -96,7 +101,7 @@
         <TextBox
             Grid.Row="1"
             Grid.Column="2"
-            Validation.ErrorTemplate="{StaticResource ValidatedTextBoxTemplate}">
+            Validation.ErrorTemplate="{StaticResource PopUpErrorTemplate}">
             <Binding
                 NotifyOnValidationError="True"
                 Path="X"
@@ -104,12 +109,12 @@
                 UpdateSourceTrigger="PropertyChanged"
                 ValidatesOnExceptions="True">
                 <Binding.ValidationRules>
-                    <validations:MandatoryRule Name="x" />
-                    <validations:IntegerRangeRule Name="x" Min="0" />
-                    <validations:TraceValidationRule PropertyName="x" ValidationStep="RawProposedValue" />
-                    <validations:TraceValidationRule PropertyName="x" ValidationStep="ConvertedProposedValue" />
-                    <validations:TraceValidationRule PropertyName="x" ValidationStep="UpdatedValue" />
-                    <validations:TraceValidationRule PropertyName="x" ValidationStep="CommittedValue" />
+                    <validations:MandatoryRule Name="X" />
+                    <validations:IntegerRangeRule Name="X" Min="0" />
+                    <validations:TraceValidationRule PropertyName="X" ValidationStep="RawProposedValue" />
+                    <validations:TraceValidationRule PropertyName="X" ValidationStep="ConvertedProposedValue" />
+                    <validations:TraceValidationRule PropertyName="X" ValidationStep="UpdatedValue" />
+                    <validations:TraceValidationRule PropertyName="X" ValidationStep="CommittedValue" />
                     <ExceptionValidationRule />
                 </Binding.ValidationRules>
             </Binding>
@@ -118,7 +123,7 @@
         <TextBox
             Grid.Row="3"
             Grid.Column="2"
-            Validation.ErrorTemplate="{StaticResource ValidatedTextBoxTemplate}">
+            Validation.ErrorTemplate="{StaticResource PopUpErrorTemplate}">
             <Binding
                 NotifyOnValidationError="True"
                 Path="Y"
@@ -126,8 +131,8 @@
                 UpdateSourceTrigger="PropertyChanged"
                 ValidatesOnExceptions="True">
                 <Binding.ValidationRules>
-                    <validations:MandatoryRule Name="y" />
-                    <validations:IntegerRangeRule Name="y" Min="0" />
+                    <validations:MandatoryRule Name="Y" />
+                    <validations:IntegerRangeRule Name="Y" Min="0" />
                 </Binding.ValidationRules>
             </Binding>
         </TextBox>
@@ -158,14 +163,7 @@
             Grid.Column="1"
             Grid.ColumnSpan="3"
             MinHeight="24"
-            ItemsSource="{Binding ValidationErrors.Errors}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Foreground="Red" Text="{Binding}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+            ItemTemplateSelector="{StaticResource ValidationMessagesTemplateSelector}"
+            ItemsSource="{Binding ValidationMessages.Errors}" />
     </Grid>
 </validationTestGui:ViewBase>

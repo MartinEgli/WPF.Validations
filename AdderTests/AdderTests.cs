@@ -49,28 +49,28 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Tests
             vm.Y = 0.456;
             Assert.IsFalse(vm.CanCalculate(null));
             Assert.IsTrue(vm.HasErrors);
-            Assert.AreEqual(vm.ValidationErrors.CurrentValidationError.ToString(), "X: is mandatory");
+            Assert.AreEqual(vm.ValidationMessages.CurrentValidationError.ToString(), "X: is mandatory");
 
             // One of the fields is null => can't calculate.
             vm.X = 123.0;
             vm.Y = null;
             Assert.IsFalse(vm.CanCalculate(null));
             Assert.IsTrue(vm.HasErrors);
-            Assert.AreEqual(vm.ValidationErrors.CurrentValidationError.ToString(), "Y: is mandatory");
+            Assert.AreEqual(vm.ValidationMessages.CurrentValidationError.ToString(), "Y: is mandatory");
 
             // One of the fields is null => can't calculate.
             vm.X = null;
             vm.Y = null;
             Assert.IsTrue(vm.HasErrors);
             Assert.IsFalse(vm.CanCalculate(null));
-            Assert.AreEqual(vm.ValidationErrors.CurrentValidationError.ToString(), "Y: is mandatory");
+            Assert.AreEqual(vm.ValidationMessages.CurrentValidationError.ToString(), "Y: is mandatory");
 
             // Should be able to calculate when both inputs are valid numbers.
             vm.X = 123.0;
             vm.Y = 0.456;
             Assert.IsFalse(vm.HasErrors);
             Assert.IsTrue(vm.CanCalculate(null));
-            Assert.AreEqual(vm.ValidationErrors.CurrentValidationError, null);
+            Assert.AreEqual(vm.ValidationMessages.CurrentValidationError, null);
 
             Assert.AreEqual(
                 123.456,
@@ -83,21 +83,21 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Tests
             vm.Y = 123.0;
             Assert.IsFalse(vm.CanCalculate(null));
             Assert.IsTrue(vm.HasErrors);
-            Assert.AreEqual(vm.ValidationErrors.CurrentValidationError.ToString(), "X: must be non-negative");
+            Assert.AreEqual(vm.ValidationMessages.CurrentValidationError.ToString(), "X: must be non-negative");
 
             // One of the fields is negative => can't calculate.
             vm.X = 123.0;
             vm.Y = -1.0;
             Assert.IsFalse(vm.CanCalculate(null));
             Assert.IsTrue(vm.HasErrors);
-            Assert.AreEqual(vm.ValidationErrors.CurrentValidationError.ToString(), "Y: must be non-negative");
+            Assert.AreEqual(vm.ValidationMessages.CurrentValidationError.ToString(), "Y: must be non-negative");
 
             // One of the fields is negative => can't calculate.
             vm.X = -1.0;
             vm.Y = -2.0;
             Assert.IsFalse(vm.CanCalculate(null));
             Assert.IsTrue(vm.HasErrors);
-            Assert.AreEqual(vm.ValidationErrors.CurrentValidationError.ToString(), "Y: must be non-negative");
+            Assert.AreEqual(vm.ValidationMessages.CurrentValidationError.ToString(), "Y: must be non-negative");
         }
     }
 }
