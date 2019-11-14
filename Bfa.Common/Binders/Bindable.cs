@@ -56,6 +56,33 @@ namespace Bfa.Common.Binders
         }
 
         /// <summary>
+        /// Called when [property changing].
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="originalValue">The original value.</param>
+        /// <param name="newValue">The new value.</param>
+        /// <param name="cleanValue">The clean value.</param>
+        /// <param name="propertyName">Name of the property.</param>
+        /// <returns></returns>
+        protected bool OnPropertyChanging<T>(
+            [CanBeNull] T originalValue,
+            [CanBeNull] ref T newValue,
+             [CallerMemberName] string propertyName = null)
+        {
+            var propertyChanging = this.PropertyChanging;
+            if (propertyChanging == null)
+            {
+                return true;
+            }
+
+            // ReSharper disable once AssignNullToNotNullAttribute
+            var args = new PropertyChangingCancelEventArgs<T>(propertyName, originalValue, newValue);
+            propertyChanging(this, args);
+            newValue = args.NewValue;
+            return !args.Cancel;
+        }
+
+        /// <summary>
         ///     Called when [property changed].
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -92,7 +119,7 @@ namespace Bfa.Common.Binders
                 return false;
             }
 
-            if (!this.OnPropertyChanging(storage, value, propertyName))
+            if (!this.OnPropertyChanging(storage, ref value, propertyName))
             {
                 return false;
             }
@@ -101,6 +128,153 @@ namespace Bfa.Common.Binders
             storage = value;
             this.OnPropertyChanged(previousValue, value, propertyName);
             return true;
+        }
+
+        /// <summary>
+        ///     Sets the property.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="setter">The setter.</param>
+        /// <param name="getter">The getter.</param>
+        /// <param name="value">The value.</param>
+        /// <param name="propertyName">Name of the property.</param>
+        /// <returns></returns>
+        protected virtual bool SetProperty<T>(
+            [NotNull] Action<T> setter,
+            [NotNull] Func<T> getter,
+            [CanBeNull] T value,
+            [CallerMemberName] string propertyName = null)
+        {
+            if (setter == null)
+            {
+                throw new ArgumentNullException(nameof(setter));
+            }
+
+            if (getter == null)
+            {
+                throw new ArgumentNullException(nameof(getter));
+            }
+
+            var storage = getter();
+            if (Equals(storage, value))
+            {
+                return false;
+            }
+
+            if (!this.OnPropertyChanging(storage, value, propertyName))
+            {
+                return false;
+            }
+
+            var previousValue = storage;
+            setter(value);
+            this.OnPropertyChanged(previousValue, value, propertyName);
+            return true;
+        }
+
+        /// <summary>
+        ///     Sets the property.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="setter">The setter.</param>
+        /// <param name="originalValue">The original value.</param>
+        /// <param name="newValue">The new value.</param>
+        /// <param name="propertyName">Name of the property.</param>
+        /// <returns></returns>
+        protected virtual bool SetProperty<T>(
+            [NotNull] Action<T> setter,
+            [CanBeNull] T originalValue,
+            [CanBeNull] T newValue,
+            [CallerMemberName] string propertyName = null)
+        {
+            if (setter == null)
+            {
+                throw new ArgumentNullException(nameof(setter));
+            }
+
+            if (Equals(originalValue, newValue))
+            {
+                return false;
+            }
+
+            if (!this.OnPropertyChanging(originalValue, newValue, propertyName))
+            {
+                return false;
+            }
+
+            var previousValue = originalValue;
+            setter(newValue);
+            this.OnPropertyChanged(previousValue, newValue, propertyName);
+            return true;
+        }
+
+        /// <summary>
+        ///     Sets the sub property.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="setter">The setter.</param>
+        /// <param name="originalValue">The original value.</param>
+        /// <param name="newValue">The new value.</param>
+        /// <param name="propertyName">Name of the property.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">setter</exception>
+        protected virtual bool SetSubProperty<T>(
+            [NotNull] Action<T> setter,
+            [CanBeNull] T originalValue,
+            [CanBeNull] T newValue,
+            [CallerMemberName] string propertyName = null)
+        {
+            if (setter == null)
+            {
+                throw new ArgumentNullException(nameof(setter));
+            }
+
+            if (Equals(originalValue, newValue))
+            {
+                return false;
+            }
+
+            if (!this.OnPropertyChanging(originalValue, newValue, propertyName))
+            {
+                return false;
+            }
+
+            setter(newValue);
+            return true;
+        }
+
+        /// <summary>
+        ///     Sets the sub property.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="setter">The setter.</param>
+        /// <param name="originalValue">The original value.</param>
+        /// <param name="newValue">The new value.</param>
+        /// <param name="propertyName">Name of the property.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">setter</exception>
+        protected virtual bool SetSubProperty<T>(
+            [NotNull] Func<T, bool> setter,
+            [CanBeNull] T originalValue,
+            [CanBeNull] T newValue,
+            [CallerMemberName] string propertyName = null)
+        {
+            if (setter == null)
+            {
+                throw new ArgumentNullException(nameof(setter));
+            }
+
+            if (Equals(originalValue, newValue))
+            {
+                return false;
+            }
+
+            if (!this.OnPropertyChanging(originalValue, newValue, propertyName))
+            {
+                return false;
+            }
+
+            return setter(newValue);
         }
 
         /// <summary>

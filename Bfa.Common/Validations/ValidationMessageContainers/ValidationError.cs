@@ -6,13 +6,15 @@
 
 namespace Bfa.Common.Validations.ValidationMessageContainers
 {
+    using Bfa.Common.Validations.ValidationMessageContainers.Interfaces;
+
     using JetBrains.Annotations;
 
     /// <summary>
     ///     The ValidationError class
     /// </summary>
     /// <seealso cref="ValidationMessage" />
-    public class ValidationError : ValidationMessage
+    public class ValidationError : ValidationMessage  , IValidationError
     {
         /// <summary>
         ///     Initializes a new instance of the <see cref="ValidationError" /> class.

@@ -47,12 +47,23 @@ namespace Bfa.Common.Validations.Validators
         protected PropertyValidationResult ValidResult { get; }
 
         /// <summary>
-        ///     Validates the specified value.
+        /// Validates the specified value.
         /// </summary>
         /// <param name="value">The value.</param>
         /// <param name="model">The model.</param>
         /// <returns></returns>
         [NotNull]
         public abstract PropertyValidationResult Validate([CanBeNull] object value, [NotNull] object model);
+
+        /// <summary>
+        /// Validates the specified value.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="model">The model.</param>
+        /// <returns></returns>
+        public virtual PropertyValidationResult Validate([CanBeNull] ref object value, [NotNull] object model)
+        {
+            return this.Validate(value, model);
+        }
     }
 }

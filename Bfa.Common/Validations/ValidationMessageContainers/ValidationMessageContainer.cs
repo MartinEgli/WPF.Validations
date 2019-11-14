@@ -168,6 +168,7 @@ namespace Bfa.Common.Validations.ValidationMessageContainers
 
             this.NotifyErrorsChanged(propertyName);
             this.NotifyPropertyChanged(nameof(this.Errors));
+            this.NotifyPropertyChanged(nameof(this.HasErrors));
             this.NotifyPropertyChanged(nameof(this.ErrorCount));
             this.NotifyPropertyChanged(nameof(this.CurrentValidationError));
 
@@ -196,6 +197,7 @@ namespace Bfa.Common.Validations.ValidationMessageContainers
 
             this.NotifyDataErrorInfoChanged(propertyName);
             this.NotifyErrorsChanged(propertyName);
+            this.NotifyPropertyChanged(nameof(this.HasErrors));
             this.NotifyPropertyChanged(nameof(this.ErrorCount));
             this.NotifyPropertyChanged(nameof(this.CurrentValidationError));
 
@@ -274,6 +276,7 @@ namespace Bfa.Common.Validations.ValidationMessageContainers
 
             this.NotifyErrorsChanged(propertyName);
             this.NotifyPropertyChanged(nameof(this.Errors));
+            this.NotifyPropertyChanged(nameof(this.HasErrors));
             this.NotifyPropertyChanged(nameof(this.ErrorCount));
             this.NotifyPropertyChanged(nameof(this.CurrentValidationError));
 
@@ -305,6 +308,7 @@ namespace Bfa.Common.Validations.ValidationMessageContainers
 
             this.NotifyDataErrorInfoChanged(propertyName);
             this.NotifyErrorsChanged(propertyName);
+            this.NotifyPropertyChanged(nameof(this.HasErrors));
             this.NotifyPropertyChanged(nameof(this.ErrorCount));
             this.NotifyPropertyChanged(nameof(this.CurrentValidationError));
 

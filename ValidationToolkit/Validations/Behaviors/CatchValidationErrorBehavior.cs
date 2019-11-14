@@ -181,15 +181,19 @@ namespace Bfa.Common.WPF.Validations.Behaviors
             }
 
             var dataContext = element.DataContext;
-            switch (dataContext)
+            this.errorContainer = this.ValidationErrors;
+            if (this.ValidationErrors == null)
             {
-                case IValidationMessagesAware aware:
-                    this.errorContainer = aware.ValidationMessages;
-                    break;
+                switch (dataContext)
+                {
+                    case IValidationMessagesAware aware:
+                        this.errorContainer = aware.ValidationMessages;
+                        break;
 
-                case ICatchValidationErrorContainer container:
-                    this.errorContainer = container;
-                    break;
+                    case ICatchValidationErrorContainer container:
+                        this.errorContainer = container;
+                        break;
+                }
             }
 
             element.DataContextChanged += this.OnDataContextChanged;

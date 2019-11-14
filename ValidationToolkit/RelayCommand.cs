@@ -1,37 +1,62 @@
-﻿using System;
-using System.Diagnostics;
-using System.Windows.Input;
+﻿// -----------------------------------------------------------------------
+// <copyright file="RelayCommand.cs" company="bfa solutions ltd">
+// Copyright (c) bfa solutions ltd. All rights reserved.
+// </copyright>
+// -----------------------------------------------------------------------
 
 namespace ValidationToolkit
 {
+    using System;
+    using System.Windows.Input;
+
     public class RelayCommand : ICommand
     {
-        readonly Action<object> Execute_;
-        readonly Predicate<object> CanExecute_;
+        private readonly Action<object> action;
 
-        public RelayCommand(Action<object> Execute, Predicate<object> CanExecute)
+        private readonly Predicate<object> condition;
+
+        public RelayCommand(Action<object> execute, Predicate<object> canExecute)
         {
-            if (Execute == null)
-                throw new ArgumentNullException("No action to execute for this command.");
-
-            Execute_ = Execute;
-            CanExecute_ = CanExecute;           
-        }
-
-        public bool CanExecute(object parameter)
-        {
-            return (CanExecute_ == null) ? true : CanExecute_(parameter);
+            this.action = execute ?? throw new ArgumentNullException("No action to execute for this command.");
+            this.condition = canExecute;
         }
 
         public event EventHandler CanExecuteChanged
         {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
         }
 
-        public void Execute(object parameter)
+        public bool CanExecute(object parameter) => this.condition?.Invoke(parameter) ?? true;
+
+        public void Execute(object parameter) => this.action(parameter);
+    }
+
+    public class RelayCommand<T> : ICommand
+    {
+        private readonly Action<T> action;
+
+        private readonly Predicate<T> condition;
+
+        public RelayCommand(Action<T> execute)
         {
-            Execute_(parameter);
+            this.action = execute ?? throw new ArgumentNullException("No action to execute for this command.");
         }
+
+        public RelayCommand(Action<T> execute, Predicate<T> canExecute)
+        {
+            this.action = execute ?? throw new ArgumentNullException("No action to execute for this command.");
+            this.condition = canExecute;
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
+        }
+
+        public bool CanExecute(object parameter) => this.condition?.Invoke((T)parameter) ?? true;
+
+        public void Execute(object parameter) => this.action((T)parameter);
     }
 }

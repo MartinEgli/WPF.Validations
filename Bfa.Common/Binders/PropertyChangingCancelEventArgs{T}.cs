@@ -47,7 +47,7 @@ namespace Bfa.Common.Binders
         ///     The new value.
         /// </value>
         [CanBeNull]
-        public T NewValue { get; }
+        public T NewValue { get; set; }
 
         /// <summary>
         ///     Gets the original value.
@@ -63,6 +63,10 @@ namespace Bfa.Common.Binders
         /// <value>
         ///     The new value.
         /// </value>
-        public override object NewObject => this.NewValue;
+        public override object NewObject
+        {
+            get => this.NewValue;
+            set => this.NewValue = (T)value;
+        }
     }
 }

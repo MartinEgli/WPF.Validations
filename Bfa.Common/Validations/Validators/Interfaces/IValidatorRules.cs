@@ -53,7 +53,23 @@ namespace Bfa.Common.Validations.Validators.Interfaces
         /// <param name="container">The container.</param>
         bool ValidateProperty(
             [NotNull] string propertyName,
-            [CanBeNull] object propertyValue,
+            [CanBeNull] ref object propertyValue,
+            [NotNull] object model,
+            [NotNull] IValidationMessageContainer container);
+
+        /// <summary>
+        ///     Validates the property.
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        /// <param name="groupName">Name of the group.</param>
+        /// <param name="propertyValue">The property value.</param>
+        /// <param name="model">The model.</param>
+        /// <param name="container">The container.</param>
+        /// <returns></returns>
+        bool ValidateProperty(
+            [NotNull] string propertyName,
+            [NotNull] string groupName,
+            [CanBeNull] ref object propertyValue,
             [NotNull] object model,
             [NotNull] IValidationMessageContainer container);
 
@@ -74,7 +90,23 @@ namespace Bfa.Common.Validations.Validators.Interfaces
         /// <returns></returns>
         bool ValidateCancelProperty(
             [NotNull] string propertyName,
-            [CanBeNull] object propertyValue,
+            [CanBeNull] ref object propertyValue,
+            [NotNull] object model,
+            [NotNull] IValidationMessageContainer container);
+
+        /// <summary>
+        ///     Validates the cancel property.
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        /// <param name="groupName">Name of the group.</param>
+        /// <param name="propertyValue">The property value.</param>
+        /// <param name="model">The model.</param>
+        /// <param name="container">The container.</param>
+        /// <returns></returns>
+        bool ValidateCancelProperty(
+            [NotNull] string propertyName,
+            [NotNull] string groupName,
+            [CanBeNull] ref object propertyValue,
             [NotNull] object model,
             [NotNull] IValidationMessageContainer container);
     }

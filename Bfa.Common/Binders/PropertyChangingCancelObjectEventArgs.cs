@@ -52,6 +52,6 @@ namespace Bfa.Common.Binders
         /// <value>
         ///     The new value.
         /// </value>
-        [CanBeNull] public virtual object NewObject { get; }
+        [CanBeNull] public virtual object NewObject { get; set; }
     }
 }

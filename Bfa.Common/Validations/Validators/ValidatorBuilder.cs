@@ -7,6 +7,7 @@
 namespace Bfa.Common.Validations.Validators
 {
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
 
     using JetBrains.Annotations;
@@ -63,6 +64,15 @@ namespace Bfa.Common.Validations.Validators
             }
 
             this.AddRule(propertyName + ":" + groupName, rule, isCancel);
+        }
+
+        /// <summary>
+        ///     Adds the model validate by property.
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        public void AddModelValidateByProperty(string propertyName)
+        {
+            this.rules.RuleMapping.Add(propertyName);
         }
 
         /// <summary>

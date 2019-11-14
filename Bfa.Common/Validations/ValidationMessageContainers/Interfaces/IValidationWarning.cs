@@ -6,10 +6,13 @@
 
 namespace Bfa.Common.Validations.ValidationMessageContainers.Interfaces
 {
+    using Bfa.Common.Validations.Markers;
+
     /// <summary>
     /// Validation Warning Interface
     /// </summary>
-    public interface IValidationWarning
+    public interface IValidationWarning : IValidationMessage , IWarning
+
     {
     }
 }

@@ -6,11 +6,13 @@
 
 namespace Bfa.Common.WPF.Validations.ValidationRules.Interfaces
 {
+    using Bfa.Common.Validations.Markers;
+
     /// <summary>
     ///     Validation Error Interface
     /// </summary>
     /// <seealso cref="IValidationRuleMessage" />
-    public interface IValidationRuleError : IValidationRuleMessage
+    public interface IValidationRuleError : IValidationRuleMessage, IError
     {
     }
 }

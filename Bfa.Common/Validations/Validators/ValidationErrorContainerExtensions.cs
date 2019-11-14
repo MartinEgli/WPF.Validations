@@ -10,6 +10,7 @@ namespace Bfa.Common.Validations.Validators
 
     using Bfa.Common.Validations.ValidationMessageContainers;
     using Bfa.Common.Validations.ValidationMessageContainers.Interfaces;
+    using Bfa.Common.Validations.Validators.Interfaces;
 
     using JetBrains.Annotations;
 
@@ -54,13 +55,41 @@ namespace Bfa.Common.Validations.Validators
                 return true;
             }
 
-            if (result.IsWarning)
+            if (result is IValidationMessage message)
             {
-                container.AddError(new ValidationWarning(result.PropertyName, result.RuleName, result.Message));
+                container.AddError(message);
+            }
+            else if (result is ILocalizationTextKeyAware localizationTextKey)
+            {
+                if (result.IsWarning)
+                {
+                    container.AddError(
+                        new LocValidationWarning(
+                            result.PropertyName,
+                            result.RuleName,
+                            result.Message,
+                            localizationTextKey.TextKey));
+                }
+                else
+                {
+                    container.AddError(
+                        new LocValidationError(
+                            result.PropertyName,
+                            result.RuleName,
+                            result.Message,
+                            localizationTextKey.TextKey));
+                }
             }
             else
             {
-                container.AddError(new ValidationError(result.PropertyName, result.RuleName, result.Message));
+                if (result.IsWarning)
+                {
+                    container.AddError(new ValidationWarning(result.PropertyName, result.RuleName, result.Message));
+                }
+                else
+                {
+                    container.AddError(new ValidationError(result.PropertyName, result.RuleName, result.Message));
+                }
             }
 
             return false;

@@ -7,6 +7,7 @@
 namespace Bfa.Common.Validations.ValidationMessageContainers
 {
     using Bfa.Common.Validations.ValidationMessageContainers.Interfaces;
+    using Bfa.Common.Validations.Validators.Interfaces;
 
     using JetBrains.Annotations;
 
@@ -38,5 +39,35 @@ namespace Bfa.Common.Validations.ValidationMessageContainers
         {
             return this.Message;
         }
+    }
+
+    public class LocValidationWarning : ValidationWarning, ILocalizationTextKeyAware
+    {
+        public LocValidationWarning(
+            [NotNull] string propertyName,
+            [NotNull] string id,
+            [NotNull] string message,
+            string textKey)
+            : base(propertyName, id, message)
+        {
+            this.TextKey = textKey;
+        }
+
+        public string TextKey { get; }
+    }
+
+    public class LocValidationError : ValidationWarning, ILocalizationTextKeyAware
+    {
+        public LocValidationError(
+            [NotNull] string propertyName,
+            [NotNull] string id,
+            [NotNull] string message,
+            string textKey)
+            : base(propertyName, id, message)
+        {
+            this.TextKey = textKey;
+        }
+
+        public string TextKey { get; }
     }
 }

@@ -9,6 +9,7 @@ namespace Bfa.Common.WPF.Validations.ValidationRules
     using System;
     using System.Windows.Controls;
 
+    using Bfa.Common.Binders;
     using Bfa.Common.WPF.Validations.ValidationRules.Interfaces;
 
     using JetBrains.Annotations;
@@ -16,7 +17,7 @@ namespace Bfa.Common.WPF.Validations.ValidationRules
     /// <summary>
     ///     The abstract ValidationMessageBase class.
     /// </summary>
-    public abstract class ValidationRuleMessage : IValidationRuleMessage
+    public abstract class ValidationRuleMessage : Bindable, IValidationRuleMessage
     {
         /// <summary>
         ///     Initializes a new instance of the <see cref="ValidationRuleMessage" /> class.
@@ -37,7 +38,7 @@ namespace Bfa.Common.WPF.Validations.ValidationRules
         public string Message { get; }
 
         /// <summary>
-        /// To the content.
+        ///     To the content.
         /// </summary>
         /// <returns></returns>
         protected virtual object ToContent()

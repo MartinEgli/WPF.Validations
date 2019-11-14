@@ -10,6 +10,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
 
     using Bfa.Common.Binders;
     using Bfa.Common.Validations.Validators;
+    using Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.Models;
+    using Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.ViewModels;
     using Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels;
 
     using ValidationToolkit;
@@ -94,7 +96,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
             var validator = this.ValidatorBuilder.Build(model);
             var viewModel = new AdderViewModel(model, validator);
 
-            // Setup command processing.
+            // Setup Command processing.
             viewModel.CalculateCommand = new RelayCommand(
                 z =>
                     {
@@ -119,7 +121,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
             var validator = this.ValidatorBuilder.Build(model);
             var viewModel = new AdderViewModelIDataErrorInfo(model, validator);
 
-            // Setup command processing.
+            // Setup Command processing.
             viewModel.CalculateCommand = new RelayCommand(
                 z =>
                     {
@@ -156,7 +158,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
 
             var viewModel = new AdderViewModelINotifyDataErrorInfo(model, validator);
 
-            // Setup command processing.
+            // Setup Command processing.
             viewModel.CalculateCommand = new RelayCommand(
                 z =>
                     {

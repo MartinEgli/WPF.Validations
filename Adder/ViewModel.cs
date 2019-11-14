@@ -7,7 +7,6 @@
 namespace Bfa.Common.WPF.Validations.ValidationTestGui
 {
     using Bfa.Common.Binders;
-    using Bfa.Common.Validations;
     using Bfa.Common.Validations.ValidationMessageContainers.Interfaces;
 
     /// <summary>

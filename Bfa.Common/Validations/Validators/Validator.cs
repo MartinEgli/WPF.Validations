@@ -97,11 +97,14 @@ namespace Bfa.Common.Validations.Validators
                 return;
             }
 
+            var value = args.NewObject;
             args.Cancel = !this.Rules.ValidateCancelProperty(
                               e.PropertyName,
-                              args.NewObject,
+                              ref value,
                               this.model,
                               this.ValidationMessages);
+
+            args.NewObject  = value;
         }
 
         /// <summary>
@@ -115,8 +118,14 @@ namespace Bfa.Common.Validations.Validators
             {
                 return;
             }
+            var value = args.CurrentObject;
 
-            this.Rules.ValidateProperty(e.PropertyName, args.CurrentObject, this.model, this.ValidationMessages);
+            this.Rules.ValidateProperty(e.PropertyName,ref value, this.model, this.ValidationMessages);
+
+            if (this.Rules.RuleMapping.Contains(e.PropertyName))
+            {
+                this.Validate();
+            }
         }
 
         /// <summary>
@@ -149,8 +158,59 @@ namespace Bfa.Common.Validations.Validators
             }
 
             var value = propertyInfo.GetValue(this, null);
-            var isValid = this.Rules.ValidateCancelProperty(propertyName, value, this.model, this.ValidationMessages);
-            isValid &= this.Rules.ValidateProperty(propertyName, value, this.model, this.ValidationMessages);
+            var isValid = this.Rules.ValidateCancelProperty(propertyName,ref value, this.model, this.ValidationMessages);
+            isValid &= this.Rules.ValidateProperty(propertyName,ref value, this.model, this.ValidationMessages);
+            if (this.Rules.RuleMapping.Contains(propertyName))
+            {
+                this.Validate();
+            }
+
+            return isValid;
+        }
+
+        /// <summary>
+        ///     Validates the property.
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        /// <param name="groupName">Name of the group.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">
+        ///     propertyName
+        ///     or
+        ///     groupName
+        /// </exception>
+        public bool ValidateProperty([NotNull] string propertyName, [NotNull] string groupName)
+        {
+            if (propertyName == null)
+            {
+                throw new ArgumentNullException(nameof(propertyName));
+            }
+
+            if (groupName == null)
+            {
+                throw new ArgumentNullException(nameof(groupName));
+            }
+
+            var type = this.model.GetType();
+            var propertyInfo = type.GetProperty(propertyName);
+            if (null == propertyInfo)
+            {
+                return false;
+            }
+
+            var value = propertyInfo.GetValue(this.model, null);
+            var isValid = this.Rules.ValidateCancelProperty(
+                propertyName,
+                groupName,
+               ref value,
+                this.model,
+                this.ValidationMessages);
+            isValid &= this.Rules.ValidateProperty(propertyName, groupName, ref value, this.model, this.ValidationMessages);
+            if (this.Rules.RuleMapping.Contains(propertyName + ":" + groupName))
+            {
+                this.Validate();
+            }
+
             return isValid;
         }
     }

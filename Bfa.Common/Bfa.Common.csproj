@@ -51,8 +51,28 @@
     <Compile Include="Binders\PropertyChangingCancelEventArgs{T}.cs" />
     <Compile Include="Binders\PropertyChangingCancelObjectEventArgs.cs" />
     <Compile Include="Binders\PropertySupport.cs" />
+    <Compile Include="FormatWith\Exceptions\FormatWithException.cs" />
+    <Compile Include="FormatWith\Exceptions\NoFallbackException.cs" />
+    <Compile Include="FormatWith\Internal\FormatHelpers.cs" />
+    <Compile Include="FormatWith\Internal\FormatToken.cs" />
+    <Compile Include="FormatWith\Internal\FormatWithFunctions.cs" />
+    <Compile Include="FormatWith\Internal\StringBuilderExtensions.cs" />
+    <Compile Include="FormatWith\Internal\TokenType.cs" />
+    <Compile Include="FormatWith\MissingKeyBehavior.cs" />
+    <Compile Include="FormatWith\ReplacementResult.cs" />
+    <Compile Include="FormatWith\StringFormatWithExtensions.cs" />
+    <Compile Include="Numerics\NumericExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Collections\Comparer.cs" />
+    <Compile Include="Resources\ExceptionStrings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExceptionStrings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Strings\SecureStringExtensions.cs" />
+    <Compile Include="Strings\StringExtensions.cs" />
+    <Compile Include="Validations\Markers\IValidationWarning.cs" />
+    <Compile Include="Validations\ValidationMessageContainers\Interfaces\IValidationError.cs" />
     <Compile Include="Validations\ValidationMessageContainers\MessageChangedEventArgs.cs" />
     <Compile Include="Validations\ValidationMessageContainers\Internals\ICatchValidationErrorContainer.cs" />
     <Compile Include="Collections\IndexTransform.cs" />
@@ -67,6 +87,7 @@
     <Compile Include="Collections\SortedObservableCollection.cs" />
     <Compile Include="Collections\SortedObservableCollectionBase.cs" />
     <Compile Include="Collections\SortedObservableKeyedCollection.cs" />
+    <Compile Include="Validations\Validators\Interfaces\ILocalizationTextKeyAware.cs" />
     <Compile Include="Validations\Validators\Interfaces\IValidatorRules.cs" />
     <Compile Include="Validations\Validators\ModelValidationResult.cs" />
     <Compile Include="Validations\Validators\ModelValidationRule.cs" />
@@ -89,9 +110,18 @@
     <Compile Include="Validations\Validators\ValidatorBuilder.cs" />
     <Compile Include="Validations\Validators\ValidatorRules.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="Localizations\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ExceptionStrings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExceptionStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

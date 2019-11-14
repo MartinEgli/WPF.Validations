@@ -4,47 +4,41 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:validationTestGui="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui"
-    xmlns:views="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.Views"
-    Title="Validation Demo"
-    d:DataContext="{d:DesignInstance validationTestGui:MainViewModel}"
-    Background="Beige"
-    ResizeMode="CanResize"
+    Title="MainWindow"
+    Width="800"
+    MinHeight="450"
     mc:Ignorable="d">
+    <StackPanel>
+        <Button Click="OneValueValidationByCommandsClick">One value validation by Commands</Button>
+        <Button Click="OneValueSortedValidationByCommandsClick">One value sorted validation by Commands</Button>
+        <Button Click="OneValueSortedLocalizedValidationByCommandsClick">One value sorted validation with localization by Commands</Button>
+        <Button Click="OneValueSortedLocalizedValidationFallbackByCommandsClick">One value sorted validation with localization  fallback by Commands</Button>
+        <Button Click="OneValueSortedLocalizedValidationPlaceholderFallbackByCommandsErrorTemplateClick">One value sorted validation with localization placeholder fallback by Commands view error template</Button>
+        <Button Click="OneValueSortedLocalizedValidationPlaceholderFallbackByCommandsBindingElementNameClick">One value sorted validation with localization placeholder fallback by Commands element name</Button>
+        <Button Click="OneValueSortedLocalizedValidationPlaceholderFallbackByCommandsClick">One value sorted validation with localization  placeholder  fallback by Commands</Button>
 
-    <Grid ShowGridLines="True">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
-        <views:CalculatorViewUsingValidationRule
-            Grid.Row="0"
-            Grid.Column="0"
-            DataContext="{Binding AdderViewModel1}" />
-        <views:CalculatorViewUsingIDataErrorInfo
-            Grid.Row="0"
-            Grid.Column="1"
-            DataContext="{Binding AdderViewModelIDataErrorInfo1}" />
-        <views:CalculatorViewUsingINotifyDataErrorInfo
-            Grid.Row="0"
-            Grid.Column="2"
-            DataContext="{Binding AdderViewModelINotifyDataErrorInfo1}" />
-        <views:CalculatorViewUsingValidationRuleWithErrorTemplate
-            Grid.Row="1"
-            Grid.Column="0"
-            DataContext="{Binding AdderViewModel2}" />
-        <views:CalculatorViewUsingIDataErrorInfo
-            Grid.Row="1"
-            Grid.Column="1"
-            DataContext="{Binding AdderViewModelIDataErrorInfo2}" />
-        <views:CalculatorViewUsingINotifyDataErrorInfoWithErrorTemplate
-            Grid.Row="1"
-            Grid.Column="2"
-            DataContext="{Binding AdderViewModelINotifyDataErrorInfo2}" />
-    </Grid>
+        <Button Click="OneValueValidationByCommandsValidatorClick">One value validation by commands validator</Button>
+        <Button Click="OneValueValidationByCommandsValidatorCancelClick">One value validation by commands validator cancel</Button>
+        <Button Click="OneValueValidationByCommandsValidatorToUpperClick">One value validation by commands validator to upper</Button>
+        <Button Click="OneValueSortedValidationByCommandsValidatorClick">One value sorted validation by Commands  validator</Button>
+        <Button Click="OneValueSortedLocalizedValidationPlaceholderFallbackByCommandsValidatorErrorTemplateClick">One value sorted validation with localization placeholder fallback by Commands view error template</Button>
+        <Button Click="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorClick">One value sorted validation with localization  placeholder  fallback by Commands  validator</Button>
+
+        <Button Click="OneValueTwoStepValidationByCommandsClick">One value two step validation by Commands</Button>
+
+        <Button Click="OneValueValidationByValidationRulesClick">One value validation by validation rules</Button>
+        <Button Click="OneValueSortedValidationByValidationRulesClick">One value sorted validation by validation rules</Button>
+        <Button Click="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRulesWindowClick">One value sorted validation with localization  placeholder  fallback by validation rules</Button>
+
+        <Button Click="OneValueValidationByExceptionsClick">One value validation by exceptions</Button>
+        <Button Click="OneValueSortedValidationByExceptionsClick">One value sorted validation by exceptions</Button>
+        <Button Click="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsClick">One value sorted validation with localization  placeholder  fallback by exceptions</Button>
+
+        <Button Click="TwoValueValidationByCommandsClick">Two value validation by Commands</Button>
+        <Button Click="TwoValueSortedValidationByCommandsClick">Two value sorted validation by Commands</Button>
+        <Button Click="TwoValueSortedValidationByCommandsValidatorClick">Two value sorted validation by commands validator</Button>
+        <Button Click="TwoValueSortedValidationByCommandsValidatorAdornerClick">Two value sorted validation by commands validator adorner</Button>
+
+        <Button Click="ConceptsClick">Concepts</Button>
+    </StackPanel>
 </Window>

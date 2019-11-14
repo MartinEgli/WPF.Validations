@@ -8,6 +8,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Tests
 {
     using System;
 
+    using Bfa.Common.Validations.Validators;
     using Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels;
 
     using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -35,8 +36,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Tests
             AdderViewModelINotifyDataErrorInfo vm = null;
             try
             {
-                vm = (AdderViewModelINotifyDataErrorInfo)Controller.CreateViewModel(
-                    typeof(AdderViewModelINotifyDataErrorInfo));
+                //              vm = new AdderViewModelINotifyDataErrorInfo(new AdderModel());
             }
             catch (Exception)
             {
