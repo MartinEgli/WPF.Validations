@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ValidationByCommandsView.xaml.cs" company="bfa solutions ltd">
+// <copyright file="TwoValueSortedValidationByCommandsView.xaml.cs" company="bfa solutions ltd">
 // Copyright (c) bfa solutions ltd. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -7,8 +7,6 @@
 namespace Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommands.Views
 {
     using System.Windows.Controls;
-
-    using Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidator.Views;
 
     /// <summary>
     ///     Interaction logic for ValidationByCommandsView.xaml
@@ -18,11 +16,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationB
     public partial class TwoValueSortedValidationByCommandsView : UserControl
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="TwoValueSortedValidationByCommandsValidator.Views.TwoValueSortedValidationByCommandsView" /> class.
+        ///     Initializes a new instance of the <see cref="TwoValueSortedValidationByCommandsView" /> class.
         /// </summary>
-        public TwoValueSortedValidationByCommandsView()
-        {
-            this.InitializeComponent();
-        }
+        public TwoValueSortedValidationByCommandsView() => this.InitializeComponent();
     }
 }

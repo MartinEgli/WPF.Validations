@@ -37,12 +37,12 @@ namespace Bfa.Common.Validations.Validators
             new Dictionary<string, ModelValidationRuleCollection>();
 
         /// <summary>
-        /// Gets the rule mapping.
+        ///     Gets the rule mapping.
         /// </summary>
         /// <value>
-        /// The rule mapping.
+        ///     The rule mapping.
         /// </value>
-        public List<String> RuleMapping { get; } = new List<string>();
+        public List<string> RuleMapping { get; } = new List<string>();
 
         /// <summary>
         ///     Gets the rules.
@@ -52,6 +52,8 @@ namespace Bfa.Common.Validations.Validators
         /// </propertyValue>
         public Dictionary<string, PropertyValidationRuleCollection> PropertyRules { get; } =
             new Dictionary<string, PropertyValidationRuleCollection>();
+
+        public Watchers Watchers { get; } = new Watchers();
 
         /// <summary>
         ///     Validates the propertyName.
@@ -105,7 +107,7 @@ namespace Bfa.Common.Validations.Validators
         }
 
         /// <summary>
-        /// Validates the cancel property.
+        ///     Validates the cancel property.
         /// </summary>
         /// <param name="propertyName">Name of the property.</param>
         /// <param name="groupName">Name of the group.</param>
@@ -114,14 +116,14 @@ namespace Bfa.Common.Validations.Validators
         /// <param name="container">The container.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">
-        /// propertyName
-        /// or
-        /// groupName
+        ///     propertyName
+        ///     or
+        ///     groupName
         /// </exception>
         public bool ValidateCancelProperty(
             string propertyName,
             string groupName,
-           ref object propertyValue,
+            ref object propertyValue,
             object model,
             IValidationMessageContainer container)
         {
@@ -170,14 +172,22 @@ namespace Bfa.Common.Validations.Validators
             foreach (var validationRule in modelValidationRuleCollection)
             {
                 var result = validationRule.Validate(model);
-                isValid &= container.UpdateError(result);
+                var target = validationRule.Target;
+                if (target == null)
+                {
+                    isValid &= container.UpdateError(result);
+                }
+                else
+                {
+                    isValid &= container.UpdateError(result, target);
+                }
             }
 
             return isValid;
         }
 
         /// <summary>
-        /// Validates the property.
+        ///     Validates the property.
         /// </summary>
         /// <param name="propertyName">Name of the property.</param>
         /// <param name="groupName">Name of the group.</param>
@@ -186,9 +196,9 @@ namespace Bfa.Common.Validations.Validators
         /// <param name="container">The container.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException">
-        /// propertyName
-        /// or
-        /// groupName
+        ///     propertyName
+        ///     or
+        ///     groupName
         /// </exception>
         public bool ValidateProperty(
             string propertyName,

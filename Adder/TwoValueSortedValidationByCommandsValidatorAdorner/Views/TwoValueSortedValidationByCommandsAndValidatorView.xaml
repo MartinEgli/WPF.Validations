@@ -6,9 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:validationTestGui="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui"
-    xmlns:viewModels="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueValidationByCommands.ViewModels"
-    xmlns:viewModels1="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidatorAdorner.ViewModels"
-    d:DataContext="{d:DesignInstance viewModels1:TwoValueSortedValidationByCommandsValidatorAdornerViewModel}"
+    xmlns:viewModels="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidatorAdorner.ViewModels"
+    d:DataContext="{d:DesignInstance viewModels:TwoValueSortedValidationByCommandsValidatorAdornerViewModel}"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">

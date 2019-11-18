@@ -1,10 +1,10 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValueLocalisedSortedValidationByCommandsView.xaml.cs" company="bfa solutions ltd">
+// <copyright file="OneValueSortedAndLocalizedValidationByCommandsView.xaml.cs" company="bfa solutions ltd">
 // Copyright (c) bfa solutions ltd. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalisedValidationByCommands.Views
+namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedValidationByCommands.Views
 {
     using System.Windows.Controls;
 
@@ -18,7 +18,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalisedVa
         /// <summary>
         ///     Initializes a new instance of the
         ///     <see
-        ///         cref="OneValueSortedLocalizedFallbackValidationByCommands.Views.OneValueSortedLocalisedValidationByCommandsView" />
+        ///         cref="OneValueSortedLocalizedValidationByCommandsView" />
         ///     class.
         /// </summary>
         public OneValueSortedLocalizedValidationByCommandsView()

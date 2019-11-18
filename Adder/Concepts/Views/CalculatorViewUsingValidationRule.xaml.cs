@@ -7,9 +7,10 @@
 namespace Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.Views
 {
     /// <summary>
-    ///     CalculatorViewUsingValidationRule class.
+    ///     The calculator view using validation rule
     /// </summary>
-    /// <seealso cref="Bfa.Common.WPF.Validations.ValidationTestGui.ViewBase" />
+    /// <seealso cref="System.Windows.Controls.UserControl" />
+    /// <seealso cref="System.Windows.Markup.IComponentConnector" />
     public partial class CalculatorViewUsingValidationRule
     {
         /// <summary>

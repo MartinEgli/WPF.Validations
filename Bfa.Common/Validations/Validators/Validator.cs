@@ -22,7 +22,7 @@ namespace Bfa.Common.Validations.Validators
     /// </summary>
     /// <typeparam name="TModel">The type of the model.</typeparam>
     /// <seealso cref="IValidationMessagesAware" />
-    public class Validator<TModel> : IValidationMessagesAware
+    public class Validator<TModel> : Validator
         where TModel : INotifyPropertyChanging, INotifyPropertyChanged
     {
         /// <summary>
@@ -55,6 +55,7 @@ namespace Bfa.Common.Validations.Validators
             [NotNull] TModel model,
             [NotNull] ValidatorRules rules,
             [NotNull] IValidationMessageContainer validationMessages)
+            : base(validationMessages)
         {
             if (model == null)
             {
@@ -63,7 +64,7 @@ namespace Bfa.Common.Validations.Validators
 
             this.model = model;
             this.Rules = rules ?? throw new ArgumentNullException(nameof(rules));
-            this.ValidationMessages = validationMessages ?? throw new ArgumentNullException(nameof(validationMessages));
+            rules.Watchers.RegisterValidator(this);
 
             model.PropertyChanging += this.OnPropertyChanging;
             model.PropertyChanged += this.OnPropertyChanged;
@@ -76,14 +77,6 @@ namespace Bfa.Common.Validations.Validators
         ///     The rules.
         /// </value>
         internal ValidatorRules Rules { get; }
-
-        /// <summary>
-        ///     Gets the validation errors.
-        /// </summary>
-        /// <value>
-        ///     The validation errors.
-        /// </value>
-        public IValidationMessageContainer ValidationMessages { get; }
 
         /// <summary>
         ///     Called when [property changing].
@@ -104,7 +97,7 @@ namespace Bfa.Common.Validations.Validators
                               this.model,
                               this.ValidationMessages);
 
-            args.NewObject  = value;
+            args.NewObject = value;
         }
 
         /// <summary>
@@ -118,9 +111,10 @@ namespace Bfa.Common.Validations.Validators
             {
                 return;
             }
+
             var value = args.CurrentObject;
 
-            this.Rules.ValidateProperty(e.PropertyName,ref value, this.model, this.ValidationMessages);
+            this.Rules.ValidateProperty(e.PropertyName, ref value, this.model, this.ValidationMessages);
 
             if (this.Rules.RuleMapping.Contains(e.PropertyName))
             {
@@ -132,7 +126,7 @@ namespace Bfa.Common.Validations.Validators
         ///     Validates this instance.
         /// </summary>
         /// <returns></returns>
-        public bool Validate()
+        public override bool Validate()
         {
             return this.Rules.ValidateModel(this.model, this.ValidationMessages);
         }
@@ -158,8 +152,12 @@ namespace Bfa.Common.Validations.Validators
             }
 
             var value = propertyInfo.GetValue(this, null);
-            var isValid = this.Rules.ValidateCancelProperty(propertyName,ref value, this.model, this.ValidationMessages);
-            isValid &= this.Rules.ValidateProperty(propertyName,ref value, this.model, this.ValidationMessages);
+            var isValid = this.Rules.ValidateCancelProperty(
+                propertyName,
+                ref value,
+                this.model,
+                this.ValidationMessages);
+            isValid &= this.Rules.ValidateProperty(propertyName, ref value, this.model, this.ValidationMessages);
             if (this.Rules.RuleMapping.Contains(propertyName))
             {
                 this.Validate();
@@ -202,10 +200,15 @@ namespace Bfa.Common.Validations.Validators
             var isValid = this.Rules.ValidateCancelProperty(
                 propertyName,
                 groupName,
-               ref value,
+                ref value,
                 this.model,
                 this.ValidationMessages);
-            isValid &= this.Rules.ValidateProperty(propertyName, groupName, ref value, this.model, this.ValidationMessages);
+            isValid &= this.Rules.ValidateProperty(
+                propertyName,
+                groupName,
+                ref value,
+                this.model,
+                this.ValidationMessages);
             if (this.Rules.RuleMapping.Contains(propertyName + ":" + groupName))
             {
                 this.Validate();
@@ -213,5 +216,36 @@ namespace Bfa.Common.Validations.Validators
 
             return isValid;
         }
+    }
+
+    /// <summary>
+    ///     The validator
+    /// </summary>
+    /// <seealso cref="Bfa.Common.Validations.Validators.Validator" />
+    public abstract class Validator : IValidationMessagesAware
+    {
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Validator" /> class.
+        /// </summary>
+        /// <param name="validationMessages">The validation messages.</param>
+        /// <exception cref="ArgumentNullException">validationMessages</exception>
+        protected Validator(IValidationMessageContainer validationMessages)
+        {
+            this.ValidationMessages = validationMessages ?? throw new ArgumentNullException(nameof(validationMessages));
+        }
+
+        /// <summary>
+        ///     Gets the validation errors.
+        /// </summary>
+        /// <value>
+        ///     The validation errors.
+        /// </value>
+        public IValidationMessageContainer ValidationMessages { get; }
+
+        /// <summary>
+        ///     Validates this instance.
+        /// </summary>
+        /// <returns></returns>
+        public abstract bool Validate();
     }
 }

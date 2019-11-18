@@ -8,7 +8,6 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationB
 {
     using System.Windows;
 
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalisedValidationByCommands;
     using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationByCommands.ViewModels;
 
     /// <summary>
@@ -18,7 +17,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationB
     {
         /// <summary>
         ///     Initializes a new instance of the
-        ///     <see cref="OneValueSortedLocalisedValidationByCommands.OneValueSortedValidationByCommandsWindow" /> class.
+        ///     <see cref="OneValueSortedValidationByCommandsWindow" /> class.
         /// </summary>
         public OneValueSortedValidationByCommandsWindow()
         {

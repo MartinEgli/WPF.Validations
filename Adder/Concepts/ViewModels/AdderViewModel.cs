@@ -19,6 +19,9 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.ViewModels
     /// <seealso cref="ViewModel" />
     public class AdderViewModel : ViewModel
     {
+        /// <summary>
+        ///     The identifier
+        /// </summary>
         private static int id;
 
         /// <summary>
@@ -30,11 +33,6 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.ViewModels
         ///     The validator
         /// </summary>
         private readonly Validator<AdderModel> validator;
-
-        /// <summary>
-        ///     The calculate Command
-        /// </summary>
-        private ICommand calculateCommand; // This will be setup to point to a RelayCommand object.
 
         /// <summary>
         ///     The sum
@@ -117,11 +115,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.ViewModels
         /// <value>
         ///     The calculate Command.
         /// </value>
-        public ICommand CalculateCommand
-        {
-            get => this.calculateCommand;
-            set => this.calculateCommand = value;
-        }
+        public ICommand CalculateCommand { get; set; }
 
         /// <summary>
         ///     Gets the validation errors.
@@ -138,10 +132,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.ViewModels
         /// <returns>
         ///     <c>true</c> if this instance can calculate the specified z; otherwise, <c>false</c>.
         /// </returns>
-        public bool CanCalculate(object z)
-        {
-            return this.X.HasValue && this.Y.HasValue && this.ValidationMessages.ErrorCount == 0;
-        }
+        public bool CanCalculate(object z) =>
+            this.X.HasValue && this.Y.HasValue && this.ValidationMessages.ErrorCount == 0;
 
         /// <summary>
         ///     Validates the property.

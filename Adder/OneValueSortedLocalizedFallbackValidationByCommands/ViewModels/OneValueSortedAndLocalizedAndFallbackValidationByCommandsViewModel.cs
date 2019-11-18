@@ -6,16 +6,14 @@
 
 namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedFallbackValidationByCommands.ViewModels
 {
-    using System;
-    using System.Collections;
-    using System.ComponentModel;
-    using System.Windows.Input;
-
     using Bfa.Common.Validations.ValidationMessageContainers;
     using Bfa.Common.Validations.Validators;
     using Bfa.Common.WPF.Localizations;
     using Bfa.Common.WPF.Validations.ValidationMessageContainers;
-
+    using System;
+    using System.Collections;
+    using System.ComponentModel;
+    using System.Windows.Input;
     using ValidationToolkit;
 
     /// <summary>
@@ -108,10 +106,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedFa
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e)
-        {
-            this.OnErrorsChanged(e);
-        }
+        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e) => this.OnErrorsChanged(e);
 
         /// <summary>
         ///     Called when [warning1 Command].
@@ -155,12 +150,21 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedFa
             }
         }
 
+        /// <summary>
+        /// Gets or sets the text key1.
+        /// </summary>
+        /// <value>
+        /// The text key1.
+        /// </value>
         public string TextKey1
         {
             get => this.textKey1;
             set => this.SetProperty(ref this.textKey1, value);
         }
 
+        /// <summary>
+        /// The text key1
+        /// </summary>
         private string textKey1;
 
         /// <summary>
@@ -194,26 +198,17 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedFa
         /// <returns>
         ///     The validation errors for the property or entity.
         /// </returns>
-        public IEnumerable GetErrors(string propertyName)
-        {
-            return this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
-        }
+        public IEnumerable GetErrors(string propertyName) => this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
 
         /// <summary>
         ///     Raises the <see cref="E:ErrorsChanged" /> event.
         /// </summary>
         /// <param name="e">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        protected virtual void OnErrorsChanged(DataErrorsChangedEventArgs e)
-        {
-            this.ErrorsChanged?.Invoke(this, e);
-        }
+        protected virtual void OnErrorsChanged(DataErrorsChangedEventArgs e) => this.ErrorsChanged?.Invoke(this, e);
 
         /// <summary>
         ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        public void Dispose()
-        {
-            this.Validator.ValidationMessages.ErrorsChanged -= this.ValidationMessagesOnErrorsChanged;
-        }
+        public void Dispose() => this.Validator.ValidationMessages.ErrorsChanged -= this.ValidationMessagesOnErrorsChanged;
     }
 }

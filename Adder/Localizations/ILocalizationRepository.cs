@@ -6,7 +6,6 @@
 
 namespace Bfa.Pi.Infrastructure.Common.LocalizationProviders
 {
-    using System;
     using System.Collections.ObjectModel;
     using System.Globalization;
 

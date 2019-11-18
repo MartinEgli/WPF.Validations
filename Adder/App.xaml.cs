@@ -6,14 +6,12 @@
 
 namespace Bfa.Common.WPF.Validations.ValidationTestGui
 {
-    using System.Windows;
-
     using Bfa.Common.Binders;
     using Bfa.Common.Validations.Validators;
     using Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.Models;
     using Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.ViewModels;
     using Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels;
-
+    using System.Windows;
     using ValidationToolkit;
 
     public partial class App : Application
@@ -147,7 +145,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
             validatorBuilder.AddRule(nameof(AdderModel.X), new MandatoryRule(nameof(AdderModel.X)));
             validatorBuilder.AddRule(
                 nameof(AdderModel.X),
-                new MaxRangeRule("MaxRange", nameof(AdderModel.X)) { Max = 50 });
+                new MinMaxRangeRule("MaxRange", nameof(AdderModel.X)) { Max = 50 });
             return validatorBuilder;
         }
 

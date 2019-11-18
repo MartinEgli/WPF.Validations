@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValueSortedAndLocalisedAndPlaceholderAndFallbackValidationByCommandsWindow.xaml.cs" company="bfa solutions ltd">
+// <copyright file="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsErrorTemplateWindow.xaml.cs" company="bfa solutions ltd">
 // Copyright (c) bfa solutions ltd. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -11,7 +11,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
     using System.Windows;
 
     using Bfa.Common.WPF.Validations.ValidationTestGui.Localizations;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedFallbackValidationByCommands.ViewModels;
+    using Bfa.Common.WPF.Validations.ValidationTestGui.
+        OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsErrorTemplate.ViewModels;
     using Bfa.Pi.Infrastructure.Common.LocalizationProviders;
 
     using WPFLocalizeExtension.Engine;
@@ -68,7 +69,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
                 "Warning 1 Message: {Message}");
             LocalizationRepositoryProvider.Instance.Repository = locRepo;
             LocalizeDictionary.Instance.DefaultProvider = LocalizationRepositoryProvider.Instance;
-            this.DataContext = new OneValueSortedLocalizedFallbackValidationByCommandsViewModel();
+            this.DataContext = new OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsViewModel();
         }
     }
 }

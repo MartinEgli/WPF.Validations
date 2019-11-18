@@ -9,7 +9,6 @@ namespace Bfa.Common.WPF.Validations.ValidationRules
     using System;
     using System.Windows.Controls;
 
-    using Bfa.Common.Binders;
     using Bfa.Common.WPF.Validations.ValidationRules.Interfaces;
 
     using JetBrains.Annotations;
@@ -17,7 +16,7 @@ namespace Bfa.Common.WPF.Validations.ValidationRules
     /// <summary>
     ///     The abstract ValidationMessageBase class.
     /// </summary>
-    public abstract class ValidationRuleMessage : Bindable, IValidationRuleMessage
+    public abstract class ValidationRuleMessage : IValidationRuleMessage
     {
         /// <summary>
         ///     Initializes a new instance of the <see cref="ValidationRuleMessage" /> class.
@@ -34,26 +33,20 @@ namespace Bfa.Common.WPF.Validations.ValidationRules
         /// <value>
         ///     The message.
         /// </value>
-        [NotNull]
         public string Message { get; }
 
         /// <summary>
         ///     To the content.
         /// </summary>
         /// <returns></returns>
-        protected virtual object ToContent()
-        {
-            return this;
-        }
+        [NotNull]
+        protected virtual object ToContent() => this;
 
         /// <summary>
         ///     To the validation result.
         /// </summary>
         /// <returns></returns>
-        public virtual ValidationResult ToValidationResult()
-        {
-            return new ValidationResult(false, this.ToContent());
-        }
+        public virtual ValidationResult ToValidationResult() => new ValidationResult(false, this.ToContent());
 
         /// <summary>
         ///     Returns a <see cref="System.String" /> that represents this instance.
@@ -61,11 +54,7 @@ namespace Bfa.Common.WPF.Validations.ValidationRules
         /// <returns>
         ///     A <see cref="System.String" /> that represents this instance.
         /// </returns>
-        [NotNull]
-        public override string ToString()
-        {
-            return this.Message;
-        }
+        public override string ToString() => this.Message;
 
         /// <summary>
         ///     Determines whether the specified <see cref="System.Object" />, is equal to this instance.
@@ -85,7 +74,7 @@ namespace Bfa.Common.WPF.Validations.ValidationRules
         }
 
         /// <summary>
-        ///     Equalses the specified other.
+        ///     Equals the specified other.
         /// </summary>
         /// <param name="other">The other.</param>
         /// <returns></returns>
@@ -105,9 +94,6 @@ namespace Bfa.Common.WPF.Validations.ValidationRules
         /// <returns>
         ///     A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
         /// </returns>
-        public override int GetHashCode()
-        {
-            return this.Message.GetHashCode();
-        }
+        public override int GetHashCode() => this.Message.GetHashCode();
     }
 }

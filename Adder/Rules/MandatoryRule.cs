@@ -17,7 +17,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
         /// </summary>
         /// <param name="propertyName">Name of the property.</param>
         public MandatoryRule(string propertyName)
-            : base("Matory", propertyName)
+            : base("Mandatory", propertyName)
         {
         }
 
@@ -28,30 +28,27 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
         /// <returns></returns>
         public override PropertyValidationResult Validate(object value)
         {
-            if (value == null)
+            switch (value)
             {
-                return new PropertyValidationResult(
-                    false,
-                    this.RuleName,
-                    this.PropertyName,
-                    this.PropertyName + " is matory (Not null).",
-                    true);
-            }
-
-            if (value is string s)
-            {
-                if (string.IsNullOrEmpty(s))
-                {
+                case null:
                     return new PropertyValidationResult(
                         false,
                         this.RuleName,
                         this.PropertyName,
-                        this.PropertyName + " is matory (Not empty string).",
+                        this.PropertyName + " is Mandatory (Not null).",
                         true);
-                }
-            }
 
-            return this.ValidResult;
+                case string s when string.IsNullOrEmpty(s):
+                    return new PropertyValidationResult(
+                        false,
+                        this.RuleName,
+                        this.PropertyName,
+                        this.PropertyName + " is Mandatory (Not empty string).",
+                        true);
+
+                default:
+                    return this.ValidResult;
+            }
         }
     }
 }

@@ -18,9 +18,6 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByComma
         /// <summary>
         /// Initializes a new instance of the
         /// </summary>
-        public OneValueValidationByCommandsValidatorView()
-        {
-            this.InitializeComponent();
-        }
+        public OneValueValidationByCommandsValidatorView() => this.InitializeComponent();
     }
 }

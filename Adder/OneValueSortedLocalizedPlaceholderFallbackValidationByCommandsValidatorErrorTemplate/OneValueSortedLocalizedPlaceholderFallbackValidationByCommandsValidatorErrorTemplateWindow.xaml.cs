@@ -12,7 +12,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
 
     using Bfa.Common.WPF.Validations.ValidationTestGui.Localizations;
     using Bfa.Common.WPF.Validations.ValidationTestGui.
-        OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidator.ViewModels;
+        OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplate.ViewModels;
     using Bfa.Pi.Infrastructure.Common.LocalizationProviders;
 
     using WPFLocalizeExtension.Engine;
@@ -49,7 +49,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
             LocalizationRepositoryProvider.Instance.Repository = locRepo;
             LocalizeDictionary.Instance.DefaultProvider = LocalizationRepositoryProvider.Instance;
 
-            this.DataContext = new OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorViewModel();
+            this.DataContext =
+                new OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplateViewModel();
         }
     }
 }

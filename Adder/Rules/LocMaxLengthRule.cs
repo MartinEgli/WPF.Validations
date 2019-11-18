@@ -10,6 +10,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
 
     using Bfa.Common.Validations.Validators;
     using Bfa.Common.WPF.Localizations;
+    using Bfa.Common.WPF.Validations.ValidationTestGui.Rules;
 
     using JetBrains.Annotations;
 
@@ -19,10 +20,11 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
     public class LocMaxLengthRule : PropertyValidationRule<string>
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="MaxRangeRule" /> class.
+        /// Initializes a new instance of the <see cref="LocMaxLengthRule" /> class.
         /// </summary>
         /// <param name="ruleName">Name of the rule.</param>
         /// <param name="propertyName">Name of the property.</param>
+        /// <param name="maxLength">The maximum length.</param>
         public LocMaxLengthRule([NotNull] string ruleName, [NotNull] string propertyName, int maxLength)
             : base(ruleName, propertyName)
         {

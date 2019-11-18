@@ -10,9 +10,20 @@ namespace Bfa.Common.WPF.Exceptions
 
     using Bfa.Common.Validations.Markers;
 
+    using JetBrains.Annotations;
+
+    /// <summary>
+    ///     The validation warning exception
+    /// </summary>
+    /// <seealso cref="System.Exception" />
+    /// <seealso cref="Bfa.Common.Validations.Markers.IWarning" />
     public class ValidationWarningException : Exception, IWarning
     {
-        public ValidationWarningException(string message)
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="ValidationWarningException" /> class.
+        /// </summary>
+        /// <param name="message">The message that describes the error.</param>
+        public ValidationWarningException([NotNull] string message)
             : base(message)
         {
         }

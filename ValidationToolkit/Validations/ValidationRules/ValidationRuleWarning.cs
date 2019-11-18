@@ -32,9 +32,6 @@ namespace Bfa.Common.WPF.Validations.ValidationRules
         /// <returns>
         ///     A <see cref="System.String" /> that represents this instance.
         /// </returns>
-        public override string ToString()
-        {
-            return this.Message;
-        }
+        public override string ToString() => this.Message;
     }
 }

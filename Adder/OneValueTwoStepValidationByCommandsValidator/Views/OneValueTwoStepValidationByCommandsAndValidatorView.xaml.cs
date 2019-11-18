@@ -18,9 +18,6 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueTwoStepValidation
         /// <summary>
         ///     Initializes a new instance of the
         /// </summary>
-        public OneValueTwoStepValidationByCommandsValidatorView()
-        {
-            this.InitializeComponent();
-        }
+        public OneValueTwoStepValidationByCommandsValidatorView() => this.InitializeComponent();
     }
 }

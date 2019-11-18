@@ -38,6 +38,8 @@
         <Button Click="TwoValueSortedValidationByCommandsClick">Two value sorted validation by Commands</Button>
         <Button Click="TwoValueSortedValidationByCommandsValidatorClick">Two value sorted validation by commands validator</Button>
         <Button Click="TwoValueSortedValidationByCommandsValidatorAdornerClick">Two value sorted validation by commands validator adorner</Button>
+        <Button Click="TwoValueSortedValidationByCommandsValidatorModelClick">Two value sorted validation by commands validator model</Button>
+        <Button Click="TwoValueValidationByCommandsValidatorRangesClick">Two value validation by commands validator range</Button>
 
         <Button Click="ConceptsClick">Concepts</Button>
     </StackPanel>

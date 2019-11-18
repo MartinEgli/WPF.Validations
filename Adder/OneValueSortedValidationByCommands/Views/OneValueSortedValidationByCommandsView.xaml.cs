@@ -8,8 +8,6 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationB
 {
     using System.Windows.Controls;
 
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalisedValidationByCommands.Views;
-
     /// <summary>
     ///     Interaction logic for ValidationByCommandsView.xaml
     /// </summary>
@@ -18,11 +16,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationB
     public partial class OneValueSortedValidationByCommandsView : UserControl
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="OneValueSortedLocalisedValidationByCommands.Views.OneValueSortedValidationByCommandsView" /> class.
+        ///     Initializes a new instance of the <see cref="OneValueSortedValidationByCommandsView" /> class.
         /// </summary>
-        public OneValueSortedValidationByCommandsView()
-        {
-            this.InitializeComponent();
-        }
+        public OneValueSortedValidationByCommandsView() => this.InitializeComponent();
     }
 }

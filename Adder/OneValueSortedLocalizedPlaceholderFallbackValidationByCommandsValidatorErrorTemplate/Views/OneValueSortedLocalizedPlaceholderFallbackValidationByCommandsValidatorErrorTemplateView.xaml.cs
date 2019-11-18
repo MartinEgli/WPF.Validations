@@ -20,9 +20,6 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
         /// <summary>
         ///     Initializes a new instance of the
         /// </summary>
-        public OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplateView()
-        {
-            this.InitializeComponent();
-        }
+        public OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplateView() => this.InitializeComponent();
     }
 }

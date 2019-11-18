@@ -142,6 +142,7 @@
     <Compile Include="Validations\ValidationRules\Interfaces\IValidationRuleMessage.cs" />
     <Compile Include="Validations\ValidationRules\Interfaces\IValidationRuleValid.cs" />
     <Compile Include="Validations\ValidationRules\Interfaces\IValidationRuleWarning.cs" />
+    <Compile Include="Validations\ValidationRules\LocMaxLengthWarning.cs" />
     <Compile Include="Validations\ValidationRules\ValidationRuleError.cs" />
     <Compile Include="Validations\ValidationRules\ValidationRuleLocError.cs" />
     <Compile Include="Validations\ValidationRules\ValidationRuleLocWarning.cs" />

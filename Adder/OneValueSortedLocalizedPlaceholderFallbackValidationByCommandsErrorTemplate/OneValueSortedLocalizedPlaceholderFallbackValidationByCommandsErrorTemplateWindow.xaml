@@ -5,9 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:lex="http://wpflocalizeextension.codeplex.com"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:views="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedPlaceholderFallbackValidationByCommands.Views"
-    xmlns:views1="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsErrorTemplate.Views"
-    Title="One Value Sorted Validation By Commands"
+    xmlns:views="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsErrorTemplate.Views"
+    Title="One Value Sorted Localized Placeholder Fallback Validation By Commands Error Template"
     Width="800"
     Height="450"
     mc:Ignorable="d">
@@ -20,6 +19,6 @@
                     SelectedItem="{Binding Source={x:Static lex:LocalizeDictionary.Instance}, Path=Culture}" />
             </ToolBar>
         </ToolBarTray>
-        <views1:OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsView />
+        <views:OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsView />
     </DockPanel>
 </Window>

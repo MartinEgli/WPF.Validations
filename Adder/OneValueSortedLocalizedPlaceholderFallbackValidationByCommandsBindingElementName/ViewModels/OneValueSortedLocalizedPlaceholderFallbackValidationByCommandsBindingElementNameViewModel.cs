@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsViewModel.cs" company="bfa solutions ltd">
+// <copyright file="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementNameViewModel.cs" company="bfa solutions ltd">
 // Copyright (c) bfa solutions ltd. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -24,10 +24,14 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
     /// <seealso cref="Bfa.Common.Binders.Bindable" />
     /// <seealso cref="System.ComponentModel.INotifyDataErrorInfo" />
     /// <seealso cref="System.IDisposable" />
-    public abstract class OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementNameViewModel : Binders.Bindable,
+    public class
+        OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementNameViewModel : Binders.Bindable,
                                                                                                     INotifyDataErrorInfo,
                                                                                                     IDisposable
     {
+        /// <summary>
+        ///     The text key1
+        /// </summary>
         private string textKey1;
 
         /// <summary>
@@ -42,7 +46,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
         public OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementNameViewModel()
         {
             this.Validator =
-                new ValidatorBuilder<OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementNameViewModel>().Build(
+                new ValidatorBuilder<
+                    OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementNameViewModel>().Build(
                     this);
 
             this.Validator.ValidationMessages.ErrorsChanged += this.ValidationMessagesOnErrorsChanged;
@@ -65,7 +70,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
         /// <value>
         ///     The validator.
         /// </value>
-        public Validator<OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementNameViewModel> Validator { get; }
+        public Validator<OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementNameViewModel>
+            Validator { get; }
 
         /// <summary>
         ///     Gets or sets the value1.
@@ -108,6 +114,12 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
         /// </summary>
         public bool HasErrors => this.Validator.ValidationMessages.HasErrors;
 
+        /// <summary>
+        ///     Gets or sets the text key1.
+        /// </summary>
+        /// <value>
+        ///     The text key1.
+        /// </value>
         public string TextKey1
         {
             get => this.textKey1;
@@ -119,10 +131,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e)
-        {
+        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e) =>
             this.OnErrorsChanged(e);
-        }
 
         /// <summary>
         ///     Called when [warning1 Command].
@@ -197,26 +207,19 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
         /// <returns>
         ///     The validation errors for the property or entity.
         /// </returns>
-        public IEnumerable GetErrors(string propertyName)
-        {
-            return this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
-        }
+        public IEnumerable GetErrors(string propertyName) =>
+            this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
 
         /// <summary>
         ///     Raises the <see cref="E:ErrorsChanged" /> event.
         /// </summary>
         /// <param name="e">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        protected virtual void OnErrorsChanged(DataErrorsChangedEventArgs e)
-        {
-            this.ErrorsChanged?.Invoke(this, e);
-        }
+        protected virtual void OnErrorsChanged(DataErrorsChangedEventArgs e) => this.ErrorsChanged?.Invoke(this, e);
 
         /// <summary>
         ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        public void Dispose()
-        {
+        public void Dispose() =>
             this.Validator.ValidationMessages.ErrorsChanged -= this.ValidationMessagesOnErrorsChanged;
-        }
     }
 }

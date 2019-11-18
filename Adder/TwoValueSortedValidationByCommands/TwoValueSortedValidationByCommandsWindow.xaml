@@ -9,5 +9,5 @@
     Width="800"
     MinHeight="450"
     mc:Ignorable="d">
-    <views:TwoValueSortedValidationByCommandsView Loaded="TwoValueSortedValidationByCommandsView_Loaded" />
+    <views:TwoValueSortedValidationByCommandsView />
 </Window>

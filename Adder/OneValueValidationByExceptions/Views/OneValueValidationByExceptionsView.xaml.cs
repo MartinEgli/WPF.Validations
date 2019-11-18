@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValueValidationByCommandsView.xaml.cs" company="bfa solutions ltd">
+// <copyright file="OneValueValidationByExceptionsView.xaml.cs" company="bfa solutions ltd">
 // Copyright (c) bfa solutions ltd. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -16,11 +16,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByExcep
     public partial class OneValueValidationByExceptionsView : UserControl
     {
         /// <summary>
-        /// Initializes a new instance of the
+        ///     Initializes a new instance of the
         /// </summary>
-        public OneValueValidationByExceptionsView()
-        {
-            this.InitializeComponent();
-        }
+        public OneValueValidationByExceptionsView() => this.InitializeComponent();
     }
 }

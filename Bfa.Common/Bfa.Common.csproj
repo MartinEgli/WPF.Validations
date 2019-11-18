@@ -42,6 +42,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Binders\Bindable.cs" />
@@ -109,6 +110,8 @@
     <Compile Include="Validations\Validators\Validator.cs" />
     <Compile Include="Validations\Validators\ValidatorBuilder.cs" />
     <Compile Include="Validations\Validators\ValidatorRules.cs" />
+    <Compile Include="Validations\Validators\Watcher.cs" />
+    <Compile Include="Validations\Validators\Watchers.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Exceptions\" />

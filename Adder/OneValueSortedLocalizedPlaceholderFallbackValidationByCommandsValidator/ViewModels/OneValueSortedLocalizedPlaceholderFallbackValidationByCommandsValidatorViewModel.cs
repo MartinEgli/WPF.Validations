@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByCommandandsAndValidatorViewModel.cs" company="bfa solutions ltd">
+// <copyright file="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorViewModel.cs" company="bfa solutions ltd">
 // Copyright (c) bfa solutions ltd. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -22,8 +22,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
     /// <seealso cref="System.ComponentModel.INotifyDataErrorInfo" />
     /// <seealso cref="System.IDisposable" />
     public class OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorViewModel : Binders.Bindable,
-                                                                                                 INotifyDataErrorInfo,
-                                                                                                 IDisposable
+                                                                                                    INotifyDataErrorInfo,
+                                                                                                    IDisposable
     {
         /// <summary>
         ///     The value1
@@ -37,15 +37,14 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
         public OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorViewModel()
         {
             var builder =
-                new ValidatorBuilder<OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorViewModel>();
+                new ValidatorBuilder<OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorViewModel
+                >();
             builder.AddRule(
                 "Value1",
                 new LocalizedRegexRule("NoSpaces", "Value1", new LanguageKey("NoSpace", "Group1", "Source1"))
-                {
-                    ErrorMessage = "No Spaces",
-                    RegexPattern = @"^\S*$",
-                    IsWarning = true
-                });
+                    {
+                        ErrorMessage = "No Spaces", RegexPattern = @"^\S*$", IsWarning = true
+                    });
             builder.AddRule("Value1", new LocMaxLengthRule("MaxLength", "Value1", 50));
 
             this.Validator = builder.Build(this);
@@ -91,7 +90,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e) => this.OnErrorsChanged(e);
+        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e) =>
+            this.OnErrorsChanged(e);
 
         /// <summary>
         ///     Gets the validation errors for a specified property or for the entire entity.
@@ -103,7 +103,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
         /// <returns>
         ///     The validation errors for the property or entity.
         /// </returns>
-        public IEnumerable GetErrors(string propertyName) => this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
+        public IEnumerable GetErrors(string propertyName) =>
+            this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
 
         /// <summary>
         ///     Raises the <see cref="E:ErrorsChanged" /> event.
@@ -114,6 +115,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.
         /// <summary>
         ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        public void Dispose() => this.Validator.ValidationMessages.ErrorsChanged -= this.ValidationMessagesOnErrorsChanged;
+        public void Dispose() =>
+            this.Validator.ValidationMessages.ErrorsChanged -= this.ValidationMessagesOnErrorsChanged;
     }
 }

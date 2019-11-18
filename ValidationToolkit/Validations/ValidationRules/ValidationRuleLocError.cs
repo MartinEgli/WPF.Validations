@@ -27,12 +27,24 @@ namespace Bfa.Common.WPF.Validations.ValidationRules
             this.TextKey = textKey ?? throw new ArgumentNullException(nameof(textKey));
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ValidationRuleLocError"/> class.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="textKey">The text key.</param>
+        /// <exception cref="ArgumentNullException">textKey</exception>
         public ValidationRuleLocError([NotNull] string message, [NotNull] string textKey)
             : base(message)
         {
             this.TextKey = textKey ?? throw new ArgumentNullException(nameof(textKey));
         }
 
+        /// <summary>
+        /// Gets the text key.
+        /// </summary>
+        /// <value>
+        /// The text key.
+        /// </value>
         public string TextKey { get; }
     }
 }

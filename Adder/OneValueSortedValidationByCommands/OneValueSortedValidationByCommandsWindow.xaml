@@ -5,7 +5,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationByCommands.Views"
-    xmlns:views1="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalisedValidationByCommands.Views"
     Title="One Value Sorted Validation By Commands"
     Width="800"
     Height="450"

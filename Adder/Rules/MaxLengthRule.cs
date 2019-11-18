@@ -9,11 +9,14 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
     using System;
 
     using Bfa.Common.Validations.Validators;
+    using Bfa.Common.WPF.Validations.ValidationTestGui.Rules;
 
     using JetBrains.Annotations;
 
     /// <summary>
+    /// The maximum length rule
     /// </summary>
+    /// <seealso cref="Bfa.Common.Validations.Validators.PropertyValidationRule{System.String}" />
     /// <seealso cref="PropertyValidationRule{TProperty}" />
     public class MaxLengthRule : PropertyValidationRule<string>
     {

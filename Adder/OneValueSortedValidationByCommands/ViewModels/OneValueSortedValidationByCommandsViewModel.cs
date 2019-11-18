@@ -48,6 +48,27 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationB
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 
         /// <summary>
+        ///     Gets the error1 Command.
+        /// </summary>
+        /// <value>
+        ///     The error1 Command.
+        /// </value>
+        public ICommand Error1Command { get; }
+
+        /// <summary>
+        ///     Gets the error2 Command.
+        /// </summary>
+        /// <value>
+        ///     The error2 Command.
+        /// </value>
+        public ICommand Error2Command { get; }
+
+        /// <summary>
+        ///     Gets a value that indicates whether the entity has validation errors.
+        /// </summary>
+        public bool HasErrors => this.Validator.ValidationMessages.HasErrors;
+
+        /// <summary>
         ///     Gets the validator.
         /// </summary>
         /// <value>
@@ -68,22 +89,6 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationB
         }
 
         /// <summary>
-        ///     Gets the error1 Command.
-        /// </summary>
-        /// <value>
-        ///     The error1 Command.
-        /// </value>
-        public ICommand Error1Command { get; }
-
-        /// <summary>
-        ///     Gets the error2 Command.
-        /// </summary>
-        /// <value>
-        ///     The error2 Command.
-        /// </value>
-        public ICommand Error2Command { get; }
-
-        /// <summary>
         ///     Gets the warning1 Command.
         /// </summary>
         /// <value>
@@ -92,35 +97,29 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationB
         public ICommand Warning1Command { get; }
 
         /// <summary>
-        ///     Gets a value that indicates whether the entity has validation errors.
+        ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        public bool HasErrors => this.Validator.ValidationMessages.HasErrors;
+        public void Dispose() =>
+            this.Validator.ValidationMessages.ErrorsChanged -= this.ValidationMessagesOnErrorsChanged;
 
         /// <summary>
-        ///     Validations the messages on errors changed.
+        ///     Gets the validation errors for a specified property or for the entire entity.
         /// </summary>
-        /// <param name="sender">The sender.</param>
+        /// <param name="propertyName">
+        ///     The name of the property to retrieve validation errors for; or <see langword="null" /> or
+        ///     <see cref="F:System.String.Empty" />, to retrieve entity-level errors.
+        /// </param>
+        /// <returns>
+        ///     The validation errors for the property or entity.
+        /// </returns>
+        public IEnumerable GetErrors(string propertyName) =>
+            this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
+
+        /// <summary>
+        ///     Raises the <see cref="E:ErrorsChanged" /> event.
+        /// </summary>
         /// <param name="e">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e)
-        {
-            this.OnErrorsChanged(e);
-        }
-
-        /// <summary>
-        ///     Called when [warning1 Command].
-        /// </summary>
-        /// <param name="state">if set to <c>true</c> [state].</param>
-        private void OnWarning1Command(object state)
-        {
-            if ((bool)state)
-            {
-                this.Validator.ValidationMessages.AddError(new ValidationWarning("Value1", "warning1", "Warning 1"));
-            }
-            else
-            {
-                this.Validator.ValidationMessages.RemoveError("Value1", "warning1");
-            }
-        }
+        protected virtual void OnErrorsChanged(DataErrorsChangedEventArgs e) => this.ErrorsChanged?.Invoke(this, e);
 
         /// <summary>
         ///     Called when [error1 Command].
@@ -155,35 +154,27 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationB
         }
 
         /// <summary>
-        ///     Gets the validation errors for a specified property or for the entire entity.
+        ///     Called when [warning1 Command].
         /// </summary>
-        /// <param name="propertyName">
-        ///     The name of the property to retrieve validation errors for; or <see langword="null" /> or
-        ///     <see cref="F:System.String.Empty" />, to retrieve entity-level errors.
-        /// </param>
-        /// <returns>
-        ///     The validation errors for the property or entity.
-        /// </returns>
-        public IEnumerable GetErrors(string propertyName)
+        /// <param name="state">if set to <c>true</c> [state].</param>
+        private void OnWarning1Command(object state)
         {
-            return this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
+            if ((bool)state)
+            {
+                this.Validator.ValidationMessages.AddError(new ValidationWarning("Value1", "warning1", "Warning 1"));
+            }
+            else
+            {
+                this.Validator.ValidationMessages.RemoveError("Value1", "warning1");
+            }
         }
 
         /// <summary>
-        ///     Raises the <see cref="E:ErrorsChanged" /> event.
+        ///     Validations the messages on errors changed.
         /// </summary>
+        /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        protected virtual void OnErrorsChanged(DataErrorsChangedEventArgs e)
-        {
-            this.ErrorsChanged?.Invoke(this, e);
-        }
-
-        /// <summary>
-        ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
-        /// </summary>
-        public void Dispose()
-        {
-            this.Validator.ValidationMessages.ErrorsChanged -= this.ValidationMessagesOnErrorsChanged;
-        }
+        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e) =>
+            this.OnErrorsChanged(e);
     }
 }

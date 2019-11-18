@@ -6,11 +6,10 @@
 
 namespace Bfa.Pi.Infrastructure.Common.LocalizationProviders
 {
+    using Bfa.Common.WPF.Localizations;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Globalization;
-
-    using Bfa.Common.WPF.Localizations;
 
     public class LocalizationRepository : ILocalizationRepository
     {

@@ -32,10 +32,7 @@ namespace Bfa.Common.WPF.Validations.ValidationRules
         ///     To the validation result.
         /// </summary>
         /// <returns></returns>
-        public override ValidationResult ToValidationResult()
-        {
-            return new ValidationResult(true, this.ToContent());
-        }
+        public override ValidationResult ToValidationResult() => new ValidationResult(true, this.ToContent());
 
         /// <summary>
         ///     Returns a <see cref="System.String" /> that represents this instance.
@@ -43,9 +40,6 @@ namespace Bfa.Common.WPF.Validations.ValidationRules
         /// <returns>
         ///     A <see cref="System.String" /> that represents this instance.
         /// </returns>
-        public override string ToString()
-        {
-            return this.Message;
-        }
+        public override string ToString() => this.Message;
     }
 }

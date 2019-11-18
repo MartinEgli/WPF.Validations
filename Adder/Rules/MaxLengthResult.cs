@@ -4,16 +4,20 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui
+namespace Bfa.Common.WPF.Validations.ValidationTestGui.Rules
 {
     using System.Text;
 
     using Bfa.Common.Validations.ValidationMessageContainers.Interfaces;
     using Bfa.Common.Validations.Validators;
-    using Bfa.Common.Validations.Validators.Interfaces;
 
     using JetBrains.Annotations;
 
+    /// <summary>
+    /// The maximum length result
+    /// </summary>
+    /// <seealso cref="Bfa.Common.Validations.Validators.PropertyValidationResult" />
+    /// <seealso cref="Bfa.Common.Validations.ValidationMessageContainers.Interfaces.IValidationMessage" />
     public class MaxLengthResult : PropertyValidationResult, IValidationMessage
     {
         public MaxLengthResult(
@@ -28,10 +32,28 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
             this.MaxLength = maxLength;
         }
 
+        /// <summary>
+        /// Gets the maximum length.
+        /// </summary>
+        /// <value>
+        /// The maximum length.
+        /// </value>
         public int MaxLength { get; }
 
+        /// <summary>
+        /// Gets the identifier.
+        /// </summary>
+        /// <value>
+        /// The identifier.
+        /// </value>
         public string Id => this.RuleName;
 
+        /// <summary>
+        /// Gets the description.
+        /// </summary>
+        /// <value>
+        /// The description.
+        /// </value>
         public string Description =>
             new StringBuilder().Append("Property Name='")
                 .Append(this.PropertyName)
@@ -41,23 +63,5 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
                 .Append(this.Message)
                 .Append("'")
                 .ToString();
-    }
-
-    public class LocMaxLengthResult : MaxLengthResult, ILocalizationTextKeyAware
-    {
-        public LocMaxLengthResult(
-            bool isValid,
-            [NotNull] string ruleName,
-            [NotNull] string propertyName,
-            string textKey,
-            int maxLength,
-            [NotNull] string message,
-            bool isWarning = false)
-            : base(isValid, ruleName, propertyName, maxLength, message, isWarning)
-        {
-            this.TextKey = textKey;
-        }
-
-        public string TextKey { get; }
     }
 }

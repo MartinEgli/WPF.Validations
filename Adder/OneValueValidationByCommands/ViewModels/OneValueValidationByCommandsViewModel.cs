@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValidationByCommandsViewModel.cs" company="bfa solutions ltd">
+// <copyright file="OneValueValidationByCommandsViewModel.cs" company="bfa solutions ltd">
 // Copyright (c) bfa solutions ltd. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -101,10 +101,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByComma
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e)
-        {
+        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e) =>
             this.OnErrorsChanged(e);
-        }
 
         /// <summary>
         ///     Called when [warning1 Command].
@@ -164,26 +162,19 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByComma
         /// <returns>
         ///     The validation errors for the property or entity.
         /// </returns>
-        public IEnumerable GetErrors(string propertyName)
-        {
-            return this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
-        }
+        public IEnumerable GetErrors(string propertyName) =>
+            this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
 
         /// <summary>
         ///     Raises the <see cref="E:ErrorsChanged" /> event.
         /// </summary>
         /// <param name="e">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        protected virtual void OnErrorsChanged(DataErrorsChangedEventArgs e)
-        {
-            this.ErrorsChanged?.Invoke(this, e);
-        }
+        protected virtual void OnErrorsChanged(DataErrorsChangedEventArgs e) => this.ErrorsChanged?.Invoke(this, e);
 
         /// <summary>
         ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        public void Dispose()
-        {
+        public void Dispose() =>
             this.Validator.ValidationMessages.ErrorsChanged -= this.ValidationMessagesOnErrorsChanged;
-        }
     }
 }

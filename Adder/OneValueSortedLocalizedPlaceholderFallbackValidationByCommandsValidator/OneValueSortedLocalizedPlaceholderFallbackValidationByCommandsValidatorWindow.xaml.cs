@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByCommandsAndValidatorWindow.xaml.cs" company="bfa solutions ltd">
+// <copyright file="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorWindow.xaml.cs" company="bfa solutions ltd">
 // Copyright (c) bfa solutions ltd. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------

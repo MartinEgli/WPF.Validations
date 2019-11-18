@@ -8,8 +8,6 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByComma
 {
     using System.Windows.Controls;
 
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationByCommands.Views;
-
     /// <summary>
     ///     Interaction logic for ValidationByCommandsView.xaml
     /// </summary>
@@ -19,11 +17,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByComma
     {
         /// <summary>
         ///     Initializes a new instance of the
-        ///     <see cref="OneValueSortedValidationByCommands.Views.OneValueValidationByCommandsView" /> class.
+        ///     <see cref="OneValueValidationByCommandsView" /> class.
         /// </summary>
-        public OneValueValidationByCommandsView()
-        {
-            this.InitializeComponent();
-        }
+        public OneValueValidationByCommandsView() => this.InitializeComponent();
     }
 }

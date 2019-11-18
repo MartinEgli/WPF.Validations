@@ -54,9 +54,10 @@ namespace Bfa.Common.WPF.Validations
 
             if ((value is string str) && str.Length > this.MaxLength)
             {
-                return new ValidationRuleLocWarning(
+                return new LocMaxLengthWarning(
                     this.Name + " length is more than " + this.MaxLength + ".",
-                    new LanguageKey("MaxLength", "Group1", "Source1")).ToValidationResult();
+                    new LanguageKey("MaxLength", "Group1", "Source1"),
+                    this.MaxLength).ToValidationResult();
             }
 
             return ValidationResult.ValidResult;

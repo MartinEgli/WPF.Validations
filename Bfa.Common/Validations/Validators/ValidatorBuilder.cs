@@ -7,8 +7,10 @@
 namespace Bfa.Common.Validations.Validators
 {
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Windows;
+
+    using Bfa.Common.Validations.ValidationMessageContainers.Interfaces;
 
     using JetBrains.Annotations;
 
@@ -41,13 +43,31 @@ namespace Bfa.Common.Validations.Validators
                 throw new ArgumentNullException(nameof(model));
             }
 
-            return new Validator<TModel>(model, this.rules);
+            var validator = new Validator<TModel>(model, this.rules);
+            return validator;
+        }
+
+        /// <summary>
+        ///     Builds the specified model.
+        /// </summary>
+        /// <param name="model">The model.</param>
+        /// <param name="validationMessages">The validation messages.</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException">model</exception>
+        public Validator<TModel> Build([NotNull] TModel model, [NotNull] IValidationMessageContainer validationMessages)
+        {
+            if (model == null)
+            {
+                throw new ArgumentNullException(nameof(model));
+            }
+
+            return new Validator<TModel>(model, this.rules, validationMessages);
         }
 
         /// <summary>
         ///     Adds the rule.
         /// </summary>
-        /// <param name="propertyName">Name of the property.</param>
+        /// <param name="propertyName">Name of the propertyName.</param>
         /// <param name="groupName">Name of the group.</param>
         /// <param name="rule">The rule.</param>
         /// <param name="isCancel">if set to <c>true</c> [is cancel].</param>
@@ -67,9 +87,9 @@ namespace Bfa.Common.Validations.Validators
         }
 
         /// <summary>
-        ///     Adds the model validate by property.
+        ///     Adds the model validate by propertyName.
         /// </summary>
-        /// <param name="propertyName">Name of the property.</param>
+        /// <param name="propertyName">Name of the propertyName.</param>
         public void AddModelValidateByProperty(string propertyName)
         {
             this.rules.RuleMapping.Add(propertyName);
@@ -119,8 +139,9 @@ namespace Bfa.Common.Validations.Validators
         /// <summary>
         ///     Adds the rule.
         /// </summary>
-        /// <param name="propertyName">Name of the property.</param>
+        /// <param name="propertyName">Name of the propertyName.</param>
         /// <param name="rule">The rule.</param>
+        /// <param name="isCancel">if set to <c>true</c> [is cancel].</param>
         /// <exception cref="ArgumentNullException">
         ///     propertyName
         ///     or
@@ -160,6 +181,11 @@ namespace Bfa.Common.Validations.Validators
 
                 validationRules.Add(rule);
             }
+        }
+
+        public void AddWatcher(INotifyPropertyChanged notifyPropertyChanged, string propertyName)
+        {
+            this.rules.Watchers.Add(notifyPropertyChanged, propertyName);
         }
     }
 }

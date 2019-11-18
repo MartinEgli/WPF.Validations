@@ -18,9 +18,6 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationB
         /// <summary>
         /// Initializes a new instance of the
         /// </summary>
-        public OneValueSortedValidationByExceptionsView()
-        {
-            this.InitializeComponent();
-        }
+        public OneValueSortedValidationByExceptionsView() => this.InitializeComponent();
     }
 }

@@ -26,21 +26,6 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationB
                                                                                IComparerTwoValues
     {
         /// <summary>
-        ///     The object name
-        /// </summary>
-        private const string ObjectName = "Object";
-
-        /// <summary>
-        ///     The value1 name
-        /// </summary>
-        private const string Value1Name = "Value1";
-
-        /// <summary>
-        ///     The value2 name
-        /// </summary>
-        private const string Value2Name = "Value2";
-
-        /// <summary>
         ///     The value1
         /// </summary>
         private string value1;
@@ -109,10 +94,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationB
         /// <summary>
         ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        public void Dispose()
-        {
-            this.Validator.ValidationMessages.ErrorsChanged -= this.ValidationMessagesOnErrorsChanged;
-        }
+        public void Dispose() => this.Validator.ValidationMessages.ErrorsChanged -= this.ValidationMessagesOnErrorsChanged;
 
         /// <summary>
         ///     Gets the validation errors for a specified property or for the entire entity.
@@ -124,28 +106,19 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationB
         /// <returns>
         ///     The validation errors for the property or entity.
         /// </returns>
-        public IEnumerable GetErrors(string propertyName)
-        {
-            return this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
-        }
+        public IEnumerable GetErrors(string propertyName) => this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
 
         /// <summary>
         ///     Raises the <see cref="E:ErrorsChanged" /> event.
         /// </summary>
         /// <param name="e">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        protected virtual void OnErrorsChanged(DataErrorsChangedEventArgs e)
-        {
-            this.ErrorsChanged?.Invoke(this, e);
-        }
+        protected virtual void OnErrorsChanged(DataErrorsChangedEventArgs e) => this.ErrorsChanged?.Invoke(this, e);
 
         /// <summary>
         ///     Validations the messages on errors changed.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e)
-        {
-            this.OnErrorsChanged(e);
-        }
+        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e) => this.OnErrorsChanged(e);
     }
 }

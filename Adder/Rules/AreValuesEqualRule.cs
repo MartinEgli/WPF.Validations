@@ -27,7 +27,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Rules
         }
 
         /// <summary>
-        ///     Validates the specified value.
+        /// Validates the specified value.
         /// </summary>
         /// <param name="model">The model.</param>
         /// <returns></returns>

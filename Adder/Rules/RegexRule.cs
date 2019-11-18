@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui
+namespace Bfa.Common.WPF.Validations.ValidationTestGui.Rules
 {
     using System.Text.RegularExpressions;
 
@@ -12,6 +12,10 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
 
     using JetBrains.Annotations;
 
+    /// <summary>
+    /// The regex rule
+    /// </summary>
+    /// <seealso cref="PropertyValidationRule{string}" />
     public class RegexRule : PropertyValidationRule<string>
     {
         /// <summary>

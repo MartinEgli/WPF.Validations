@@ -8,6 +8,8 @@ namespace Bfa.Common.WPF.Validations.ValidationRules.Interfaces
 {
     using System.Windows.Controls;
 
+    using JetBrains.Annotations;
+
     /// <summary>
     /// Validation Message Interface
     /// </summary>
@@ -19,12 +21,14 @@ namespace Bfa.Common.WPF.Validations.ValidationRules.Interfaces
         /// <value>
         ///     The message.
         /// </value>
+        [NotNull]
         string Message { get; }
 
         /// <summary>
         /// To the validation result.
         /// </summary>
         /// <returns></returns>
+        [NotNull]
         ValidationResult ToValidationResult();
 
         /// <summary>
@@ -33,6 +37,7 @@ namespace Bfa.Common.WPF.Validations.ValidationRules.Interfaces
         /// <returns>
         ///     A <see cref="System.String" /> that represents this instance.
         /// </returns>
+        [NotNull]
         string ToString();
     }
 }

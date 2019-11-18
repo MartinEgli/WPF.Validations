@@ -35,6 +35,9 @@ namespace Bfa.Common.WPF.Localizations
     [ContentProperty("KeyBinding")]
     public sealed class LocTextBindingExtension : MarkupExtension
     {
+        /// <summary>
+        ///     The identifier source
+        /// </summary>
         private static int IdSource;
 
         /// <summary>
@@ -585,10 +588,10 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = KeyAndCultureBindingConverter.Instance,
-                ConverterParameter = parameter
-            };
+                                   {
+                                       Converter = KeyAndCultureBindingConverter.Instance,
+                                       ConverterParameter = parameter
+                                   };
             multiBinding.Bindings.Add(cultureBinding);
             return multiBinding.ProvideValue(serviceProvider);
         }
@@ -608,10 +611,9 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = KeyAndGroupBindingConverter.Instance,
-                ConverterParameter = parameter
-            };
+                                   {
+                                       Converter = KeyAndGroupBindingConverter.Instance, ConverterParameter = parameter
+                                   };
             multiBinding.Bindings.Add(groupBinding);
             return multiBinding.ProvideValue(serviceProvider);
         }
@@ -694,10 +696,10 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = KeyBindingAndCultureConverter.Instance,
-                ConverterParameter = parameter
-            };
+                                   {
+                                       Converter = KeyBindingAndCultureConverter.Instance,
+                                       ConverterParameter = parameter
+                                   };
 
             multiBinding.Bindings.Add(keyBinding);
             return multiBinding.ProvideValue(serviceProvider);
@@ -720,10 +722,10 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = KeyBindingAndCultureBindingConverter.Instance,
-                ConverterParameter = parameter
-            };
+                                   {
+                                       Converter = KeyBindingAndCultureBindingConverter.Instance,
+                                       ConverterParameter = parameter
+                                   };
             multiBinding.Bindings.Add(keyBinding);
             multiBinding.Bindings.Add(cultureBinding);
             return multiBinding.ProvideValue(serviceProvider);
@@ -747,10 +749,10 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = KeyBindingAndGroupBindingConverter.Instance,
-                ConverterParameter = parameter
-            };
+                                   {
+                                       Converter = KeyBindingAndGroupBindingConverter.Instance,
+                                       ConverterParameter = parameter
+                                   };
             multiBinding.Bindings.Add(keyBinding);
             multiBinding.Bindings.Add(groupBinding);
             return multiBinding.ProvideValue(serviceProvider);
@@ -1707,11 +1709,11 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = KeyBindingAndObjectConverter.Instance,
-                ConverterParameter = parameter,
-                Mode = BindingMode.OneWay
-            };
+                                   {
+                                       Converter = KeyBindingAndObjectConverter.Instance,
+                                       ConverterParameter = parameter,
+                                       Mode = BindingMode.OneWay
+                                   };
             multiBinding.Bindings.Add(keyBinding);
             multiBinding.Bindings.Add(objectBinding);
             return multiBinding.ProvideValue(serviceProvider);
@@ -1734,10 +1736,10 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = KeyBindingAndObjectAndCultureConverter.Instance,
-                ConverterParameter = parameter
-            };
+                                   {
+                                       Converter = KeyBindingAndObjectAndCultureConverter.Instance,
+                                       ConverterParameter = parameter
+                                   };
             multiBinding.Bindings.Add(keyBinding);
             multiBinding.Bindings.Add(objectBinding);
             return multiBinding.ProvideValue(serviceProvider);
@@ -1762,10 +1764,10 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = KeyBindingAndObjectAndCultureBindingConverter.Instance,
-                ConverterParameter = parameter
-            };
+                                   {
+                                       Converter = KeyBindingAndObjectAndCultureBindingConverter.Instance,
+                                       ConverterParameter = parameter
+                                   };
             multiBinding.Bindings.Add(keyBinding);
             multiBinding.Bindings.Add(objectBinding);
             multiBinding.Bindings.Add(cultureBinding);
@@ -1789,10 +1791,9 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = KeyBindingConverter.Instance,
-                ConverterParameter = parameter
-            };
+                                   {
+                                       Converter = KeyBindingConverter.Instance, ConverterParameter = parameter
+                                   };
             multiBinding.Bindings.Add(keyBinding);
             foreach (var binding in formatSegmentBindings)
             {
@@ -2449,10 +2450,10 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = KeyBindingAndTextBindingConverter.Instance,
-                ConverterParameter = parameter
-            };
+                                   {
+                                       Converter = KeyBindingAndTextBindingConverter.Instance,
+                                       ConverterParameter = parameter
+                                   };
             multiBinding.Bindings.Add(keyBinding);
             multiBinding.Bindings.Add(textBinding);
             return multiBinding.ProvideValue(serviceProvider);
@@ -2475,10 +2476,10 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = KeyBindingAndTextBindingAndCultureConverter.Instance,
-                ConverterParameter = parameter
-            };
+                                   {
+                                       Converter = KeyBindingAndTextBindingAndCultureConverter.Instance,
+                                       ConverterParameter = parameter
+                                   };
             multiBinding.Bindings.Add(keyBinding);
             multiBinding.Bindings.Add(textBinding);
             return multiBinding.ProvideValue(serviceProvider);
@@ -2503,10 +2504,10 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = KeyBindingAndTextBindingAndCultureConverter.Instance,
-                ConverterParameter = parameter
-            };
+                                   {
+                                       Converter = KeyBindingAndTextBindingAndCultureConverter.Instance,
+                                       ConverterParameter = parameter
+                                   };
             multiBinding.Bindings.Add(keyBinding);
             multiBinding.Bindings.Add(textBinding);
             multiBinding.Bindings.Add(cultureBinding);
@@ -2613,10 +2614,10 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = KeyObjectAndCultureBindingConverter.Instance,
-                ConverterParameter = parameter
-            };
+                                   {
+                                       Converter = KeyObjectAndCultureBindingConverter.Instance,
+                                       ConverterParameter = parameter
+                                   };
             multiBinding.Bindings.Add(objectBinding);
             multiBinding.Bindings.Add(cultureBinding);
             return multiBinding.ProvideValue(serviceProvider);
@@ -2637,10 +2638,9 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = KeyObjectAndCultureConverter.Instance,
-                ConverterParameter = parameter
-            };
+                                   {
+                                       Converter = KeyObjectAndCultureConverter.Instance, ConverterParameter = parameter
+                                   };
             multiBinding.Bindings.Add(objectBinding);
             return multiBinding.ProvideValue(serviceProvider);
         }
@@ -2660,10 +2660,9 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = KeyObjectConverter.Instance,
-                ConverterParameter = parameter
-            };
+                                   {
+                                       Converter = KeyObjectConverter.Instance, ConverterParameter = parameter
+                                   };
             multiBinding.Bindings.Add(objectBinding);
             return multiBinding.ProvideValue(serviceProvider);
         }
@@ -2683,10 +2682,9 @@ namespace Bfa.Common.WPF.Localizations
             [NotNull] LocTextBindingExtension parameter)
         {
             var multiBinding = new MultiBinding
-            {
-                Converter = TextBindingConverter.Instance,
-                ConverterParameter = parameter
-            };
+                                   {
+                                       Converter = TextBindingConverter.Instance, ConverterParameter = parameter
+                                   };
             multiBinding.Bindings.Add(textBinding);
             return multiBinding.ProvideValue(serviceProvider);
         }
@@ -4650,11 +4648,17 @@ namespace Bfa.Common.WPF.Localizations
                 lock (this.updateLook)
 
                 {
-                    foreach (var bindingExpressionBindingExpression in this.multiBindingExpression.BindingExpressions)
+                    if (this.multiBindingExpression.Status == BindingStatus.Detached)
                     {
-                        bindingExpressionBindingExpression.Target.Dispatcher?.Invoke(
-                            () => bindingExpressionBindingExpression.UpdateTarget());
+                        return;
                     }
+
+                    this.multiBindingExpression.UpdateTarget();
+                    //foreach (var bindingExpressionBindingExpression in this.multiBindingExpression.BindingExpressions)
+                    //{
+                    //    bindingExpressionBindingExpression.Target.Dispatcher?.Invoke(
+                    //        () => bindingExpressionBindingExpression.UpdateTarget());
+                    //}
                 }
             }
         }

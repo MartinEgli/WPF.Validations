@@ -1,14 +1,9 @@
 ﻿namespace Bfa.Common.WPF.Validations.ValidationTestGui.Localizations
 {
-    using System.Collections.ObjectModel;
-    using System.Globalization;
-    using System.Windows;
-
     using Bfa.Pi.Infrastructure.Common.LocalizationProviders;
-
+    using System.Windows;
     using WPFLocalizeExtension.Engine;
     using WPFLocalizeExtension.Providers;
-
     using XAMLMarkupExtensions.Base;
 
     /// <inheritdoc />

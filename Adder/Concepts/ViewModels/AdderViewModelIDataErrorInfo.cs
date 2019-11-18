@@ -26,9 +26,9 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         public const string ErrorMessageMustBeNonNegative = " must be non-negative";
 
         /// <summary>
-        ///     The error message matory
+        ///     The error message Mandatory
         /// </summary>
-        public const string ErrorMessageMatory = " is matory";
+        public const string ErrorMessageMandatory = " is Mandatory";
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="AdderViewModelIDataErrorInfo" /> class.
@@ -58,7 +58,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
                         {
                             var errMsg = this.nvl(
                                 this.ValidateNonNegativeInput(this.X, "X", ErrorMessageMustBeNonNegative),
-                                this.ValidateMatory(this.X, "X", ErrorMessageMatory));
+                                this.ValidateMandatory(this.X, "X", ErrorMessageMandatory));
 
                             Tracer.LogUserDefinedValidation(
                                 "IDataErrorInfo.Item[X] called. "
@@ -73,7 +73,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
                         {
                             var errMsg = this.nvl(
                                 this.ValidateNonNegativeInput(this.Y, "Y", ErrorMessageMustBeNonNegative),
-                                this.ValidateMatory(this.Y, "Y", ErrorMessageMatory));
+                                this.ValidateMandatory(this.Y, "Y", ErrorMessageMandatory));
 
                             Tracer.LogUserDefinedValidation(
                                 "IDataErrorInfo.Item[X] called. "
@@ -97,37 +97,30 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         /// </summary>
         /// <param name="x">The X.</param>
         /// <param name="fieldName">Name of the field.</param>
-        /// <param name="ErrorMessage">The error message.</param>
+        /// <param name="errorMessage">The error message.</param>
         /// <returns></returns>
         private string ValidateNonNegativeInput(
             double? x,
             string fieldName, /*string ConstraintID,*/
-            string ErrorMessage)
+            string errorMessage)
         {
             if (x.HasValue && x.Value < 0.0)
             {
-                return ErrorMessage;
+                return errorMessage;
             }
 
             return "";
         }
 
         /// <summary>
-        ///     Validates the matory.
+        ///     Validates the Mandatory.
         /// </summary>
         /// <param name="x">The X.</param>
         /// <param name="fieldName">Name of the field.</param>
-        /// <param name="ErrorMessage">The error message.</param>
+        /// <param name="errorMessage">The error message.</param>
         /// <returns></returns>
-        private string ValidateMatory(double? x, string fieldName, /*string ConstraintID,*/ string ErrorMessage)
-        {
-            if (x.HasValue)
-            {
-                return "";
-            }
-
-            return ErrorMessage;
-        }
+        private string ValidateMandatory(double? x, string fieldName, /*string ConstraintID,*/ string errorMessage) =>
+            x.HasValue ? "" : errorMessage;
 
         /// <summary>
         ///     NVLs the specified s1.

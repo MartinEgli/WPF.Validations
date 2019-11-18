@@ -22,7 +22,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalisedVa
     {
         /// <summary>
         ///     Initializes a new instance of the
-        ///     <see cref="OneValueSortedLocalizedFallbackValidationByCommands.OneValueSortedLocalisedValidationByCommandsWindow" />
+        ///     <see cref="OneValueSortedLocalizedValidationByCommandsWindow" />
         ///     class.
         /// </summary>
         public OneValueSortedLocalizedValidationByCommandsWindow()

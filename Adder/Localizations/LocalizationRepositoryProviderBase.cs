@@ -2,14 +2,11 @@
 {
     #region
 
+    using Bfa.Common.WPF.Localizations;
     using System;
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Globalization;
     using System.Windows;
-
-    using Bfa.Common.WPF.Localizations;
-
     using WPFLocalizeExtension.Providers;
 
     #endregion

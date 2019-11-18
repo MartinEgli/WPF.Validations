@@ -1,10 +1,11 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValueSortedLocalizedFallbackValidationByCommandsViewModel.cs" company="bfa solutions ltd">
+// <copyright file="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsViewModel.cs" company="bfa solutions ltd">
 // Copyright (c) bfa solutions ltd. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedPlaceholderFallbackValidationByCommands.ViewModels
+namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedPlaceholderFallbackValidationByCommands.
+    ViewModels
 {
     using System;
     using System.Collections;
@@ -23,22 +24,29 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedPl
     /// <seealso cref="Bfa.Common.Binders.Bindable" />
     /// <seealso cref="System.ComponentModel.INotifyDataErrorInfo" />
     /// <seealso cref="System.IDisposable" />
-    public abstract class OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsViewModel : Binders.Bindable,
-                                                                           INotifyDataErrorInfo,
-                                                                           IDisposable
+    public class OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsViewModel : Binders.Bindable,
+                                                                                           INotifyDataErrorInfo,
+                                                                                           IDisposable
     {
+        /// <summary>
+        ///     The text key1
+        /// </summary>
+        private string textKey1;
+
         /// <summary>
         ///     The value1
         /// </summary>
         private string value1;
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsViewModel" /> class.
+        ///     Initializes a new instance of the
+        ///     <see cref="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsViewModel" /> class.
         /// </summary>
         public OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsViewModel()
         {
             this.Validator =
-                new ValidatorBuilder<OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsViewModel>().Build(this);
+                new ValidatorBuilder<OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsViewModel>().Build(
+                    this);
 
             this.Validator.ValidationMessages.ErrorsChanged += this.ValidationMessagesOnErrorsChanged;
 
@@ -104,14 +112,24 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedPl
         public bool HasErrors => this.Validator.ValidationMessages.HasErrors;
 
         /// <summary>
+        ///     Gets or sets the text key1.
+        /// </summary>
+        /// <value>
+        ///     The text key1.
+        /// </value>
+        public string TextKey1
+        {
+            get => this.textKey1;
+            set => this.SetProperty(ref this.textKey1, value);
+        }
+
+        /// <summary>
         ///     Validations the messages on errors changed.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e)
-        {
+        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e) =>
             this.OnErrorsChanged(e);
-        }
 
         /// <summary>
         ///     Called when [warning1 Command].
@@ -155,14 +173,6 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedPl
             }
         }
 
-        public string TextKey1
-        {
-            get => this.textKey1;
-            set => this.SetProperty(ref this.textKey1, value);
-        }
-
-        private string textKey1;
-
         /// <summary>
         ///     Called when [error2 Command].
         /// </summary>
@@ -194,26 +204,19 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedPl
         /// <returns>
         ///     The validation errors for the property or entity.
         /// </returns>
-        public IEnumerable GetErrors(string propertyName)
-        {
-            return this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
-        }
+        public IEnumerable GetErrors(string propertyName) =>
+            this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
 
         /// <summary>
         ///     Raises the <see cref="E:ErrorsChanged" /> event.
         /// </summary>
         /// <param name="e">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        protected virtual void OnErrorsChanged(DataErrorsChangedEventArgs e)
-        {
-            this.ErrorsChanged?.Invoke(this, e);
-        }
+        protected virtual void OnErrorsChanged(DataErrorsChangedEventArgs e) => this.ErrorsChanged?.Invoke(this, e);
 
         /// <summary>
         ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        public void Dispose()
-        {
+        public void Dispose() =>
             this.Validator.ValidationMessages.ErrorsChanged -= this.ValidationMessagesOnErrorsChanged;
-        }
     }
 }

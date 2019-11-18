@@ -33,6 +33,14 @@ namespace Bfa.Common.Validations.Validators
         protected ModelValidationResult ValidResult => ModelValidationResult.ValidResult(this.RuleName);
 
         /// <summary>
+        ///     Gets or sets the target.
+        /// </summary>
+        /// <value>
+        ///     The target.
+        /// </value>
+        public string Target { get; set; }
+
+        /// <summary>
         ///     Validates the specified model.
         /// </summary>
         /// <param name="model">The model.</param>

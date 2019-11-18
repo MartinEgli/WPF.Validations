@@ -15,6 +15,9 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueValidationByComma
     /// </summary>
     public partial class TwoValueValidationByCommandsWindow : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TwoValueValidationByCommandsWindow"/> class.
+        /// </summary>
         public TwoValueValidationByCommandsWindow()
         {
             this.InitializeComponent();

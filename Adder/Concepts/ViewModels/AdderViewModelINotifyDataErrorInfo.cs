@@ -6,15 +6,13 @@
 
 namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
 {
-    using System;
-    using System.ComponentModel;
-
     using Bfa.Common.Validations.ValidationMessageContainers;
     using Bfa.Common.Validations.Validators;
     using Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.Models;
     using Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.ViewModels;
-
     using JetBrains.Annotations;
+    using System;
+    using System.ComponentModel;
 
     /// <summary>
     ///     Adder View Model INotifyDataErrorInfo class.
@@ -24,9 +22,9 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
     public class AdderViewModelINotifyDataErrorInfo : AdderViewModel, INotifyDataErrorInfo
     {
         /// <summary>
-        ///     The constraint matory
+        ///     The constraint Mandatory
         /// </summary>
-        public const string ConstraintMatory = "IsMatory";
+        public const string ConstraintMandatory = "IsMandatory";
 
         /// <summary>
         ///     The constraint must be non negative
@@ -75,20 +73,20 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
         }
 
         /// <summary>
-        ///     Validates the matory.
+        ///     Validates the Mandatory.
         /// </summary>
         /// <param name="x">The X.</param>
         /// <param name="fieldName">Name of the field.</param>
-        private void ValidateMatory(double? x, string fieldName)
+        private void ValidateMandatory(double? x, string fieldName)
         {
             if (!x.HasValue)
             {
                 this.ValidationMessages.AddError(
-                    new ValidationWarning(fieldName, ConstraintMatory, fieldName + ": is matory"));
+                    new ValidationWarning(fieldName, ConstraintMandatory, fieldName + ": is Mandatory"));
             }
             else
             {
-                this.ValidationMessages.RemoveError(fieldName, ConstraintMatory);
+                this.ValidationMessages.RemoveError(fieldName, ConstraintMandatory);
             }
         }
 
@@ -119,14 +117,14 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
                 case "X":
                     {
                         this.ValidateNonNegative(this.X, "X");
-                        this.ValidateMatory(this.X, "X");
+                        this.ValidateMandatory(this.X, "X");
                     }
                     break;
 
                 case "Y":
                     {
                         this.ValidateNonNegative(this.Y, "Y");
-                        this.ValidateMatory(this.Y, "Y");
+                        this.ValidateMandatory(this.Y, "Y");
                     }
                     break;
             }

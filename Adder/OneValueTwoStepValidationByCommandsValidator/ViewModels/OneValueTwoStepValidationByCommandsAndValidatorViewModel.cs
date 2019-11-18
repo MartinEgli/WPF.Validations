@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValueTwoStepValidationByCommandsValidatorViewModel.cs" company="bfa solutions ltd">
+// <copyright file="OneValueTwoStepValidationByCommandsAndValidatorViewModel.cs" company="bfa solutions ltd">
 // Copyright (c) bfa solutions ltd. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -12,6 +12,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueTwoStepValidation
     using System.Windows.Input;
 
     using Bfa.Common.Validations.Validators;
+    using Bfa.Common.WPF.Validations.ValidationTestGui.Rules;
 
     using ValidationToolkit;
 
@@ -22,8 +23,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueTwoStepValidation
     /// <seealso cref="System.ComponentModel.INotifyDataErrorInfo" />
     /// <seealso cref="System.IDisposable" />
     public class OneValueTwoStepValidationByCommandsValidatorViewModel : Binders.Bindable,
-                                                                            INotifyDataErrorInfo,
-                                                                            IDisposable
+                                                                         INotifyDataErrorInfo,
+                                                                         IDisposable
     {
         /// <summary>
         ///     The value1
@@ -39,11 +40,9 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueTwoStepValidation
             builder.AddRule(
                 "Value1",
                 new RegexRule("NoSpaces", "Value1")
-                {
-                    ErrorMessage = "No Spaces",
-                    RegexPattern = @"^\S*$",
-                    IsWarning = true
-                });
+                    {
+                        ErrorMessage = "No Spaces", RegexPattern = @"^\S*$", IsWarning = true
+                    });
             builder.AddRule(
                 "Value1",
                 new RegexRule("MaxLength", "Value1") { ErrorMessage = "Max Length", RegexPattern = @"^.{0,50}$" });
@@ -98,20 +97,15 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueTwoStepValidation
         ///     Called when [value1 lost focus validation].
         /// </summary>
         /// <param name="obj">The object.</param>
-        private void OnValue1LostFocusValidation(object obj)
-        {
-            this.Validator.ValidateProperty("Value1", "LostFocus");
-        }
+        private void OnValue1LostFocusValidation(object obj) => this.Validator.ValidateProperty("Value1", "LostFocus");
 
         /// <summary>
         ///     Validations the messages on errors changed.
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e)
-        {
+        private void ValidationMessagesOnErrorsChanged(object sender, DataErrorsChangedEventArgs e) =>
             this.OnErrorsChanged(e);
-        }
 
         /// <summary>
         ///     Gets the validation errors for a specified property or for the entire entity.
@@ -123,26 +117,19 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueTwoStepValidation
         /// <returns>
         ///     The validation errors for the property or entity.
         /// </returns>
-        public IEnumerable GetErrors(string propertyName)
-        {
-            return this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
-        }
+        public IEnumerable GetErrors(string propertyName) =>
+            this.Validator.ValidationMessages.GetPropertyErrors(propertyName);
 
         /// <summary>
         ///     Raises the <see cref="E:ErrorsChanged" /> event.
         /// </summary>
         /// <param name="e">The <see cref="DataErrorsChangedEventArgs" /> instance containing the event data.</param>
-        protected virtual void OnErrorsChanged(DataErrorsChangedEventArgs e)
-        {
-            this.ErrorsChanged?.Invoke(this, e);
-        }
+        protected virtual void OnErrorsChanged(DataErrorsChangedEventArgs e) => this.ErrorsChanged?.Invoke(this, e);
 
         /// <summary>
         ///     Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
         /// </summary>
-        public void Dispose()
-        {
+        public void Dispose() =>
             this.Validator.ValidationMessages.ErrorsChanged -= this.ValidationMessagesOnErrorsChanged;
-        }
     }
 }

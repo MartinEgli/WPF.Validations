@@ -97,19 +97,19 @@
     <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplate\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplateView.xaml.cs">
       <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplateView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommands\OneValueSortedAndLocalisedAndPlaceholderAndFallbackValidationByCommandsWindow.xaml.cs">
-      <DependentUpon>OneValueSortedAndLocalisedAndPlaceholderAndFallbackValidationByCommandsWindow.xaml</DependentUpon>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommands\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsWindow.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommands\ViewModels\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsViewModel.cs" />
     <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommands\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsView.xaml.cs">
       <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OneValueSortedLocalizedFallbackValidationByCommands\OneValueSortedAndLocalisedAndFallbackValidationByCommandsWindow.xaml.cs">
-      <DependentUpon>OneValueSortedAndLocalisedAndFallbackValidationByCommandsWindow.xaml</DependentUpon>
+    <Compile Include="OneValueSortedLocalizedFallbackValidationByCommands\OneValueSortedLocalizedFallbackValidationByCommandsWindow.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedFallbackValidationByCommandsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="OneValueSortedLocalizedFallbackValidationByCommands\ViewModels\OneValueSortedAndLocalizedAndFallbackValidationByCommandsViewModel.cs" />
-    <Compile Include="OneValueSortedLocalizedFallbackValidationByCommands\Views\OneValueAndLocalisedAndFallbackSortedValidationByCommandsView.xaml.cs">
-      <DependentUpon>OneValueAndLocalisedAndFallbackSortedValidationByCommandsView.xaml</DependentUpon>
+    <Compile Include="OneValueSortedLocalizedFallbackValidationByCommands\Views\OneValueSortedLocalizedFallbackValidationByCommandsView.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedFallbackValidationByCommandsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="OneValueSortedLocalizedValidationByCommands\OneValueSortedAndLocalizedValidationByCommandsWindow.xaml.cs">
       <DependentUpon>OneValueSortedAndLocalizedValidationByCommandsWindow.xaml</DependentUpon>
@@ -125,26 +125,26 @@
     <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidator\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorView.xaml.cs">
       <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OneValueSortedValidationByCommandsValidator\OneValueValidationByCommandsAndValidatorWindow.xaml.cs">
-      <DependentUpon>OneValueValidationByCommandsAndValidatorWindow.xaml</DependentUpon>
+    <Compile Include="OneValueSortedValidationByCommandsValidator\OneValueSortedValidationByCommandsValidatorWindow.xaml.cs">
+      <DependentUpon>OneValueSortedValidationByCommandsValidatorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="OneValueSortedValidationByCommandsValidator\ViewModels\OneValueSortedValidationByCommandsAndValidatorViewModel.cs" />
-    <Compile Include="OneValueSortedValidationByCommandsValidator\Views\OneValueSortedValidationByCommandsAndValidatorView.xaml.cs">
-      <DependentUpon>OneValueSortedValidationByCommandsAndValidatorView.xaml</DependentUpon>
+    <Compile Include="OneValueSortedValidationByCommandsValidator\Views\OneValueSortedValidationByCommandsValidatorView.xaml.cs">
+      <DependentUpon>OneValueSortedValidationByCommandsValidatorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions\OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByExceptionsWindow.xaml.cs">
-      <DependentUpon>OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByExceptionsWindow.xaml</DependentUpon>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions\OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsWindow.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions\ViewModels\OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByExceptionsViewModel.cs" />
-    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions\Views\OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByExceptionsView.xaml.cs">
-      <DependentUpon>OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByExceptionsView.xaml</DependentUpon>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions\ViewModels\OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsViewModel.cs" />
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsView.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules\OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByValidationRulesWindow.xaml.cs">
-      <DependentUpon>OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByValidationRulesWindow.xaml</DependentUpon>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules\OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRulesWindow.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRulesWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules\ViewModels\OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByValidationRulesViewModel.cs" />
-    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules\Views\OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByValidationRulesView.xaml.cs">
-      <DependentUpon>OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByValidationRulesView.xaml</DependentUpon>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules\ViewModels\OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRulesViewModel.cs" />
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRulesView.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRulesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="OneValueValidationByCommandsValidatorToUpper\OneValueValidationByCommandsValidatorToUpperWindow.xaml.cs">
       <DependentUpon>OneValueValidationByCommandsValidatorToUpperWindow.xaml</DependentUpon>
@@ -178,6 +178,7 @@
       <DependentUpon>OneValueValidationByExceptionsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="OneValueValidationByExceptions\ViewModels\OneValueValidationByExceptionsViewModel.cs" />
+    <Compile Include="OneValueValidationByExceptions\ViewModels\ValidationWarningException.cs" />
     <Compile Include="OneValueValidationByExceptions\Views\OneValueValidationByExceptionsView.xaml.cs">
       <DependentUpon>OneValueValidationByExceptionsView.xaml</DependentUpon>
     </Compile>
@@ -202,6 +203,11 @@
     <Compile Include="OneValueValidationByValidationRules\Views\OneValueValidationByValidationRulesView.xaml.cs">
       <DependentUpon>OneValueValidationByValidationRulesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Rules\IMinMaxValue.cs" />
+    <Compile Include="Rules\LocMaxLengthResult.cs" />
+    <Compile Include="Rules\MinMaxRangeModelRule.cs" />
+    <Compile Include="TwoValueValidationByCommandsValidatorRanges\ViewModels\ValueModel.cs" />
+    <Compile Include="TwoValueValidationByCommandsValidatorRanges\ViewModels\RangesModel.cs" />
     <Compile Include="Rules\IComparerTwoValues.cs" />
     <Compile Include="Rules\LocalizedRegexRule.cs" />
     <Compile Include="Rules\LocMaxLengthRule.cs" />
@@ -212,6 +218,14 @@
     <Compile Include="Rules\MaxLengthRule.cs" />
     <Compile Include="Rules\RegexRule.cs" />
     <Compile Include="SortedValidationMessageCollectionByPriorityConverter.cs" />
+    <Compile Include="TwoValueSortedValidationByCommandsValidatorModel\Models\TwoValueSortedValidationByCommandsValidatorModelModel.cs" />
+    <Compile Include="TwoValueSortedValidationByCommandsValidatorModel\TwoValueSortedValidationByCommandsValidatorModelWindow.xaml.cs">
+      <DependentUpon>TwoValueSortedValidationByCommandsValidatorModelWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TwoValueSortedValidationByCommandsValidatorModel\ViewModels\TwoValueSortedValidationByCommandsValidatorModelViewModel.cs" />
+    <Compile Include="TwoValueSortedValidationByCommandsValidatorModel\Views\TwoValueSortedValidationByCommandsValidatorModelView.xaml.cs">
+      <DependentUpon>TwoValueSortedValidationByCommandsValidatorModelView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TwoValueSortedValidationByCommandsValidatorAdorner\TwoValueSortedValidationByCommandsAndValidatorWindow.xaml.cs">
       <DependentUpon>TwoValueSortedValidationByCommandsAndValidatorWindow.xaml</DependentUpon>
     </Compile>
@@ -219,12 +233,12 @@
     <Compile Include="TwoValueSortedValidationByCommandsValidatorAdorner\Views\TwoValueSortedValidationByCommandsAndValidatorView.xaml.cs">
       <DependentUpon>TwoValueSortedValidationByCommandsAndValidatorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TwoValueSortedValidationByCommandsAndValidator\TwoValueSortedValidationByCommandsAndValidatorWindow.xaml.cs">
+    <Compile Include="TwoValueSortedValidationByCommandsValidator\TwoValueSortedValidationByCommandsAndValidatorWindow.xaml.cs">
       <DependentUpon>TwoValueSortedValidationByCommandsAndValidatorWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Rules\AreValuesEqualRule.cs" />
-    <Compile Include="TwoValueSortedValidationByCommandsAndValidator\ViewModels\TwoValueSortedValidationByCommandsAndValidatorViewModel.cs" />
-    <Compile Include="TwoValueSortedValidationByCommandsAndValidator\Views\TwoValueSortedValidationByCommandsAndValidatorView.xaml.cs">
+    <Compile Include="TwoValueSortedValidationByCommandsValidator\ViewModels\TwoValueSortedValidationByCommandsAndValidatorViewModel.cs" />
+    <Compile Include="TwoValueSortedValidationByCommandsValidator\Views\TwoValueSortedValidationByCommandsAndValidatorView.xaml.cs">
       <DependentUpon>TwoValueSortedValidationByCommandsAndValidatorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="TwoValueSortedValidationByCommands\TwoValueSortedValidationByCommandsWindow.xaml.cs">
@@ -234,6 +248,7 @@
     <Compile Include="TwoValueSortedValidationByCommands\Views\TwoValueSortedValidationByCommandsView.xaml.cs">
       <DependentUpon>TwoValueSortedValidationByCommandsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TwoValueValidationByCommandsValidatorRanges\ViewModels\ValueViewModel.cs" />
     <Compile Include="ValidationErrorsToSolidBrushConverter.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -245,15 +260,15 @@
     <Compile Include="OneValueSortedValidationByCommands\Views\OneValueSortedValidationByCommandsView.xaml.cs">
       <DependentUpon>OneValueSortedValidationByCommandsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ranges\RagesWindow.xaml.cs">
-      <DependentUpon>RagesWindow.xaml</DependentUpon>
+    <Compile Include="TwoValueValidationByCommandsValidatorRanges\TwoValueValidationByCommandsValidatorRangesWindow.xaml.cs">
+      <DependentUpon>TwoValueValidationByCommandsValidatorRangesWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ranges\ViewModels\RangesViewModel.cs" />
-    <Compile Include="Ranges\Views\RangesView.xaml.cs">
-      <DependentUpon>RangesView.xaml</DependentUpon>
+    <Compile Include="TwoValueValidationByCommandsValidatorRanges\ViewModels\RangesViewModel.cs" />
+    <Compile Include="TwoValueValidationByCommandsValidatorRanges\Views\TwoValueValidationByCommandsValidatorRangesView.xaml.cs">
+      <DependentUpon>TwoValueValidationByCommandsValidatorRangesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Rules\MandatoryRule.cs" />
-    <Compile Include="Rules\MaxRangeRule.cs" />
+    <Compile Include="Rules\MinMaxRangeRule.cs" />
     <Compile Include="SortedValidationErrorCollectionByPriorityConverter.cs" />
     <Compile Include="TwoValueValidationByCommands\TwoValueValidationByCommandsWindow.xaml.cs">
       <DependentUpon>TwoValueValidationByCommandsWindow.xaml</DependentUpon>
@@ -362,7 +377,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommands\OneValueSortedAndLocalisedAndPlaceholderAndFallbackValidationByCommandsWindow.xaml">
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommands\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -370,11 +385,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="OneValueSortedLocalizedFallbackValidationByCommands\OneValueSortedAndLocalisedAndFallbackValidationByCommandsWindow.xaml">
+    <Page Include="OneValueSortedLocalizedFallbackValidationByCommands\OneValueSortedLocalizedFallbackValidationByCommandsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="OneValueSortedLocalizedFallbackValidationByCommands\Views\OneValueAndLocalisedAndFallbackSortedValidationByCommandsView.xaml">
+    <Page Include="OneValueSortedLocalizedFallbackValidationByCommands\Views\OneValueSortedLocalizedFallbackValidationByCommandsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -402,27 +417,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="OneValueSortedValidationByCommandsValidator\OneValueValidationByCommandsAndValidatorWindow.xaml">
+    <Page Include="OneValueSortedValidationByCommandsValidator\OneValueSortedValidationByCommandsValidatorWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="OneValueSortedValidationByCommandsValidator\Views\OneValueSortedValidationByCommandsAndValidatorView.xaml">
+    <Page Include="OneValueSortedValidationByCommandsValidator\Views\OneValueSortedValidationByCommandsValidatorView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions\OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByExceptionsWindow.xaml">
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions\OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions\Views\OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByExceptionsView.xaml">
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules\OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByValidationRulesWindow.xaml">
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules\OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRulesWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules\Views\OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByValidationRulesView.xaml">
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRulesView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -490,13 +505,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Ranges\RagesWindow.xaml">
+    <Page Include="TwoValueValidationByCommandsValidatorRanges\TwoValueValidationByCommandsValidatorRangesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ranges\Views\RangesView.xaml">
+    <Page Include="TwoValueValidationByCommandsValidatorRanges\Views\TwoValueValidationByCommandsValidatorRangesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TwoValueSortedValidationByCommandsValidatorModel\TwoValueSortedValidationByCommandsValidatorModelWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TwoValueSortedValidationByCommandsValidatorModel\Views\TwoValueSortedValidationByCommandsValidatorModelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TwoValueSortedValidationByCommandsValidatorAdorner\TwoValueSortedValidationByCommandsAndValidatorWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -506,11 +529,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TwoValueSortedValidationByCommandsAndValidator\TwoValueSortedValidationByCommandsAndValidatorWindow.xaml">
+    <Page Include="TwoValueSortedValidationByCommandsValidator\TwoValueSortedValidationByCommandsAndValidatorWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TwoValueSortedValidationByCommandsAndValidator\Views\TwoValueSortedValidationByCommandsAndValidatorView.xaml">
+    <Page Include="TwoValueSortedValidationByCommandsValidator\Views\TwoValueSortedValidationByCommandsAndValidatorView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -583,7 +606,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Ranges\Models\" />
+    <Folder Include="TwoValueValidationByCommandsValidatorRanges\Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -5,10 +5,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:views="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationByExceptions.Views"
-    xmlns:views1="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions.Views"
     Title="One Value Sorted Validation By Exceptions"
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <views1:OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsView />
+    <views:OneValueSortedValidationByExceptionsView />
 </Window>
