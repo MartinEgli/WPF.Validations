@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5924456F-F685-4DB5-88B8-3C0E6CE7FDAC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bfa.Common.WPF.Validations.ValidationTestGui</RootNamespace>
+    <AssemblyName>Bfa.Common.WPF.Validations.ValidationTestGui</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JetBrains.Annotations, Version=2019.1.3.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Annotations.2019.1.3\lib\net20\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.0.1\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFLocalizeExtension, Version=2.3.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfLocalizeExtension.2.3.2\lib\net35\WPFLocalizeExtension.dll</HintPath>
+    </Reference>
+    <Reference Include="XAMLMarkupExtensions, Version=1.2.1.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XAMLMarkupExtensions.1.2.1.3\lib\net40\XAMLMarkupExtensions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="BooleanToVisibilityConverter.cs" />
+    <Compile Include="Concepts\Models\AdderModel.cs" />
+    <Compile Include="Localizations\ILocalizationRepository.cs" />
+    <Compile Include="Localizations\LocalizationRepository.cs" />
+    <Compile Include="Localizations\LocalizationRepositoryProvider.cs" />
+    <Compile Include="Localizations\LocalizationRepositoryProviderBase.cs" />
+    <Compile Include="LocalizedValidationError.xaml.cs">
+      <DependentUpon>LocalizedValidationError.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementName\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementNameWindow.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementNameWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementName\ViewModels\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementNameViewModel.cs" />
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementName\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementNameView.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementNameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsErrorTemplate\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsErrorTemplateWindow.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsErrorTemplateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsErrorTemplate\ViewModels\OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByCommandsViewModel.cs" />
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsErrorTemplate\Views\OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByCommandsView.xaml.cs">
+      <DependentUpon>OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByCommandsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplate\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplateWindow.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplateWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplate\ViewModels\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplateViewModel.cs" />
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplate\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplateView.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommands\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsWindow.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommands\ViewModels\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsViewModel.cs" />
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommands\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsView.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedFallbackValidationByCommands\OneValueSortedLocalizedFallbackValidationByCommandsWindow.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedFallbackValidationByCommandsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedFallbackValidationByCommands\ViewModels\OneValueSortedAndLocalizedAndFallbackValidationByCommandsViewModel.cs" />
+    <Compile Include="OneValueSortedLocalizedFallbackValidationByCommands\Views\OneValueSortedLocalizedFallbackValidationByCommandsView.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedFallbackValidationByCommandsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedValidationByCommands\OneValueSortedAndLocalizedValidationByCommandsWindow.xaml.cs">
+      <DependentUpon>OneValueSortedAndLocalizedValidationByCommandsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedValidationByCommands\ViewModels\OneValueSortedAndLocalizedValidationByCommandsViewModel.cs" />
+    <Compile Include="OneValueSortedLocalizedValidationByCommands\Views\OneValueSortedAndLocalizedValidationByCommandsView.xaml.cs">
+      <DependentUpon>OneValueSortedAndLocalizedValidationByCommandsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidator\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorWindow.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidator\ViewModels\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorViewModel.cs" />
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidator\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorView.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedValidationByCommandsValidator\OneValueSortedValidationByCommandsValidatorWindow.xaml.cs">
+      <DependentUpon>OneValueSortedValidationByCommandsValidatorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedValidationByCommandsValidator\ViewModels\OneValueSortedValidationByCommandsAndValidatorViewModel.cs" />
+    <Compile Include="OneValueSortedValidationByCommandsValidator\Views\OneValueSortedValidationByCommandsValidatorView.xaml.cs">
+      <DependentUpon>OneValueSortedValidationByCommandsValidatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions\OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsWindow.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions\ViewModels\OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsViewModel.cs" />
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsView.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules\OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRulesWindow.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRulesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules\ViewModels\OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRulesViewModel.cs" />
+    <Compile Include="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRulesView.xaml.cs">
+      <DependentUpon>OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRulesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueValidationByCommandsValidatorToUpper\OneValueValidationByCommandsValidatorToUpperWindow.xaml.cs">
+      <DependentUpon>OneValueValidationByCommandsValidatorToUpperWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueValidationByCommandsValidatorToUpper\ViewModels\OneValueValidationByCommandsValidatorToUpperViewModel.cs" />
+    <Compile Include="OneValueValidationByCommandsValidatorToUpper\Views\OneValueValidationByCommandsValidatorCancelView.xaml.cs">
+      <DependentUpon>OneValueValidationByCommandsValidatorCancelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueValidationByCommandsValidatorCancel\OneValueValidationByCommandsAndValidatorWindow.xaml.cs">
+      <DependentUpon>OneValueValidationByCommandsAndValidatorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueValidationByCommandsValidatorCancel\ViewModels\OneValueValidationByCommandsValidatorCancelViewModel.cs" />
+    <Compile Include="OneValueValidationByCommandsValidatorCancel\Views\OneValueValidationByCommandsValidatorCancelView.xaml.cs">
+      <DependentUpon>OneValueValidationByCommandsValidatorCancelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueValidationByCommandsValidator\OneValueValidationByCommandsAndValidatorWindow.xaml.cs">
+      <DependentUpon>OneValueValidationByCommandsAndValidatorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueValidationByCommandsValidator\ViewModels\OneValueValidationByCommandsValidatorViewModel.cs" />
+    <Compile Include="OneValueValidationByCommandsValidator\Views\OneValueValidationByCommandsAndValidatorView.xaml.cs">
+      <DependentUpon>OneValueValidationByCommandsAndValidatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueTwoStepValidationByCommandsValidator\OneValueTwoStepValidationByCommandsAndValidatorWindow.xaml.cs">
+      <DependentUpon>OneValueTwoStepValidationByCommandsAndValidatorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueTwoStepValidationByCommandsValidator\ViewModels\OneValueTwoStepValidationByCommandsAndValidatorViewModel.cs" />
+    <Compile Include="OneValueTwoStepValidationByCommandsValidator\Views\OneValueTwoStepValidationByCommandsAndValidatorView.xaml.cs">
+      <DependentUpon>OneValueTwoStepValidationByCommandsAndValidatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueValidationByExceptions\OneValueValidationByExceptionsWindow.xaml.cs">
+      <DependentUpon>OneValueValidationByExceptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueValidationByExceptions\ViewModels\OneValueValidationByExceptionsViewModel.cs" />
+    <Compile Include="OneValueValidationByExceptions\ViewModels\ValidationWarningException.cs" />
+    <Compile Include="OneValueValidationByExceptions\Views\OneValueValidationByExceptionsView.xaml.cs">
+      <DependentUpon>OneValueValidationByExceptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedValidationByExceptions\OneValueSortedValidationByExceptionsWindow.xaml.cs">
+      <DependentUpon>OneValueSortedValidationByExceptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedValidationByExceptions\ViewModels\OneValueSortedValidationByExceptionsViewModel.cs" />
+    <Compile Include="OneValueSortedValidationByExceptions\Views\OneValueSortedValidationByExceptionsView.xaml.cs">
+      <DependentUpon>OneValueSortedValidationByExceptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedValidationByValidationRules\OneValueSortedValidationByValidationRulesWindow.xaml.cs">
+      <DependentUpon>OneValueSortedValidationByValidationRulesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedValidationByValidationRules\ViewModels\OneValueSortedValidationByValidationRulesViewModel.cs" />
+    <Compile Include="OneValueSortedValidationByValidationRules\Views\OneValueSortedValidationByValidationRulesView.xaml.cs">
+      <DependentUpon>OneValueSortedValidationByValidationRulesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueValidationByValidationRules\OneValueValidationByValidationRulesWindow.xaml.cs">
+      <DependentUpon>OneValueValidationByValidationRulesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueValidationByValidationRules\ViewModels\OneValueValidationByValidationRulesViewModel.cs" />
+    <Compile Include="OneValueValidationByValidationRules\Views\OneValueValidationByValidationRulesView.xaml.cs">
+      <DependentUpon>OneValueValidationByValidationRulesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\IMinMaxValue.cs" />
+    <Compile Include="Rules\LocMaxLengthResult.cs" />
+    <Compile Include="Rules\MinMaxRangeModelRule.cs" />
+    <Compile Include="TwoValueValidationByCommandsValidatorRanges\ViewModels\ValueModel.cs" />
+    <Compile Include="TwoValueValidationByCommandsValidatorRanges\ViewModels\RangesModel.cs" />
+    <Compile Include="Rules\IComparerTwoValues.cs" />
+    <Compile Include="Rules\LocalizedRegexRule.cs" />
+    <Compile Include="Rules\LocMaxLengthRule.cs" />
+    <Compile Include="Rules\LocModelValidationResult.cs" />
+    <Compile Include="Rules\LocPropertyValidationResult.cs" />
+    <Compile Include="Rules\MaxLengthResult.cs" />
+    <Compile Include="Rules\ToUpperRule.cs" />
+    <Compile Include="Rules\MaxLengthRule.cs" />
+    <Compile Include="Rules\RegexRule.cs" />
+    <Compile Include="SortedValidationMessageCollectionByPriorityConverter.cs" />
+    <Compile Include="TwoValueSortedValidationByCommandsValidatorModel\Models\TwoValueSortedValidationByCommandsValidatorModelModel.cs" />
+    <Compile Include="TwoValueSortedValidationByCommandsValidatorModel\TwoValueSortedValidationByCommandsValidatorModelWindow.xaml.cs">
+      <DependentUpon>TwoValueSortedValidationByCommandsValidatorModelWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TwoValueSortedValidationByCommandsValidatorModel\ViewModels\TwoValueSortedValidationByCommandsValidatorModelViewModel.cs" />
+    <Compile Include="TwoValueSortedValidationByCommandsValidatorModel\Views\TwoValueSortedValidationByCommandsValidatorModelView.xaml.cs">
+      <DependentUpon>TwoValueSortedValidationByCommandsValidatorModelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TwoValueSortedValidationByCommandsValidatorAdorner\TwoValueSortedValidationByCommandsAndValidatorWindow.xaml.cs">
+      <DependentUpon>TwoValueSortedValidationByCommandsAndValidatorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TwoValueSortedValidationByCommandsValidatorAdorner\ViewModels\TwoValueSortedValidationByCommandsValidatorAdornerViewModel.cs" />
+    <Compile Include="TwoValueSortedValidationByCommandsValidatorAdorner\Views\TwoValueSortedValidationByCommandsAndValidatorView.xaml.cs">
+      <DependentUpon>TwoValueSortedValidationByCommandsAndValidatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TwoValueSortedValidationByCommandsValidator\TwoValueSortedValidationByCommandsAndValidatorWindow.xaml.cs">
+      <DependentUpon>TwoValueSortedValidationByCommandsAndValidatorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\AreValuesEqualRule.cs" />
+    <Compile Include="TwoValueSortedValidationByCommandsValidator\ViewModels\TwoValueSortedValidationByCommandsAndValidatorViewModel.cs" />
+    <Compile Include="TwoValueSortedValidationByCommandsValidator\Views\TwoValueSortedValidationByCommandsAndValidatorView.xaml.cs">
+      <DependentUpon>TwoValueSortedValidationByCommandsAndValidatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TwoValueSortedValidationByCommands\TwoValueSortedValidationByCommandsWindow.xaml.cs">
+      <DependentUpon>TwoValueSortedValidationByCommandsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TwoValueSortedValidationByCommands\ViewModels\TwoValueSortedValidationByCommandsViewModel.cs" />
+    <Compile Include="TwoValueSortedValidationByCommands\Views\TwoValueSortedValidationByCommandsView.xaml.cs">
+      <DependentUpon>TwoValueSortedValidationByCommandsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TwoValueValidationByCommandsValidatorRanges\ViewModels\ValueViewModel.cs" />
+    <Compile Include="ValidationErrorsToSolidBrushConverter.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedValidationByCommands\OneValueSortedValidationByCommandsWindow.xaml.cs">
+      <DependentUpon>OneValueSortedValidationByCommandsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueSortedValidationByCommands\ViewModels\OneValueSortedValidationByCommandsViewModel.cs" />
+    <Compile Include="OneValueSortedValidationByCommands\Views\OneValueSortedValidationByCommandsView.xaml.cs">
+      <DependentUpon>OneValueSortedValidationByCommandsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TwoValueValidationByCommandsValidatorRanges\TwoValueValidationByCommandsValidatorRangesWindow.xaml.cs">
+      <DependentUpon>TwoValueValidationByCommandsValidatorRangesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TwoValueValidationByCommandsValidatorRanges\ViewModels\RangesViewModel.cs" />
+    <Compile Include="TwoValueValidationByCommandsValidatorRanges\Views\TwoValueValidationByCommandsValidatorRangesView.xaml.cs">
+      <DependentUpon>TwoValueValidationByCommandsValidatorRangesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\MandatoryRule.cs" />
+    <Compile Include="Rules\MinMaxRangeRule.cs" />
+    <Compile Include="SortedValidationErrorCollectionByPriorityConverter.cs" />
+    <Compile Include="TwoValueValidationByCommands\TwoValueValidationByCommandsWindow.xaml.cs">
+      <DependentUpon>TwoValueValidationByCommandsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TwoValueValidationByCommands\ViewModels\TwoValueValidationByCommandsViewModel.cs" />
+    <Compile Include="TwoValueValidationByCommands\Views\TwoValueValidationByCommandsView.xaml.cs">
+      <DependentUpon>TwoValueValidationByCommandsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueValidationByCommands\OneValueValidationByCommandsWindow.xaml.cs">
+      <DependentUpon>OneValueValidationByCommandsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OneValueValidationByCommands\ViewModels\OneValueValidationByCommandsViewModel.cs" />
+    <Compile Include="OneValueValidationByCommands\Views\OneValueValidationByCommandsView.xaml.cs">
+      <DependentUpon>OneValueValidationByCommandsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ValidationMessageView.xaml.cs">
+      <DependentUpon>ValidationMessageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel.cs" />
+    <Compile Include="Concepts\ViewModels\AdderViewModel.cs" />
+    <Compile Include="Concepts\ViewModels\AdderViewModelIDataErrorInfo.cs" />
+    <Compile Include="Concepts\ViewModels\AdderViewModelINotifyDataErrorInfo.cs" />
+    <Compile Include="Concepts\Views\CalculatorViewUsingIDataErrorInfoWithErrorTemplate.xaml.cs">
+      <DependentUpon>CalculatorViewUsingIDataErrorInfoWithErrorTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Concepts\Views\CalculatorViewUsingINotifyDataErrorInfoWithErrorTemplate.xaml.cs">
+      <DependentUpon>CalculatorViewUsingINotifyDataErrorInfoWithErrorTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Concepts\Views\CalculatorViewUsingINotifyDataErrorInfo.xaml.cs">
+      <DependentUpon>CalculatorViewUsingINotifyDataErrorInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Concepts\Views\CalculatorViewUsingValidationRule.xaml.cs">
+      <DependentUpon>CalculatorViewUsingValidationRule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Concepts\Views\CalculatorViewUsingValidationRuleWithErrorTemplate.xaml.cs">
+      <DependentUpon>CalculatorViewUsingValidationRuleWithErrorTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Concepts\Views\CalculatorViewUsingIDataErrorInfo.xaml.cs">
+      <DependentUpon>CalculatorViewUsingIDataErrorInfo.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Concepts\ConceptsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Concepts\ConceptsWindow.xaml.cs">
+      <DependentUpon>ConceptsWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Concepts\Views\CalculatorViewUsingIDataErrorInfoWithErrorTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Concepts\Views\CalculatorViewUsingINotifyDataErrorInfoWithErrorTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Concepts\Views\CalculatorViewUsingINotifyDataErrorInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Concepts\Views\CalculatorViewUsingValidationRule.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Concepts\Views\CalculatorViewUsingValidationRuleWithErrorTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Concepts\Views\CalculatorViewUsingIDataErrorInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LocalizedValidationError.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementName\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementNameWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementName\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementNameView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsErrorTemplate\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsErrorTemplateWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsErrorTemplate\Views\OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByCommandsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplate\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplateWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplate\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommands\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommands\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedFallbackValidationByCommands\OneValueSortedLocalizedFallbackValidationByCommandsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedFallbackValidationByCommands\Views\OneValueSortedLocalizedFallbackValidationByCommandsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedValidationByCommands\OneValueSortedAndLocalizedValidationByCommandsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedValidationByCommands\Views\OneValueSortedAndLocalizedValidationByCommandsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidator\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidator\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedValidationByCommands\OneValueSortedValidationByCommandsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedValidationByCommands\Views\OneValueSortedValidationByCommandsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedValidationByCommandsValidator\OneValueSortedValidationByCommandsValidatorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedValidationByCommandsValidator\Views\OneValueSortedValidationByCommandsValidatorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions\OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByExceptionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules\OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRulesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules\Views\OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRulesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueValidationByCommandsValidatorToUpper\OneValueValidationByCommandsValidatorToUpperWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueValidationByCommandsValidatorToUpper\Views\OneValueValidationByCommandsValidatorCancelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueValidationByCommandsValidatorCancel\OneValueValidationByCommandsAndValidatorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueValidationByCommandsValidatorCancel\Views\OneValueValidationByCommandsValidatorCancelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueValidationByCommandsValidator\OneValueValidationByCommandsAndValidatorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueValidationByCommandsValidator\Views\OneValueValidationByCommandsAndValidatorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueTwoStepValidationByCommandsValidator\OneValueTwoStepValidationByCommandsAndValidatorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueTwoStepValidationByCommandsValidator\Views\OneValueTwoStepValidationByCommandsAndValidatorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueValidationByExceptions\OneValueValidationByExceptionsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueValidationByExceptions\Views\OneValueValidationByExceptionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedValidationByExceptions\OneValueSortedValidationByExceptionsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedValidationByExceptions\Views\OneValueSortedValidationByExceptionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedValidationByValidationRules\OneValueSortedValidationByValidationRulesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueSortedValidationByValidationRules\Views\OneValueSortedValidationByValidationRulesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueValidationByValidationRules\OneValueValidationByValidationRulesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueValidationByValidationRules\Views\OneValueValidationByValidationRulesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TwoValueValidationByCommandsValidatorRanges\TwoValueValidationByCommandsValidatorRangesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TwoValueValidationByCommandsValidatorRanges\Views\TwoValueValidationByCommandsValidatorRangesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TwoValueSortedValidationByCommandsValidatorModel\TwoValueSortedValidationByCommandsValidatorModelWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TwoValueSortedValidationByCommandsValidatorModel\Views\TwoValueSortedValidationByCommandsValidatorModelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TwoValueSortedValidationByCommandsValidatorAdorner\TwoValueSortedValidationByCommandsAndValidatorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TwoValueSortedValidationByCommandsValidatorAdorner\Views\TwoValueSortedValidationByCommandsAndValidatorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TwoValueSortedValidationByCommandsValidator\TwoValueSortedValidationByCommandsAndValidatorWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TwoValueSortedValidationByCommandsValidator\Views\TwoValueSortedValidationByCommandsAndValidatorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TwoValueSortedValidationByCommands\TwoValueSortedValidationByCommandsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TwoValueSortedValidationByCommands\Views\TwoValueSortedValidationByCommandsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TwoValueValidationByCommands\TwoValueValidationByCommandsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TwoValueValidationByCommands\Views\TwoValueValidationByCommandsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OneValueValidationByCommands\OneValueValidationByCommandsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OneValueValidationByCommands\Views\OneValueValidationByCommandsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ValidationMessageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Concepts\CalculationService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bfa.Common\Bfa.Common.csproj">
+      <Project>{291dbaff-a10a-4967-8597-4800f98cbb24}</Project>
+      <Name>Bfa.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bfa.Common.WPF\Bfa.Common.WPF.csproj">
+      <Project>{2b0b0ec8-3850-4786-b423-e9bd545186ab}</Project>
+      <Name>Bfa.Common.WPF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TwoValueValidationByCommandsValidatorRanges\Models\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
