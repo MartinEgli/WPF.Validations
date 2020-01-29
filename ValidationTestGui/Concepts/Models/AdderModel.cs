@@ -1,12 +1,12 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="AdderModel.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="AdderModel.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.Models
+namespace Anori.Common.WPF.Validations.ValidationTestGui.Concepts.Models
 {
-    using Bfa.Common.Binders;
+    using Anori.Common.Binders;
 
     public class AdderModel : Bindable
     {

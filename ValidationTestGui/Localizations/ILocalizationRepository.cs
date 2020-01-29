@@ -1,10 +1,10 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ILocalizationRepository.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="ILocalizationRepository.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Pi.Infrastructure.Common.LocalizationProviders
+namespace Anori.Pi.Infrastructure.Common.LocalizationProviders
 {
     using System.Collections.ObjectModel;
     using System.Globalization;

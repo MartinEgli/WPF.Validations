@@ -1,10 +1,10 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValueValidationByCommandsValidatorView.xaml.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="OneValueValidationByCommandsValidatorView.xaml.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommandsValidator.Views
+namespace Anori.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommandsValidator.Views
 {
     using System.Windows.Controls;
 

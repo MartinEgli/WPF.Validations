@@ -1,22 +1,22 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="MaxLengthRule.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="MaxLengthRule.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui
+namespace Anori.Common.WPF.Validations.ValidationTestGui
 {
     using System;
 
-    using Bfa.Common.Validations.Validators;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.Rules;
+    using Anori.Common.Validations.Validators;
+    using Anori.Common.WPF.Validations.ValidationTestGui.Rules;
 
     using JetBrains.Annotations;
 
     /// <summary>
     /// The maximum length rule
     /// </summary>
-    /// <seealso cref="Bfa.Common.Validations.Validators.PropertyValidationRule{System.String}" />
+    /// <seealso cref="Anori.Common.Validations.Validators.PropertyValidationRule{System.String}" />
     /// <seealso cref="PropertyValidationRule{TProperty}" />
     public class MaxLengthRule : PropertyValidationRule<string>
     {

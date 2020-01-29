@@ -1,22 +1,22 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="RangesViewModel.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="RangesViewModel.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueValidationByCommandsValidatorRanges.ViewModels
+namespace Anori.Common.WPF.Validations.ValidationTestGui.TwoValueValidationByCommandsValidatorRanges.ViewModels
 {
-    using Bfa.Common.Binders;
-    using Bfa.Common.Collections;
-    using Bfa.Common.Validations.Validators;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.Rules;
+    using Anori.Common.Binders;
+    using Anori.Common.Collections;
+    using Anori.Common.Validations.Validators;
+    using Anori.Common.WPF.Validations.ValidationTestGui.Rules;
 
     using PropertyChangedEventArgs = System.ComponentModel.PropertyChangedEventArgs;
 
     /// <summary>
     ///     The ranges view model
     /// </summary>
-    /// <seealso cref="Bfa.Common.Binders.Bindable" />
+    /// <seealso cref="Anori.Common.Binders.Bindable" />
     public class RangesViewModel : Bindable
     {
         /// <summary>

@@ -1,15 +1,15 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValueSortedLocalizedFallbackValidationByCommandsViewModel.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="OneValueSortedLocalizedFallbackValidationByCommandsViewModel.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedFallbackValidationByCommands.ViewModels
+namespace Anori.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedFallbackValidationByCommands.ViewModels
 {
-    using Bfa.Common.Validations.ValidationMessageContainers;
-    using Bfa.Common.Validations.Validators;
-    using Bfa.Common.WPF.Localizations;
-    using Bfa.Common.WPF.Validations.ValidationMessageContainers;
+    using Anori.Common.Validations.ValidationMessageContainers;
+    using Anori.Common.Validations.Validators;
+    using Anori.Common.WPF.Localizations;
+    using Anori.Common.WPF.Validations.ValidationMessageContainers;
     using System;
     using System.Collections;
     using System.ComponentModel;
@@ -18,7 +18,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedFa
 
     /// <summary>
     /// </summary>
-    /// <seealso cref="Bfa.Common.Binders.Bindable" />
+    /// <seealso cref="Anori.Common.Binders.Bindable" />
     /// <seealso cref="System.ComponentModel.INotifyDataErrorInfo" />
     /// <seealso cref="System.IDisposable" />
     public class OneValueSortedLocalizedFallbackValidationByCommandsViewModel : Binders.Bindable,

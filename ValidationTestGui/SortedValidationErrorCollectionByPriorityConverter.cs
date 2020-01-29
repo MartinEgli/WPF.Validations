@@ -1,10 +1,10 @@
 // -----------------------------------------------------------------------
-// <copyright file="SortedValidationErrorCollectionByPriorityConverter.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="SortedValidationErrorCollectionByPriorityConverter.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui
+namespace Anori.Common.WPF.Validations.ValidationTestGui
 {
     using System;
     using System.Collections.Generic;
@@ -14,8 +14,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
     using System.Windows.Data;
     using System.Windows.Markup;
 
-    using Bfa.Common.Collections;
-    using Bfa.Common.Validations.Markers;
+    using Anori.Common.Collections;
+    using Anori.Common.Validations.Markers;
 
     /// <summary>
     /// </summary>

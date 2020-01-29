@@ -1,25 +1,25 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValueTwoStepValidationByCommandsAndValidatorViewModel.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="OneValueTwoStepValidationByCommandsAndValidatorViewModel.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueTwoStepValidationByCommandsValidator.ViewModels
+namespace Anori.Common.WPF.Validations.ValidationTestGui.OneValueTwoStepValidationByCommandsValidator.ViewModels
 {
     using System;
     using System.Collections;
     using System.ComponentModel;
     using System.Windows.Input;
 
-    using Bfa.Common.Validations.Validators;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.Rules;
+    using Anori.Common.Validations.Validators;
+    using Anori.Common.WPF.Validations.ValidationTestGui.Rules;
 
     using ValidationToolkit;
 
     /// <summary>
     ///     OneValueTwoStepValidationByCommandsValidatorViewModel class
     /// </summary>
-    /// <seealso cref="Bfa.Common.Binders.Bindable" />
+    /// <seealso cref="Anori.Common.Binders.Bindable" />
     /// <seealso cref="System.ComponentModel.INotifyDataErrorInfo" />
     /// <seealso cref="System.IDisposable" />
     public class OneValueTwoStepValidationByCommandsValidatorViewModel : Binders.Bindable,

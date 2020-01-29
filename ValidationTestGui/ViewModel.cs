@@ -1,13 +1,13 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ViewModel.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="ViewModel.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui
+namespace Anori.Common.WPF.Validations.ValidationTestGui
 {
-    using Bfa.Common.Binders;
-    using Bfa.Common.Validations.ValidationMessageContainers.Interfaces;
+    using Anori.Common.Binders;
+    using Anori.Common.Validations.ValidationMessageContainers.Interfaces;
 
     /// <summary>
     ///     ViewModel Class

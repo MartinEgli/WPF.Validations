@@ -1,23 +1,23 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="LocModelValidationResult.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="LocModelValidationResult.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.Rules
+namespace Anori.Common.WPF.Validations.ValidationTestGui.Rules
 {
     using System;
 
-    using Bfa.Common.Validations.Validators;
-    using Bfa.Common.Validations.Validators.Interfaces;
+    using Anori.Common.Validations.Validators;
+    using Anori.Common.Validations.Validators.Interfaces;
 
     using JetBrains.Annotations;
 
     /// <summary>
     /// The loc model validation result
     /// </summary>
-    /// <seealso cref="Bfa.Common.Validations.Validators.ModelValidationResult" />
-    /// <seealso cref="Bfa.Common.Validations.Validators.Interfaces.ILocalizationTextKeyAware" />
+    /// <seealso cref="Anori.Common.Validations.Validators.ModelValidationResult" />
+    /// <seealso cref="Anori.Common.Validations.Validators.Interfaces.ILocalizationTextKeyAware" />
     public class LocModelValidationResult : ModelValidationResult, ILocalizationTextKeyAware
     {
         /// <summary>

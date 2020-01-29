@@ -1,23 +1,23 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="MaxLengthResult.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="MaxLengthResult.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.Rules
+namespace Anori.Common.WPF.Validations.ValidationTestGui.Rules
 {
     using System.Text;
 
-    using Bfa.Common.Validations.ValidationMessageContainers.Interfaces;
-    using Bfa.Common.Validations.Validators;
+    using Anori.Common.Validations.ValidationMessageContainers.Interfaces;
+    using Anori.Common.Validations.Validators;
 
     using JetBrains.Annotations;
 
     /// <summary>
     /// The maximum length result
     /// </summary>
-    /// <seealso cref="Bfa.Common.Validations.Validators.PropertyValidationResult" />
-    /// <seealso cref="Bfa.Common.Validations.ValidationMessageContainers.Interfaces.IValidationMessage" />
+    /// <seealso cref="Anori.Common.Validations.Validators.PropertyValidationResult" />
+    /// <seealso cref="Anori.Common.Validations.ValidationMessageContainers.Interfaces.IValidationMessage" />
     public class MaxLengthResult : PropertyValidationResult, IValidationMessage
     {
         public MaxLengthResult(

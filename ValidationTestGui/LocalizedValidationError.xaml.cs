@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui
+namespace Anori.Common.WPF.Validations.ValidationTestGui
 {
     /// <summary>
     /// Interaction logic for LocalizedValidationError.xaml

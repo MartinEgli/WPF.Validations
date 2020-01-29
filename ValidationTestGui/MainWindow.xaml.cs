@@ -1,43 +1,43 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="MainWindow.xaml.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="MainWindow.xaml.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui
+namespace Anori.Common.WPF.Validations.ValidationTestGui
 {
-    using Bfa.Common.WPF.Validations.ValidationTestGui.Concepts;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalisedValidationByCommands;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedFallbackValidationByCommands;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedPlaceholderFallbackValidationByCommands;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.
+    using Anori.Common.WPF.Validations.ValidationTestGui.Concepts;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalisedValidationByCommands;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedFallbackValidationByCommands;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedPlaceholderFallbackValidationByCommands;
+    using Anori.Common.WPF.Validations.ValidationTestGui.
         OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsBindingElementName;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.
+    using Anori.Common.WPF.Validations.ValidationTestGui.
         OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsErrorTemplate;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.
+    using Anori.Common.WPF.Validations.ValidationTestGui.
         OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidator;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.
+    using Anori.Common.WPF.Validations.ValidationTestGui.
         OneValueSortedLocalizedPlaceholderFallbackValidationByCommandsValidatorErrorTemplate;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedPlaceholderFallbackValidationByExceptions;
+    using Anori.Common.WPF.Validations.ValidationTestGui.
         OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationByCommands;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationByCommandsValidator;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationByExceptions;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationByValidationRules;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueTwoStepValidationByCommandsValidator;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommands;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommandsValidator;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommandsValidatorCancel;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommandsValidatorToUpper;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByExceptions;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByValidationRules;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommands;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidator;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidatorAdorner;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidatorModel;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueValidationByCommands;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueValidationByCommandsValidatorRanges;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationByCommands;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationByCommandsValidator;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationByExceptions;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueSortedValidationByValidationRules;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueTwoStepValidationByCommandsValidator;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommands;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommandsValidator;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommandsValidatorCancel;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommandsValidatorToUpper;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueValidationByExceptions;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueValidationByValidationRules;
+    using Anori.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommands;
+    using Anori.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidator;
+    using Anori.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidatorAdorner;
+    using Anori.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidatorModel;
+    using Anori.Common.WPF.Validations.ValidationTestGui.TwoValueValidationByCommands;
+    using Anori.Common.WPF.Validations.ValidationTestGui.TwoValueValidationByCommandsValidatorRanges;
     using System.Windows;
 
     /// <summary>

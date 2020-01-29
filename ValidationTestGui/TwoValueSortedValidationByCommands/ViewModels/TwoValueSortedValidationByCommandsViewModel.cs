@@ -1,24 +1,24 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="TwoValueValidationByCommandsViewModel.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="TwoValueValidationByCommandsViewModel.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommands.ViewModels
+namespace Anori.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommands.ViewModels
 {
     using System;
     using System.Collections;
     using System.ComponentModel;
     using System.Windows.Input;
 
-    using Bfa.Common.Validations.ValidationMessageContainers;
-    using Bfa.Common.Validations.Validators;
+    using Anori.Common.Validations.ValidationMessageContainers;
+    using Anori.Common.Validations.Validators;
 
     using ValidationToolkit;
 
     /// <summary>
     /// </summary>
-    /// <seealso cref="Bfa.Common.Binders.Bindable" />
+    /// <seealso cref="Anori.Common.Binders.Bindable" />
     /// <seealso cref="System.ComponentModel.INotifyDataErrorInfo" />
     /// <seealso cref="System.IDisposable" />
     public class TwoValueSortedValidationByCommandsViewModel : Binders.Bindable, INotifyDataErrorInfo, IDisposable

@@ -1,14 +1,14 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ValidationWarningException.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="ValidationWarningException.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByExceptions.ViewModels
+namespace Anori.Common.WPF.Validations.ValidationTestGui.OneValueValidationByExceptions.ViewModels
 {
     using System;
 
-    using Bfa.Common.Validations.Markers;
+    using Anori.Common.Validations.Markers;
 
     using JetBrains.Annotations;
 
@@ -16,7 +16,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByExcep
     ///     The validation warning exception
     /// </summary>
     /// <seealso cref="System.Exception" />
-    /// <seealso cref="Bfa.Common.Validations.Markers.IWarning" />
+    /// <seealso cref="Anori.Common.Validations.Markers.IWarning" />
     public class ValidationWarningException : Exception, IWarning
     {
         /// <summary>

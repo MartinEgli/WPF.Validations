@@ -1,22 +1,22 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValueValidationByCommandsValidatorCancelViewModel.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="OneValueValidationByCommandsValidatorCancelViewModel.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommandsValidatorCancel.ViewModels
+namespace Anori.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommandsValidatorCancel.ViewModels
 {
     using System;
     using System.Collections;
     using System.ComponentModel;
 
-    using Bfa.Common.Validations.Validators;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.Rules;
+    using Anori.Common.Validations.Validators;
+    using Anori.Common.WPF.Validations.ValidationTestGui.Rules;
 
     /// <summary>
     ///     OneValueValidationByCommandsValidatorCancelViewModel class
     /// </summary>
-    /// <seealso cref="Bfa.Common.Binders.Bindable" />
+    /// <seealso cref="Anori.Common.Binders.Bindable" />
     /// <seealso cref="System.ComponentModel.INotifyDataErrorInfo" />
     /// <seealso cref="System.IDisposable" />
     public class OneValueValidationByCommandsValidatorCancelViewModel : Binders.Bindable,

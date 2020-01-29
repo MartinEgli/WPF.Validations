@@ -1,14 +1,14 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ValidationByCommandsWindow.xaml.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="ValidationByCommandsWindow.xaml.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidator
+namespace Anori.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidator
 {
     using System.Windows;
 
-    using Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidator.ViewModels;
+    using Anori.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidator.ViewModels;
 
     /// <summary>
     ///     Interaction logic for ValidationByCommandsWindow.xaml

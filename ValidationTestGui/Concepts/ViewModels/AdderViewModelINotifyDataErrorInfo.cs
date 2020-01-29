@@ -1,15 +1,15 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="AdderViewModelINotifyDataErrorInfo.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="AdderViewModelINotifyDataErrorInfo.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
+namespace Anori.Common.WPF.Validations.ValidationTestGui.ViewModels
 {
-    using Bfa.Common.Validations.ValidationMessageContainers;
-    using Bfa.Common.Validations.Validators;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.Models;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.ViewModels;
+    using Anori.Common.Validations.ValidationMessageContainers;
+    using Anori.Common.Validations.Validators;
+    using Anori.Common.WPF.Validations.ValidationTestGui.Concepts.Models;
+    using Anori.Common.WPF.Validations.ValidationTestGui.Concepts.ViewModels;
     using JetBrains.Annotations;
     using System;
     using System.ComponentModel;

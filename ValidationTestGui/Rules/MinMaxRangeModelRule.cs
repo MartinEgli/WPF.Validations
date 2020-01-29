@@ -1,19 +1,19 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="MinMaxRangeModelRule.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="MinMaxRangeModelRule.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.Rules
+namespace Anori.Common.WPF.Validations.ValidationTestGui.Rules
 {
-    using Bfa.Common.Validations.Validators;
+    using Anori.Common.Validations.Validators;
 
     using JetBrains.Annotations;
 
     /// <summary>
     /// The minimum maximum range model rule
     /// </summary>
-    /// <seealso cref="Bfa.Common.Validations.Validators.ModelValidationRule{Bfa.Common.WPF.Validations.ValidationTestGui.Rules.IMinMaxValue}" />
+    /// <seealso cref="Anori.Common.Validations.Validators.ModelValidationRule{Anori.Common.WPF.Validations.ValidationTestGui.Rules.IMinMaxValue}" />
     public class MinMaxRangeModelRule : ModelValidationRule<IMinMaxValue>
     {
         /// <summary>

@@ -1,6 +1,6 @@
-﻿namespace Bfa.Common.WPF.Validations.ValidationTestGui.Localizations
+﻿namespace Anori.Common.WPF.Validations.ValidationTestGui.Localizations
 {
-    using Bfa.Pi.Infrastructure.Common.LocalizationProviders;
+    using Anori.Pi.Infrastructure.Common.LocalizationProviders;
     using System.Windows;
     using WPFLocalizeExtension.Engine;
     using WPFLocalizeExtension.Providers;

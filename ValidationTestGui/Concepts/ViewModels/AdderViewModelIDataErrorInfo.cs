@@ -1,17 +1,17 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="AdderViewModelIDataErrorInfo.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="AdderViewModelIDataErrorInfo.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.ViewModels
+namespace Anori.Common.WPF.Validations.ValidationTestGui.ViewModels
 {
     using System.ComponentModel;
 
-    using Bfa.Common.Validations.ValidationMessageContainers;
-    using Bfa.Common.Validations.Validators;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.Models;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.ViewModels;
+    using Anori.Common.Validations.ValidationMessageContainers;
+    using Anori.Common.Validations.Validators;
+    using Anori.Common.WPF.Validations.ValidationTestGui.Concepts.Models;
+    using Anori.Common.WPF.Validations.ValidationTestGui.Concepts.ViewModels;
 
     /// <summary>
     ///     AdderViewModelIDataErrorInfo class

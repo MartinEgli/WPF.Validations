@@ -1,10 +1,10 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="CalculatorViewUsingIDataErrorInfoWithErrorTemplate.xaml.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="CalculatorViewUsingIDataErrorInfoWithErrorTemplate.xaml.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.Views
+namespace Anori.Common.WPF.Validations.ValidationTestGui.Concepts.Views
 {
     /// <summary>
     ///     The calculator view using i data error information with error template

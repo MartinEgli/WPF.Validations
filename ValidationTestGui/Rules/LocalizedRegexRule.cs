@@ -1,14 +1,14 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="LocalizedRegexRule.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="LocalizedRegexRule.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.Rules
+namespace Anori.Common.WPF.Validations.ValidationTestGui.Rules
 {
     using System;
 
-    using Bfa.Common.Validations.Validators.Interfaces;
+    using Anori.Common.Validations.Validators.Interfaces;
 
     using JetBrains.Annotations;
 
@@ -17,8 +17,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Rules
     /// <summary>
     /// The localized regex rule
     /// </summary>
-    /// <seealso cref="Bfa.Common.WPF.Validations.ValidationTestGui.Rules.RegexRule" />
-    /// <seealso cref="Bfa.Common.Validations.Validators.Interfaces.ILocalizationTextKeyAware" />
+    /// <seealso cref="Anori.Common.WPF.Validations.ValidationTestGui.Rules.RegexRule" />
+    /// <seealso cref="Anori.Common.Validations.Validators.Interfaces.ILocalizationTextKeyAware" />
     public class LocalizedRegexRule : RegexRule, ILocalizationTextKeyAware
     {
         /// <summary>

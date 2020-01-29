@@ -1,17 +1,17 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValueSortedAndLocalizedValidationByCommandsWindow.xaml.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="OneValueSortedAndLocalizedValidationByCommandsWindow.xaml.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalisedValidationByCommands
+namespace Anori.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalisedValidationByCommands
 {
     using System.Globalization;
     using System.Windows;
 
-    using Bfa.Common.WPF.Validations.ValidationTestGui.Localizations;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedValidationByCommands.ViewModels;
-    using Bfa.Pi.Infrastructure.Common.LocalizationProviders;
+    using Anori.Common.WPF.Validations.ValidationTestGui.Localizations;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueSortedLocalizedValidationByCommands.ViewModels;
+    using Anori.Pi.Infrastructure.Common.LocalizationProviders;
 
     using WPFLocalizeExtension.Engine;
 

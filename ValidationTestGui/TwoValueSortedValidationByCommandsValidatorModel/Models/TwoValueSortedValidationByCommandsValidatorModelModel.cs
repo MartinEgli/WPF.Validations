@@ -1,18 +1,18 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="TwoValueSortedValidationByCommandsAndValidatorViewModel.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="TwoValueSortedValidationByCommandsAndValidatorViewModel.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidatorModel.Models
+namespace Anori.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidatorModel.Models
 {
-    using Bfa.Common.WPF.Validations.ValidationTestGui.Rules;
+    using Anori.Common.WPF.Validations.ValidationTestGui.Rules;
 
     /// <summary>
     ///     The two value sorted validation by commands validator view model
     /// </summary>
-    /// <seealso cref="Bfa.Common.WPF.Validations.ValidationTestGui.Rules.IComparerTwoValues" />
-    /// <seealso cref="Bfa.Common.Binders.Bindable" />
+    /// <seealso cref="Anori.Common.WPF.Validations.ValidationTestGui.Rules.IComparerTwoValues" />
+    /// <seealso cref="Anori.Common.Binders.Bindable" />
     /// <seealso cref="System.ComponentModel.INotifyDataErrorInfo" />
     /// <seealso cref="System.IDisposable" />
     public class TwoValueSortedValidationByCommandsValidatorModelModel : Binders.Bindable, IComparerTwoValues

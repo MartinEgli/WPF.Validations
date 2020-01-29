@@ -1,14 +1,14 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValueValidationByCommandsValidatorWindow.xaml.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="OneValueValidationByCommandsValidatorWindow.xaml.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommandsValidator
+namespace Anori.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommandsValidator
 {
     using System.Windows;
 
-    using Bfa.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommandsValidator.ViewModels;
+    using Anori.Common.WPF.Validations.ValidationTestGui.OneValueValidationByCommandsValidator.ViewModels;
 
     /// <summary>
     ///     Interaction logic for ValidationByCommandsWindow.xaml

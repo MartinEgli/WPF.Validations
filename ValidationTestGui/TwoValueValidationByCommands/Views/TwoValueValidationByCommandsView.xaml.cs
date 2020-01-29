@@ -1,10 +1,10 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="TwoValueValidationByCommandsView.xaml.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="TwoValueValidationByCommandsView.xaml.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueValidationByCommands.Views
+namespace Anori.Common.WPF.Validations.ValidationTestGui.TwoValueValidationByCommands.Views
 {
     using System.Windows.Controls;
 

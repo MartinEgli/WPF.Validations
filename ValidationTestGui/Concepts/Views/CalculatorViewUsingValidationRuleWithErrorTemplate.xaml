@@ -1,13 +1,13 @@
 ﻿<UserControl
-    x:Class="Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.Views.CalculatorViewUsingValidationRuleWithErrorTemplate"
+    x:Class="Anori.Common.WPF.Validations.ValidationTestGui.Concepts.Views.CalculatorViewUsingValidationRuleWithErrorTemplate"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Interactions="http://schemas.microsoft.com/xaml/behaviors"
-    xmlns:behaviors="clr-namespace:Bfa.Common.WPF.Validations.Behaviors;assembly=Bfa.Common.WPF"
+    xmlns:behaviors="clr-namespace:Anori.Common.WPF.Validations.Behaviors;assembly=Anori.Common.WPF"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:validations="clr-namespace:Bfa.Common.WPF.Validations;assembly=Bfa.Common.WPF"
-    xmlns:viewModels="clr-namespace:Bfa.Common.WPF.Validations.ValidationTestGui.Concepts.ViewModels"
+    xmlns:validations="clr-namespace:Anori.Common.WPF.Validations;assembly=Anori.Common.WPF"
+    xmlns:viewModels="clr-namespace:Anori.Common.WPF.Validations.ValidationTestGui.Concepts.ViewModels"
     d:DataContext="{d:DesignInstance viewModels:AdderViewModel}"
     Background="AliceBlue"
     mc:Ignorable="d">

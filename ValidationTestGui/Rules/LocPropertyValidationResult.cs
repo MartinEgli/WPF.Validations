@@ -1,15 +1,15 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="LocPropertyValidationResult.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="LocPropertyValidationResult.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.Rules
+namespace Anori.Common.WPF.Validations.ValidationTestGui.Rules
 {
     using System;
 
-    using Bfa.Common.Validations.Validators;
-    using Bfa.Common.Validations.Validators.Interfaces;
+    using Anori.Common.Validations.Validators;
+    using Anori.Common.Validations.Validators.Interfaces;
 
     using JetBrains.Annotations;
 
@@ -18,8 +18,8 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui.Rules
     /// <summary>
     /// The loc property validation result
     /// </summary>
-    /// <seealso cref="Bfa.Common.Validations.Validators.PropertyValidationResult" />
-    /// <seealso cref="Bfa.Common.Validations.Validators.Interfaces.ILocalizationTextKeyAware" />
+    /// <seealso cref="Anori.Common.Validations.Validators.PropertyValidationResult" />
+    /// <seealso cref="Anori.Common.Validations.Validators.Interfaces.ILocalizationTextKeyAware" />
     public class LocPropertyValidationResult : PropertyValidationResult, ILocalizationTextKeyAware
     {
         /// <summary>

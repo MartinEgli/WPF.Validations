@@ -1,8 +1,8 @@
-﻿namespace Bfa.Pi.Infrastructure.Common.LocalizationProviders
+﻿namespace Anori.Pi.Infrastructure.Common.LocalizationProviders
 {
     #region
 
-    using Bfa.Common.WPF.Localizations;
+    using Anori.Common.WPF.Localizations;
     using System;
     using System.Collections.ObjectModel;
     using System.Globalization;

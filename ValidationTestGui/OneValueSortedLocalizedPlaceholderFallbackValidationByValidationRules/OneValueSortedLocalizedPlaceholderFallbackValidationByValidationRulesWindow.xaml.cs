@@ -1,19 +1,19 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByValidationRulesWindow.xaml.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="OneValueSortedAndLocalizedAndPlaceholderAndFallbackValidationByValidationRulesWindow.xaml.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.
+namespace Anori.Common.WPF.Validations.ValidationTestGui.
     OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules
 {
     using System.Globalization;
     using System.Windows;
 
-    using Bfa.Common.WPF.Validations.ValidationTestGui.Localizations;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.
+    using Anori.Common.WPF.Validations.ValidationTestGui.Localizations;
+    using Anori.Common.WPF.Validations.ValidationTestGui.
         OneValueSortedLocalizedPlaceholderFallbackValidationByValidationRules.ViewModels;
-    using Bfa.Pi.Infrastructure.Common.LocalizationProviders;
+    using Anori.Pi.Infrastructure.Common.LocalizationProviders;
 
     using WPFLocalizeExtension.Engine;
 

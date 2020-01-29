@@ -1,22 +1,22 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="LocMaxLengthResult.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="LocMaxLengthResult.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.Rules
+namespace Anori.Common.WPF.Validations.ValidationTestGui.Rules
 {
     using System;
 
-    using Bfa.Common.Validations.Validators.Interfaces;
+    using Anori.Common.Validations.Validators.Interfaces;
 
     using JetBrains.Annotations;
 
     /// <summary>
     /// The loc maximum length result
     /// </summary>
-    /// <seealso cref="Bfa.Common.WPF.Validations.ValidationTestGui.Rules.MaxLengthResult" />
-    /// <seealso cref="Bfa.Common.Validations.Validators.Interfaces.ILocalizationTextKeyAware" />
+    /// <seealso cref="Anori.Common.WPF.Validations.ValidationTestGui.Rules.MaxLengthResult" />
+    /// <seealso cref="Anori.Common.Validations.Validators.Interfaces.ILocalizationTextKeyAware" />
     public class LocMaxLengthResult : MaxLengthResult, ILocalizationTextKeyAware
     {
         /// <summary>

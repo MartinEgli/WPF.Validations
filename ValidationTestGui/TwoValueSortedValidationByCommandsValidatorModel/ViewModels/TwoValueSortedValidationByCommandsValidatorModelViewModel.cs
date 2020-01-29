@@ -1,26 +1,26 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="TwoValueSortedValidationByCommandsAndValidatorViewModel.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="TwoValueSortedValidationByCommandsAndValidatorViewModel.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidatorModel.ViewModels
+namespace Anori.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidatorModel.ViewModels
 {
     using System;
     using System.Collections;
     using System.ComponentModel;
 
-    using Bfa.Common.Validations.Validators;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.Rules;
-    using Bfa.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidatorModel.Models;
+    using Anori.Common.Validations.Validators;
+    using Anori.Common.WPF.Validations.ValidationTestGui.Rules;
+    using Anori.Common.WPF.Validations.ValidationTestGui.TwoValueSortedValidationByCommandsValidatorModel.Models;
 
     using JetBrains.Annotations;
 
     /// <summary>
     /// The two value sorted validation by commands validator view model
     /// </summary>
-    /// <seealso cref="Bfa.Common.WPF.Validations.ValidationTestGui.Rules.IComparerTwoValues" />
-    /// <seealso cref="Bfa.Common.Binders.Bindable" />
+    /// <seealso cref="Anori.Common.WPF.Validations.ValidationTestGui.Rules.IComparerTwoValues" />
+    /// <seealso cref="Anori.Common.Binders.Bindable" />
     /// <seealso cref="System.ComponentModel.INotifyDataErrorInfo" />
     /// <seealso cref="System.IDisposable" />
     public class TwoValueSortedValidationByCommandsValidatorModelViewModel : Binders.Bindable,

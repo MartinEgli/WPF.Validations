@@ -1,21 +1,21 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="MinMaxRangeRule.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="MinMaxRangeRule.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui
+namespace Anori.Common.WPF.Validations.ValidationTestGui
 {
     using System;
 
-    using Bfa.Common.Validations.Validators;
+    using Anori.Common.Validations.Validators;
 
     using JetBrains.Annotations;
 
     /// <summary>
     /// The minimum maximum range rule
     /// </summary>
-    /// <seealso cref="Bfa.Common.Validations.Validators.PropertyValidationRule{double?}" />
+    /// <seealso cref="Anori.Common.Validations.Validators.PropertyValidationRule{double?}" />
     public class MinMaxRangeRule : PropertyValidationRule<double?>
     {
         /// <summary>

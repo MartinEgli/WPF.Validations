@@ -1,10 +1,10 @@
 // -----------------------------------------------------------------------
-// <copyright file="ValidationErrorsToSolidBrushConverter.cs" company="bfa solutions ltd">
-// Copyright (c) bfa solutions ltd. All rights reserved.
+// <copyright file="ValidationErrorsToSolidBrushConverter.cs" company="Anori Soft">
+// Copyright (c) Anori Soft. All rights reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Bfa.Common.WPF.Validations.ValidationTestGui
+namespace Anori.Common.WPF.Validations.ValidationTestGui
 {
     using System;
     using System.Collections.Specialized;
@@ -16,7 +16,7 @@ namespace Bfa.Common.WPF.Validations.ValidationTestGui
     using System.Windows.Markup;
     using System.Windows.Media;
 
-    using Bfa.Common.Validations.Markers;
+    using Anori.Common.Validations.Markers;
 
     public class ValidationErrorsToSolidBrushConverter : MarkupExtension, IValueConverter
     {
